@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="Hospital" transaction-type="RESOURCE_LOCAL">
+		<class>com.hospital.Entity.DanhMucBacSi</class>
+		<class>com.hospital.Entity.DichVu</class>
+		<class>com.hospital.Entity.DichVuChiTiet</class>
+		<class>com.hospital.Entity.DichVuChiTietPK</class>
+		<class>com.hospital.Entity.Event</class>
+		<class>com.hospital.Entity.GioKham</class>
+		<class>com.hospital.Entity.GioiThieu</class>
+		<class>com.hospital.Entity.GioiThieuChiTiet</class>
+		<class>com.hospital.Entity.GioiThieuChiTietPK</class>
+		<class>com.hospital.Entity.Group</class>
+		<class>com.hospital.Entity.GroupPermission</class>
+		<class>com.hospital.Entity.GroupPermissionPK</class>
+		<class>com.hospital.Entity.HenKhamBenh</class>
+		<class>com.hospital.Entity.HoatDong</class>
+		<class>com.hospital.Entity.HoiDapYKhoa</class>
+		<class>com.hospital.Entity.ImagePage</class>
+		<class>com.hospital.Entity.ImagePagePK</class>
+		<class>com.hospital.Entity.KhoaPhong</class>
+		<class>com.hospital.Entity.LichKham</class>
+		<class>com.hospital.Entity.LichKhamPK</class>
+		<class>com.hospital.Entity.LichNgay</class>
+		<class>com.hospital.Entity.LienHeKhachHang</class>
+		<class>com.hospital.Entity.LienKetWebSite</class>
+		<class>com.hospital.Entity.LoaiCauHoi</class>
+		<class>com.hospital.Entity.LoaiHoatDong</class>
+		<class>com.hospital.Entity.LoaiKhoaPhong</class>
+		<class>com.hospital.Entity.LoaiTin</class>
+		<class>com.hospital.Entity.LoaiTuyenDung</class>
+		<class>com.hospital.Entity.Menu</class>
+		<class>com.hospital.Entity.MenuLeft</class>
+		<class>com.hospital.Entity.Message</class>
+		<class>com.hospital.Entity.NamSinh</class>
+		<class>com.hospital.Entity.NgonNgu</class>
+		<class>com.hospital.Entity.NoiDungTinh</class>
+		<class>com.hospital.Entity.NoiDungTinhChiTiet</class>
+		<class>com.hospital.Entity.NoiDungTinhChiTietPK</class>
+		<class>com.hospital.Entity.Page</class>
+		<class>com.hospital.Entity.PageOfMenu</class>
+		<class>com.hospital.Entity.Permission</class>
+		<class>com.hospital.Entity.PhanHoi</class>
+		<class>com.hospital.Entity.PhongKham</class>
+		<class>com.hospital.Entity.QuocTich</class>
+		<class>com.hospital.Entity.SlideShow</class>
+		<class>com.hospital.Entity.SubMenu</class>
+		<class>com.hospital.Entity.SubNote</class>
+		<class>com.hospital.Entity.SubPhone</class>
+		<class>com.hospital.Entity.ThamSo</class>
+		<class>com.hospital.Entity.TinTuc</class>
+		<class>com.hospital.Entity.TinhTrangHonNhan</class>
+		<class>com.hospital.Entity.TrangThai</class>
+		<class>com.hospital.Entity.TuyenDungThongBao</class>
+		<class>com.hospital.Entity.User</class>
+		<class>com.hospital.Entity.UserPermission</class>
+		<class>com.hospital.Entity.UserPermissionPK</class>
+		<class>com.hospital.Entity.Video</class>
+		<class>com.hospital.Entity.Sysdiagram</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:jtds:sqlserver://101.99.32.48:8899;DatabaseName=CD_WEB;user=sa;password=1@qweQAZ"/>
+			<property name="javax.persistence.jdbc.user" value="sa"/>
+			<property name="javax.persistence.jdbc.password" value="1@qweQAZ"/>
+			<property name="javax.persistence.jdbc.driver" value="net.sourceforge.jtds.jdbc.Driver"/>
+		</properties>
+	</persistence-unit>
+</persistence>
