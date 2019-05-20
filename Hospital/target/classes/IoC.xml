@@ -18,7 +18,7 @@
 		<property name="driverClassName"
 			value="net.sourceforge.jtds.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:jtds:sqlserver://101.99.32.48:8899;DatabaseName=CD_WEB;user=sa;password=1@qweQAZ" />
+			value="jdbc:jtds:sqlserver://101.99.32.48:8899;DatabaseName=CD_WEB2019;user=sa;password=1@qweQAZ" />
 		<property name="username" value="sa" />
 		<property name="password" value="1@qweQAZ" />
 	</bean>
@@ -27,7 +27,7 @@
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="packagesToScan"
-			value="com.hoclaptrinhonline.ENTITY"></property>
+			value="com.hospital.Entity"></property>
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>

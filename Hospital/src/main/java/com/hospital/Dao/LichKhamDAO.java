@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 
-import com.hospital.Entity.LichKham;
 import com.hospital.Interface.*;
+import com.hospital.Entity.*;
 
 @Repository
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
@@ -25,40 +25,44 @@ public class LichKhamDAO implements LichKhamInterface{
 	public List<LichKham> getListLichKham(){
 		Session session = sessionFactory.getCurrentSession();
 		String sql = "from LichKham";	
+		@SuppressWarnings("unchecked")
 		List<LichKham> listLichKham = (List<LichKham>) session.createQuery(sql).getResultList();
 		return listLichKham;
 	}
 	
 	@Transactional
-	public LichKham getLichKham(String id) {
+	public LichKham getLichKham(int id) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = "from LichKham where id= :id";
-		LichKham lichKham = (LichKham)session.createQuery(sql).getResultList();
-		return lichKham;
+		String sql = "from LichKham where FK_LichNgayFK_PhongKham= '" + id + "'";
+		LichKham item = (LichKham)session.createQuery(sql).getSingleResult();
+		return item;
+	}
+	@Transactional
+	public void addLichKham(LichKham item) {
+		try {
+			Session session = sessionFactory.getCurrentSession();
+			session.save(item);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	@Transactional
-	public void addLichKham(LichKham lichKham) {
+	public void deleteLichKham(LichKham item) {
 		Session session = sessionFactory.getCurrentSession();
-		session.save(lichKham);
+		session.delete(item);
 	}
 	
 	@Transactional
-	public void deleteLichKham(LichKham lichKham) {
+	public void updateLichKham(LichKham item) {
 		Session session = sessionFactory.getCurrentSession();
-		session.delete(lichKham);
-	}
-	
-	@Transactional
-	public void updateLichKham(LichKham lichKham) {
-		Session session = sessionFactory.getCurrentSession();
-		session.update(lichKham);
+		session.update(item);
 	}
 	
 	@Transactional
 	public long countAllLichKham() {
 		Session session = sessionFactory.openSession();
-		String sql = "select count(lk.id) from LichKham lk";	
+		String sql = "select count(item.FK_LichNgayFK_PhongKham) from LichKham item";	
 		long countLichKham = (Long)session.createQuery(sql).getSingleResult();
 		return countLichKham;
 	}
