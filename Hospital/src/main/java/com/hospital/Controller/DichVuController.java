@@ -24,11 +24,11 @@ public class DichVuController {
 	@Transactional
 	public String Default(ModelMap modelmap) {
 		//List<DichVu> listDichVu = dichvuService.getListDichVu();
-		DichVu dichvu = dichvuService.getDichVu(1);
-		dichvu.setMoTa("l");
+		//DichVu dichvu = dichvuService.getDichVu(1);
+		//dichvu.setMoTa("l");
 		//dichvuService.addDichVu(new DichVu(5,"e"));
 		//dichvuService.deleteDichVu(dichvu);
-		dichvuService.updateDichVu(dichvu);
+		//dichvuService.updateDichVu(dichvu);
 		//long a = dichvuService.countAllDichVu();
 		//System.out.println(a);
 		return "index";

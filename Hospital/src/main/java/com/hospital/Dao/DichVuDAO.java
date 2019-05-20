@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 
-import com.hospital.Interface.DichVuInterface;
+import com.hospital.Interface.*;
 import com.hospital.Entity.*;
 
 @Repository
@@ -33,37 +33,38 @@ public class DichVuDAO implements DichVuInterface{
 	@Transactional
 	public DichVu getDichVu(int id) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = "from DichVu where ID='" + id + "'";
-		DichVu dichVu = (DichVu)session.createQuery(sql).getSingleResult();
-		return dichVu;
+		String sql = "from DichVu where ID= '" + id + "'";
+		DichVu item = (DichVu)session.createQuery(sql).getSingleResult();
+		return item;
 	}
 	@Transactional
-	public void addDichVu(DichVu dichVu) {
+	public void addDichVu(DichVu item) {
 		try {
 			Session session = sessionFactory.getCurrentSession();
-			session.save(dichVu);
+			session.save(item);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
 	
 	@Transactional
-	public void deleteDichVu(DichVu dichVu) {
+	public void deleteDichVu(DichVu item) {
 		Session session = sessionFactory.getCurrentSession();
-		session.delete(dichVu);
+		session.delete(item);
 	}
 	
 	@Transactional
-	public void updateDichVu(DichVu dichVu) {
+	public void updateDichVu(DichVu item) {
 		Session session = sessionFactory.getCurrentSession();
-		session.update(dichVu);
+		session.update(item);
 	}
 	
 	@Transactional
 	public long countAllDichVu() {
 		Session session = sessionFactory.openSession();
-		String sql = "select count(dv.id) from DichVu dv";	
+		String sql = "select count(item.ID) from DichVu item";	
 		long countDichVu = (Long)session.createQuery(sql).getSingleResult();
 		return countDichVu;
 	}
 }
+
