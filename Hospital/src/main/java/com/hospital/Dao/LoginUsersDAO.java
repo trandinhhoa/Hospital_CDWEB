@@ -22,9 +22,9 @@ public class LoginUsersDAO implements LoginUsersInterface {
 	SessionFactory sessionFactory;
 	
 	@Transactional
-	public User getUser(String tendangnhap, String matkhau) {
+	public User getUser(String email, String password) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = "from User where HoVaTen='" + tendangnhap + "'PassWord='"+ matkhau +"'";
+		String sql = "from User where Email='" + email + "'PassWord='"+ password +"'";
 		User user = (User)session.createQuery(sql).getSingleResult();
 		return user;
 	}
