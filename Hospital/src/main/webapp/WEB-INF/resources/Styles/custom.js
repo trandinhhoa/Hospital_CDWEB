@@ -9,13 +9,14 @@ $(document).ready(function() {
 				email : email,
 				password : password,
 			},
-			success : function(value){
-				if(value == "true"){
-					$("#ketqua").text("Đăng nhập thành công :)...");
-				}else if(value == "false"){
-					$("#ketqua").text("Đăng nhập thất bại !!!");
+			success : function(value) {
+				if (value == "false") {
+					$("#ketqua").text("Login Fail !!!...");
+				} else if(value == "true") {
+					duongDanHIenTai = window.location.href;
+					duongDan = duongDanHIenTai.replace("login/","");
+					window.location = duongDan;
 				}
-
 			}
 		})
 	});

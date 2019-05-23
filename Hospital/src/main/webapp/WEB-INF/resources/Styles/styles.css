@@ -88,3 +88,8 @@ color: white;
 .links a{
 margin-left: 4px;
 }
+
+.notification{
+	color : red;
+	background-color: white;
+}

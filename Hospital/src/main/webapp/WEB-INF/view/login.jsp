@@ -37,8 +37,7 @@
 				</div>
 			</div>
 			<div class="card-body">
-			<span id="ketqua"></span>
-				
+
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -57,6 +56,8 @@
 						<input type="checkbox">Remember Me
 					</div>
 					<div class="form-group">
+					<span id="ketqua"></span>
+					<span>${email}</span>
 						<button id="btnDangnhap" class="btn float-right login_btn">Login</button>
 					</div>
 				
