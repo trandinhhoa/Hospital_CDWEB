@@ -1,5 +1,6 @@
 package com.hospital.Controller;
 
+import java.awt.Dimension;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -31,6 +32,10 @@ public class DichVuController {
 		//dichvuService.updateDichVu(dichvu);
 		//long a = dichvuService.countAllDichVu();
 		//System.out.println(a);
+		 
 		return "index";
-	}
+		}
+
+	
+
 }
