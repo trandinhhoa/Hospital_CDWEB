@@ -39,4 +39,9 @@ public class UserPermissionService implements UserPermissionInterface{
 		return itemDAO.countAllUserPermission();
 	}
 
+	@Override
+	public UserPermission getUserPermission(String username) {
+		return itemDAO.getUserPermission(username);
+	}
+
 }

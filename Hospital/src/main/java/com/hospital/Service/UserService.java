@@ -39,4 +39,9 @@ public class UserService implements UserInterface{
 		return itemDAO.countAllUser();
 	}
 
+	@Override
+	public User login(String username, String pass) {
+		return itemDAO.login(username, pass);
+	}
+
 }

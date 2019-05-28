@@ -64,8 +64,7 @@ margin-bottom: 10px;
 </style>
 </head>
 <body>
-
-	<div class="navbar navbar-inverse set-radius-zero">
+<div class="navbar navbar-inverse set-radius-zero">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -79,7 +78,7 @@ margin-bottom: 10px;
 			</div>
 
 			<div class="right-div">
-				<a href="#" class="btn btn-info pull-right">LOG ME OUT</a>
+				<a href="#" class="btn btn-info pull-right">Xin chào ${hovaten}</a>
 			</div>
 		</div>
 	</div>
@@ -90,9 +89,21 @@ margin-bottom: 10px;
 				<div class="col-md-12">
 					<div class="navbar-collapse collapse ">
 						<ul id="menu-top" class="nav navbar-nav navbar-right">
-							<li><a href="#">Quản lý khoa phòng</a></li>
+						<%@ page import="com.hospital.Enum.*" %>
+						<c:choose>
+							<c:when test="${permissionName == PermissionEnum.Admin.toString()}">
+									<li><a href="QuanLyKhoaPhong">Quản lý khoa phòng</a></li>
+							</c:when>
+							<c:when test="${permissionName == PermissionEnum.Y_ta.toString()}">
+									<li><a href="#">Quản lý đặt lịch khám</a></li>		
+							</c:when>
+							<c:otherwise>
+									<li><a href="#">Quản lý khác</a></li>
+							</c:otherwise>
+						</c:choose>
+							
 
-							<li><a href="#">Quản lý đặt lịch khám</a></li>
+							
 							<!-- <li>
                                 <a href="#" class="dropdown-toggle" id="ddlmenuItem" data-toggle="dropdown">UI ELEMENTS <i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="ddlmenuItem">
@@ -309,7 +320,6 @@ margin-bottom: 10px;
 	<!-- CORE JQUERY  -->
 	<script type="text/javascript"
 		src="<c:url value="/resources/assets/js/jquery-1.10.2.js"/>">
-		
 	</script>
 	<script type="text/javascript"
 		src="<c:url value="/resources/js/jquery-confirm.min.js"/>">

@@ -2,11 +2,8 @@ package com.hospital.Controller;
 
 import java.sql.Timestamp;
 import java.util.List;
-import java.util.UUID;
-
+import java.util.Random;
 import javax.transaction.Transactional;
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,14 +13,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.hospital.Dao.LoaiKhoaPhongDAO;
-import com.hospital.Entity.KhoaPhong;
-import com.hospital.Entity.LoaiKhoaPhong;
-import com.hospital.Service.KhoaPhongService;
+import com.hospital.Entity.*;
+import com.hospital.Service.*;
 
 @Controller
 @RequestMapping("/QuanLyKhoaPhong")
@@ -34,9 +27,11 @@ public class KhoaPhongController {
 	
 	@GetMapping
 	@Transactional
-	public String Default(ModelMap modelmap,Model model) {
+	public String Default(ModelMap modelmap,Model model,@ModelAttribute("hovaten") String hovaten,@ModelAttribute("permissionName") String permissionName) {
 		List<KhoaPhong> listKhoaPhong = khoaphongService.getListKhoaPhong();
 		modelmap.addAttribute("listKhoaPhong",listKhoaPhong);
+		modelmap.addAttribute("hovaten",hovaten);
+		modelmap.addAttribute("permissionName",permissionName);
 		//model.addAttribute("khoaphongSaveorUpdate",new KhoaPhong());
 		return "quan_li_lich_kham";
 		}
@@ -72,12 +67,12 @@ public class KhoaPhongController {
 	public String saveOrUpdateKhoaPhong(@RequestParam String tenkhoaphong,
 			@RequestParam String tieudekhoa,@RequestParam Timestamp ngaycapnhat,@RequestParam String nguoichinhsua, ModelMap modelmap) {
 			KhoaPhong khoaphong = new KhoaPhong();
-			khoaphong.setFK_LoaiKhoaPhong(1);
+			khoaphong.setFK_LoaiKhoaPhong(new Random().nextInt(3));
 			khoaphong.setFK_NgonNgu(1);
 			khoaphong.setGioiThieu(null);
 			khoaphong.setHenKhamBenh(false);
 			khoaphong.setHinhAnhDaiDien(null);
-			khoaphong.setId(190);
+			khoaphong.setId(new Random().nextInt(1000));
 			khoaphong.setLuotXem(0);
 			khoaphong.setNgayCapNhat(ngaycapnhat);
 			khoaphong.setNoiDung(null);
