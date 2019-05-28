@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$("#btnDangnhap").click(function() {
-		var email = $("#email").val();
-		var password = $("#matkhau").val();
+		var email = $("#form_username_email").val();
+		var password = $("#form_password").val();
 		$.ajax({
 			url : "/Hospital/api/KiemTraDangNhap",
 			type : "GET",
@@ -20,4 +20,5 @@ $(document).ready(function() {
 			}
 		})
 	});
+	
 });

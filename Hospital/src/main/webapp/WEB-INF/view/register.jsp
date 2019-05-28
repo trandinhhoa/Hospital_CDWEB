@@ -127,7 +127,7 @@
 										class="fa fa-clock-o text-white"></i> Mon-Fri 8:00 to 2:00</li>
 									<li class="m-0 pl-10 pr-10"><i
 										class="fa fa-envelope-o text-white"></i> <a class="text-white"
-										href="#">contact@yourdomain.com</a></li>
+										href="#">${email}</a></li>
 
 								</ul>
 							</div>
@@ -363,105 +363,211 @@
 			</section>
 
 			<section>
-				<div class="container">
+				<div class="container-fluid">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
-							<ul class="nav nav-tabs">
-								<li class="active"><a href="#login-tab" data-toggle="tab">Login</a></li>
-								<li><a href="#register-tab" data-toggle="tab">Register</a></li>
-							</ul>
-							<div class="tab-content">
-								<div class="tab-pane fade in active p-15" id="login-tab">
-									<h4 class="text-gray mt-0 pt-5">Login</h4>
-									<hr>
-									<p>Lorem ipsum dolor sit amet, consectetur elit.</p>
-									<form name="login-form" class="clearfix">
-										<div class="row">
-											<div class="form-group col-md-12">
-												<label for="form_username_email">Username/Email</label> <input
-													id="form_username_email" name="form_username_email"
-													class="form-control" type="text">
+							<c:choose>
+								<c:when test="${not empty kiemtradangky}">
+									<ul class="nav nav-tabs" data-tabs="tabs">
+										<li><a href="#login-tab" data-toggle="tab">Login</a></li>
+										<li class="active"><a href="#register-tab"
+											data-toggle="tab">Register</a></li>
+									</ul>
+									<div class="tab-content">
+										<div class="tab-pane fade in p-15" id="login-tab">
+											<h4 class="text-gray mt-0 pt-5">Login</h4>
+											<hr>
+											<p id="ketqua" Style="Color: red"></p>
+											<div name="login-form" class="clearfix">
+												<div class="row">
+													<div class="form-group col-md-12">
+														<label for="form_username_email">Username/Email</label> <input
+															id="form_username_email" name="form_username_email"
+															class="form-control" type="text">
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group col-md-12">
+														<label for="form_password">Password</label> <input
+															id="form_password" name="form_password"
+															class="form-control" type="text">
+													</div>
+												</div>
+												<div class="checkbox pull-left mt-15">
+													<label for="form_checkbox"> <input
+														id="form_checkbox" name="form_checkbox" type="checkbox">
+														Remember me
+													</label>
+												</div>
+												<div class="form-group pull-right mt-10">
+													<button id="btnDangnhap"
+														Style="background-color: rgb(0, 172, 238) !important;"
+														class="btn btn-dark btn-sm">Login</button>
+												</div>
+												<div class="clear text-center pt-10">
+													<a class="text-theme-colored font-weight-600 font-12"
+														href="#">Forgot Your Password?</a>
+												</div>
+												<div class="clear text-center pt-10">
+													<a
+														class="btn btn-dark btn-lg btn-block no-border mt-15 mb-15"
+														href="#" data-bg-color="#3b5998">Login with facebook</a> <a
+														class="btn btn-dark btn-lg btn-block no-border" href="#"
+														data-bg-color="#00acee">Login with twitter</a>
+												</div>
 											</div>
 										</div>
-										<div class="row">
-											<div class="form-group col-md-12">
-												<label for="form_password">Password</label> <input
-													id="form_password" name="form_password"
-													class="form-control" type="text">
+										<div class="tab-pane fade in active p-15" id="register-tab">
+											<form name="reg-form" class="register-form" action=""
+												method="post">
+												<div class="icon-box mb-0 p-0">
+													<a href="#"
+														class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
+														<i class="pe-7s-users"></i>
+													</a>
+													<h4 class="text-gray pt-10 mt-0 mb-30">Don't have an
+														Account? Register Now.</h4>
+												</div>
+												<hr>
+												<p class="text-gray" Style="Color: red">${kiemtradangky}</p>
+
+												<div class="row">
+													<div class="form-group col-md-12">
+														<label for="form_choose_username">Name</label> <input
+															id="form_choose_username" name="hoVaTen"
+															class="form-control" type="text">
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group col-md-12">
+														<label for="form_choose_username">Email Address</label> <input
+															id="form_choose_username" name="email"
+															class="form-control" type="text">
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group col-md-6">
+														<label for="form_choose_password">Choose Password</label>
+														<input id="form_choose_password" name="passWord"
+															class="form-control" type="text">
+													</div>
+													<div class="form-group col-md-6">
+														<label>Re-enter Password</label> <input
+															id="form_re_enter_password" name="re_passWord"
+															class="form-control" type="text">
+													</div>
+												</div>
+												<div class="form-group">
+													<button class="btn btn-dark btn-lg btn-block mt-15"
+														type="submit" Style="background-color: Green">Register
+														Now</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</c:when>
+								<c:otherwise>
+									<ul class="nav nav-tabs" data-tabs="tabs">
+										<li class="active"><a href="#login-tab" data-toggle="tab">Login</a></li>
+										<li><a href="#register-tab" data-toggle="tab">Register</a></li>
+									</ul>
+									<div class="tab-content">
+										<div class="tab-pane fade in active p-15" id="login-tab">
+											<h4 class="text-gray mt-0 pt-5">Login</h4>
+											<hr>
+											<p id="ketqua" Style="Color: red"></p>
+											<div name="login-form" class="clearfix">
+												<div class="row">
+													<div class="form-group col-md-12">
+														<label for="form_username_email">Username/Email</label> <input
+															id="form_username_email" name="form_username_email"
+															class="form-control" type="text">
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group col-md-12">
+														<label for="form_password">Password</label> <input
+															id="form_password" name="form_password"
+															class="form-control" type="text">
+													</div>
+												</div>
+												<div class="checkbox pull-left mt-15">
+													<label for="form_checkbox"> <input
+														id="form_checkbox" name="form_checkbox" type="checkbox">
+														Remember me
+													</label>
+												</div>
+												<div class="form-group pull-right mt-10">
+													<button id="btnDangnhap"
+														Style="background-color: rgb(0, 172, 238) !important;"
+														class="btn btn-dark btn-sm">Login</button>
+												</div>
+												<div class="clear text-center pt-10">
+													<a class="text-theme-colored font-weight-600 font-12"
+														href="#">Forgot Your Password?</a>
+												</div>
+												<div class="clear text-center pt-10">
+													<a
+														class="btn btn-dark btn-lg btn-block no-border mt-15 mb-15"
+														href="#" data-bg-color="#3b5998">Login with facebook</a> <a
+														class="btn btn-dark btn-lg btn-block no-border" href="#"
+														data-bg-color="#00acee">Login with twitter</a>
+												</div>
 											</div>
 										</div>
-										<div class="checkbox pull-left mt-15">
-											<label for="form_checkbox"> <input id="form_checkbox"
-												name="form_checkbox" type="checkbox"> Remember me
-											</label>
+										<div class="tab-pane fade in p-15" id="register-tab">
+											<form name="reg-form" class="register-form" action=""
+												method="post">
+												<div class="icon-box mb-0 p-0">
+													<a href="#"
+														class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
+														<i class="pe-7s-users"></i>
+													</a>
+													<h4 class="text-gray pt-10 mt-0 mb-30">Don't have an
+														Account? Register Now.</h4>
+												</div>
+												<hr>
+												<p class="text-gray" Style="Color: red">${kiemtradangky}</p>
+
+												<div class="row">
+													<div class="form-group col-md-12">
+														<label for="form_choose_username">Name</label> <input
+															id="form_choose_username" name="hoVaTen"
+															class="form-control" type="text">
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group col-md-12">
+														<label for="form_choose_username">Email Address</label> <input
+															id="form_choose_username" name="email"
+															class="form-control" type="text">
+													</div>
+												</div>
+												<div class="row">
+													<div class="form-group col-md-6">
+														<label for="form_choose_password">Choose Password</label>
+														<input id="form_choose_password" name="passWord"
+															class="form-control" type="text">
+													</div>
+													<div class="form-group col-md-6">
+														<label>Re-enter Password</label> <input
+															id="form_re_enter_password" name="re_passWord"
+															class="form-control" type="text">
+													</div>
+												</div>
+												<div class="form-group">
+													<button class="btn btn-dark btn-lg btn-block mt-15"
+														type="submit" Style="background-color: Green">Register
+														Now</button>
+												</div>
+											</form>
 										</div>
-										<div class="form-group pull-right mt-10">
-											<button type="submit" class="btn btn-dark btn-sm">Login</button>
-										</div>
-										<div class="clear text-center pt-10">
-											<a class="text-theme-colored font-weight-600 font-12"
-												href="#">Forgot Your Password?</a>
-										</div>
-										<div class="clear text-center pt-10">
-											<a
-												class="btn btn-dark btn-lg btn-block no-border mt-15 mb-15"
-												href="#" data-bg-color="#3b5998">Login with facebook</a> <a
-												class="btn btn-dark btn-lg btn-block no-border" href="#"
-												data-bg-color="#00acee">Login with twitter</a>
-										</div>
-									</form>
-								</div>
-								<div class="tab-pane fade in p-15" id="register-tab">
-									<form name="reg-form" class="register-form" method="post">
-										<div class="icon-box mb-0 p-0">
-											<a href="#"
-												class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
-												<i class="pe-7s-users"></i>
-											</a>
-											<h4 class="text-gray pt-10 mt-0 mb-30">Don't have an
-												Account? Register Now.</h4>
-										</div>
-										<hr>
-										<p class="text-gray">Lorem ipsum dolor sit amet,
-											consectetur adipisicing elit. Excepturi id perspiciatis
-											facilis nulla possimus quasi, amet qui. Ea rerum officia,
-											aspernatur nulla neque nesciunt alias.</p>
-										<div class="row">
-											<div class="form-group col-md-6">
-												<label for="form_name">Name</label> <input id="form_name"
-													name="form_name" class="form-control" type="text">
-											</div>
-											<div class="form-group col-md-6">
-												<label>Email Address</label> <input id="form_email"
-													name="form_email" class="form-control" type="email">
-											</div>
-										</div>
-										<div class="row">
-											<div class="form-group col-md-12">
-												<label for="form_choose_username">Choose Username</label> <input
-													id="form_choose_username" name="form_choose_username"
-													class="form-control" type="text">
-											</div>
-										</div>
-										<div class="row">
-											<div class="form-group col-md-6">
-												<label for="form_choose_password">Choose Password</label> <input
-													id="form_choose_password" name="form_choose_password"
-													class="form-control" type="text">
-											</div>
-											<div class="form-group col-md-6">
-												<label>Re-enter Password</label> <input
-													id="form_re_enter_password" name="form_re_enter_password"
-													class="form-control" type="text">
-											</div>
-										</div>
-										<div class="form-group">
-											<button class="btn btn-dark btn-lg btn-block mt-15"
-												type="submit">Register Now</button>
-										</div>
-									</form>
-								</div>
-							</div>
+									</div>
+								</c:otherwise>
+							</c:choose>
+
+
+
 						</div>
 					</div>
 				</div>
@@ -593,6 +699,7 @@
 	<!-- Footer Scripts -->
 	<!-- JS | Custom script for all pages -->
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
+	<script src="<c:url value="/resources/Styles/custom.js"/>"></script>
 
 </body>
 </html>
