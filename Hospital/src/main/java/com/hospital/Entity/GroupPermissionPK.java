@@ -12,10 +12,10 @@ public class GroupPermissionPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="\"FK_Group\"", insertable=false, updatable=false)
+	@Column(name="\"FK_Group\"")
 	private int FK_Group;
 
-	@Column(name="\"FK_Permission\"", insertable=false, updatable=false)
+	@Column(name="\"FK_Permission\"")
 	private int FK_Permission;
 
 	public GroupPermissionPK() {

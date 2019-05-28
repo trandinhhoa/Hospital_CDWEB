@@ -47,7 +47,6 @@
 		<class>com.hospital.Entity.SubMenu</class>
 		<class>com.hospital.Entity.SubNote</class>
 		<class>com.hospital.Entity.SubPhone</class>
-		<class>com.hospital.Entity.Sysdiagram</class>
 		<class>com.hospital.Entity.ThamSo</class>
 		<class>com.hospital.Entity.TinTuc</class>
 		<class>com.hospital.Entity.TinhTrangHonNhan</class>
@@ -57,8 +56,9 @@
 		<class>com.hospital.Entity.UserPermission</class>
 		<class>com.hospital.Entity.UserPermissionPK</class>
 		<class>com.hospital.Entity.Video</class>
+		
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:jtds:sqlserver://101.99.32.48:8899;DatabaseName=CD_WEB;user=sa;password=1@qweQAZ"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:jtds:sqlserver://101.99.32.48:8899;DatabaseName=CD_WEB2019;user=sa;password=1@qweQAZ"/>
 			<property name="javax.persistence.jdbc.user" value="sa"/>
 			<property name="javax.persistence.jdbc.password" value="1@qweQAZ"/>
 			<property name="javax.persistence.jdbc.driver" value="net.sourceforge.jtds.jdbc.Driver"/>

@@ -22,12 +22,6 @@ public class DichVu implements Serializable {
 
 	public DichVu() {
 	}
-	
-	public DichVu(int id, String moTa) {
-		super();
-		this.id = id;
-		this.moTa = moTa;
-	}
 
 	public int getId() {
 		return this.id;

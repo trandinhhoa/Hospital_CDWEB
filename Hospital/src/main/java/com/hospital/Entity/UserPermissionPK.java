@@ -12,10 +12,10 @@ public class UserPermissionPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="\"FK_User\"", insertable=false, updatable=false)
+	@Column(name="\"FK_User\"")
 	private String FK_User;
 
-	@Column(name="\"FK_Permission\"", insertable=false, updatable=false)
+	@Column(name="\"FK_Permission\"")
 	private int FK_Permission;
 
 	public UserPermissionPK() {
