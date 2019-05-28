@@ -12,10 +12,10 @@ public class LichKhamPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="\"FK_LichNgay\"", insertable=false, updatable=false)
+	@Column(name="\"FK_LichNgay\"")
 	private int FK_LichNgay;
 
-	@Column(name="\"FK_PhongKham\"", insertable=false, updatable=false)
+	@Column(name="\"FK_PhongKham\"")
 	private int FK_PhongKham;
 
 	public LichKhamPK() {

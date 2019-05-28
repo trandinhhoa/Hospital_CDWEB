@@ -1,7 +1,6 @@
 package com.hospital.Dao;
 
-import java.util.List;
-
+import javax.persistence.NoResultException;
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
@@ -22,10 +21,17 @@ public class LoginUsersDAO implements LoginUsersInterface {
 	SessionFactory sessionFactory;
 	
 	@Transactional
-	public User getUser(String tendangnhap, String matkhau) {
+	public User getUser(String email, String password) {
+		String s ="";
 		Session session = sessionFactory.getCurrentSession();
-		String sql = "from User where HoVaTen='" + tendangnhap + "'PassWord='"+ matkhau +"'";
-		User user = (User)session.createQuery(sql).getSingleResult();
+		String sql = "from User where Email='" + email + "'AND PassWord='"+ password +"'";
+		User user = new User();
+		try {
+		user = (User)session.createQuery(sql).getSingleResult();
+		}catch(NoResultException e) {
+			
+		}
+
 		return user;
 	}
 }

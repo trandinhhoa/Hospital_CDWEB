@@ -15,7 +15,6 @@ import java.sql.Timestamp;
 public class NoiDungTinhChiTiet implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-
 	@Column(name="\"FK_UserChinhsua\"")
 	private String FK_UserChinhsua;
 
@@ -43,7 +42,6 @@ public class NoiDungTinhChiTiet implements Serializable {
 
 	public NoiDungTinhChiTiet() {
 	}
-
 
 	public String getFK_UserChinhsua() {
 		return this.FK_UserChinhsua;

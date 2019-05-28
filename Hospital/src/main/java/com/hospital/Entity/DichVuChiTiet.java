@@ -46,6 +46,8 @@ public class DichVuChiTiet implements Serializable {
 	public DichVuChiTiet() {
 	}
 
+	
+
 	public String getFK_UserModify() {
 		return this.FK_UserModify;
 	}
