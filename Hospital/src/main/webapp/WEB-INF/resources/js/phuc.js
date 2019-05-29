@@ -60,4 +60,26 @@ $(document).ready(function () {
         $('#closeSave').on('click', function () {
             $('.centererSave').hide();
         })
+        
+        $(".btn-block").click(function() {
+    		var tendangnhap = $("#tendangnhap").val();
+    		var matkhau = $("#matkhau").val();
+    		$.ajax({
+    			url : "/Hospital/LoginAdmin/login",
+    			type : "GET",
+    			data : {
+    				tendangnhap : tendangnhap,
+    				matkhau : matkhau,
+    				
+    			},
+    			success : function(value) {
+    				duongDanHIenTai = window.location.href;
+    				if (value == "false") {
+    					window.location = duongDanHIenTai;
+    				} else if(value == "true") {
+    					window.location = duongDanHIenTai.replace("LoginAdmin","DashBoardAdmin");
+    				}
+    			}
+    		})
+    	});
     });

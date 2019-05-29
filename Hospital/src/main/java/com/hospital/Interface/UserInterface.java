@@ -6,7 +6,7 @@ import com.hospital.Entity.*;
 
 public interface UserInterface {
 	List<User> getListUser();
-	User getUser(int id);
+	User getUser(String username);
 	void addUser(User item);
 	void deleteUser(User item);
 	void updateUser(User item);

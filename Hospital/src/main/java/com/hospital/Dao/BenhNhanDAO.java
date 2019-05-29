@@ -16,29 +16,29 @@ import com.hospital.Entity.*;
 
 @Repository
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class UserDAO implements UserInterface{
+public class BenhNhanDAO implements BenhNhanInterface{
 	
 	@Autowired
 	SessionFactory sessionFactory;
 	
 	@Transactional
-	public List<User> getListUser(){
+	public List<BenhNhan> getListBenhNhan(){
 		Session session = sessionFactory.getCurrentSession();
-		String sql = "from User";	
+		String sql = "from BenhNhan";	
 		@SuppressWarnings("unchecked")
-		List<User> listUser = (List<User>) session.createQuery(sql).getResultList();
-		return listUser;
+		List<BenhNhan> listBenhNhan = (List<BenhNhan>) session.createQuery(sql).getResultList();
+		return listBenhNhan;
 	}
 	
 	@Transactional
-	public User getUser(String username) {
+	public BenhNhan getBenhNhan(int id) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = "from User where UserName= '" + username + "'";
-		User item = (User)session.createQuery(sql).getSingleResult();
+		String sql = "from BenhNhan where ID= '" + id + "'";
+		BenhNhan item = (BenhNhan)session.createQuery(sql).getSingleResult();
 		return item;
 	}
 	@Transactional
-	public void addUser(User item) {
+	public void addBenhNhan(BenhNhan item) {
 		try {
 			Session session = sessionFactory.getCurrentSession();
 			session.save(item);
@@ -48,33 +48,23 @@ public class UserDAO implements UserInterface{
 	}
 	
 	@Transactional
-	public void deleteUser(User item) {
+	public void deleteBenhNhan(BenhNhan item) {
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(item);
 	}
 	
 	@Transactional
-	public void updateUser(User item) {
+	public void updateBenhNhan(BenhNhan item) {
 		Session session = sessionFactory.getCurrentSession();
 		session.update(item);
 	}
 	
 	@Transactional
-	public long countAllUser() {
+	public long countAllBenhNhan() {
 		Session session = sessionFactory.openSession();
-		String sql = "select count(item.UserName) from User item";	
-		long countUser = (Long)session.createQuery(sql).getSingleResult();
-		return countUser;
+		String sql = "select count(item.ID) from BenhNhan item";	
+		long countBenhNhan = (Long)session.createQuery(sql).getSingleResult();
+		return countBenhNhan;
 	}
-	
-	@Transactional
-	public User login(String username, String pass) {
-		Session session = sessionFactory.openSession();
-		String sql = "from User item where UserName='"+ username + "' and PassWord='"+pass+"'";	
-		User user = (User)session.createQuery(sql).getSingleResult();
-		return user;
-	}
-
-	
 }
 
