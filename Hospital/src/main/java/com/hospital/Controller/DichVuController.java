@@ -14,7 +14,7 @@ import com.hospital.Service.DichVuService;
 import com.hospital.Entity.DichVu;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/dichvu")
 public class DichVuController {
 	
 	@Autowired

@@ -168,7 +168,7 @@
 							<div class="widget no-border m-0">
 								<ul
 									class="list-inline pull-right flip sm-pull-none sm-text-center mt-5">
-									<li><a href="#" class="text-white">Help Desk</a></li>
+									<li><a href="#" class="text-white">Login</a></li>
 								</ul>
 							</div>
 						</div>

@@ -128,7 +128,6 @@
 									<li class="m-0 pl-10 pr-10"><i
 										class="fa fa-envelope-o text-white"></i> <a class="text-white"
 										href="#">${email}</a></li>
-
 								</ul>
 							</div>
 						</div>
@@ -390,7 +389,7 @@
 													<div class="form-group col-md-12">
 														<label for="form_password">Password</label> <input
 															id="form_password" name="form_password"
-															class="form-control" type="text">
+															class="form-control" type="password">
 													</div>
 												</div>
 												<div class="checkbox pull-left mt-15">
@@ -449,12 +448,12 @@
 													<div class="form-group col-md-6">
 														<label for="form_choose_password">Choose Password</label>
 														<input id="form_choose_password" name="passWord"
-															class="form-control" type="text">
+															class="form-control" type="password">
 													</div>
 													<div class="form-group col-md-6">
 														<label>Re-enter Password</label> <input
 															id="form_re_enter_password" name="re_passWord"
-															class="form-control" type="text">
+															class="form-control" type="password">
 													</div>
 												</div>
 												<div class="form-group">
