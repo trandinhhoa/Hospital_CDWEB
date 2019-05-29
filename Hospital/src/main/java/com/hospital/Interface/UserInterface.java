@@ -11,4 +11,5 @@ public interface UserInterface {
 	void deleteUser(User item);
 	void updateUser(User item);
 	long countAllUser();
+	User login(String username, String pass);
 }

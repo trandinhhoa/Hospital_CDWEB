@@ -66,5 +66,13 @@ public class UserDAO implements UserInterface{
 		long countUser = (Long)session.createQuery(sql).getSingleResult();
 		return countUser;
 	}
+	
+	@Transactional
+	public User login(String username, String pass) {
+		Session session = sessionFactory.openSession();
+		String sql = "from User item where UserName='"+ username + "' and PassWord='"+pass+"'";	
+		User user = (User)session.createQuery(sql).getSingleResult();
+		return user;
+	}
 }
 

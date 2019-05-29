@@ -11,4 +11,5 @@ public interface UserPermissionInterface {
 	void deleteUserPermission(UserPermission item);
 	void updateUserPermission(UserPermission item);
 	long countAllUserPermission();
+	UserPermission getUserPermission(String username);
 }

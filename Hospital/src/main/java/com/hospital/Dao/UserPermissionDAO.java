@@ -33,7 +33,7 @@ public class UserPermissionDAO implements UserPermissionInterface{
 	@Transactional
 	public UserPermission getUserPermission(int id) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = "from UserPermission where FK_UserFK_Permission= '" + id + "'";
+		String sql = "from UserPermission where FK_Permission= '" + id + "'";
 		UserPermission item = (UserPermission)session.createQuery(sql).getSingleResult();
 		return item;
 	}
@@ -62,9 +62,17 @@ public class UserPermissionDAO implements UserPermissionInterface{
 	@Transactional
 	public long countAllUserPermission() {
 		Session session = sessionFactory.openSession();
-		String sql = "select count(item.FK_UserFK_Permission) from UserPermission item";	
+		String sql = "select count(item.FK_Permission) from UserPermission item";	
 		long countUserPermission = (Long)session.createQuery(sql).getSingleResult();
 		return countUserPermission;
+	}
+	@Transactional
+	@Override
+	public UserPermission getUserPermission(String username) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "from UserPermission where FK_User= '" + username + "'";
+		UserPermission item = (UserPermission)session.createQuery(sql).getSingleResult();
+		return item;
 	}
 }
 
