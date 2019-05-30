@@ -1,5 +1,4 @@
 package com.hospital.Controller;
-import java.sql.Timestamp;
 import java.util.List;
 import java.util.Random;
 import javax.transaction.Transactional;
@@ -41,6 +40,49 @@ public class BenhNhanController {
 		modelmap.addAttribute("benhnhan",benhnhan);
 		return ;
 		}
-	
-	
+	@GetMapping(value = "/edit/{id_benh_nhan}")
+	@Transactional
+	public String getKhoaPhong(@PathVariable int id_benh_nhan, ModelMap modelmap, RedirectAttributes redirectAttributes) {
+		
+		BenhNhan benhnhan = benhnhanService.getBenhNhan(id_benh_nhan);
+		modelmap.addAttribute("benhnhan",benhnhan);
+		redirectAttributes.addFlashAttribute("benhnhan",benhnhan);
+		//redirectAttributes.addFlashAttribute("flashAttr", "flashAttrVal");
+		return "redirect:/QuanLyBenhNhan/getBenhNhan";
+	}
+	@PostMapping(value = "/delete/{id_benh_nhan}")
+	@Transactional
+	public String deleteKhoaPhong(@PathVariable int id_benh_nhan, ModelMap modelmap) {
+		BenhNhan benhnhan = benhnhanService.getBenhNhan(id_benh_nhan);
+		benhnhanService.deleteBenhNhan(benhnhan);
+		return "redirect:/QuanLyBenhNhan";
+	}
+
+	@PostMapping(value = "/save")
+	@Transactional
+	public String saveOrUpdateBenhNhan(@RequestParam String HoVaTen,
+			@RequestParam int NamSinh,@RequestParam int GioiTinh,@RequestParam int FK_GiuongBenh,@RequestParam String QueQuan, ModelMap modelmap) {
+			BenhNhan benhnhan = new BenhNhan();
+			benhnhan.setId(new Random().nextInt(1000));
+			benhnhan.setHoVaTen(HoVaTen);
+			benhnhan.setNamSinh(NamSinh);
+			benhnhan.setGioiTinh(GioiTinh);
+			benhnhan.setFK_GiuongBenh(FK_GiuongBenh);
+			benhnhan.setQueQuan(QueQuan);
+			benhnhanService.addBenhNhan(benhnhan);
+			return "redirect:/QuanLyBenhNhan";
+	}
+	@PostMapping(value = "/edit")
+	@Transactional
+	public String editKhoaPhong(@RequestParam int ID,@RequestParam String HoVaTen,
+			@RequestParam int NamSinh,@RequestParam int GioiTinh,@RequestParam int FK_GiuongBenh,@RequestParam String QueQuan, ModelMap modelmap) {
+		BenhNhan benhnhan = benhnhanService.getBenhNhan(ID);
+		benhnhan.setHoVaTen(HoVaTen);
+		benhnhan.setNamSinh(NamSinh);
+		benhnhan.setGioiTinh(GioiTinh);
+		benhnhan.setFK_GiuongBenh(FK_GiuongBenh);
+		benhnhan.setQueQuan(QueQuan);
+		benhnhanService.updateBenhNhan(benhnhan);
+		return "redirect:/QuanLyBenhNhan";
+	}
 }

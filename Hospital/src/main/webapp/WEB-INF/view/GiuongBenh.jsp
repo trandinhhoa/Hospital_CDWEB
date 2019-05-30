@@ -103,7 +103,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<h1 class="page-header">
-						Danh sách bệnh nhân<span style="color: orange"></span>
+						Danh sách giường bệnh<span style="color: orange"></span>
 					</h1>
 				</div>
 			</div>
@@ -112,7 +112,6 @@
 				<div class="col-lg-12">
 					<a href="#" class="btn btn-success">Thêm</a>
 				</div>
-
 			</div>
 			<div class="row">
 				<div class="col-md-12">
@@ -130,49 +129,36 @@
 									<form method="post" action="QuanLyBenhNhan/save">
 
 										<div class="form-group">
-											<label class="control-label col-sm-2" for="HoVaTen">Họ
-												và tên</label>
+											<label class="control-label col-sm-2" for="FK_TenPhongKham">Tên
+												phòng</label>
 											<div class="col-sm-10">
-												<input class="form-control" id="HoVaTen"
-													placeholder="Họ và tên" name="HoVaTen" />
+												<input class="form-control" id="FK_TenPhongKham"
+													placeholder="Năm sinh" name="FK_TenPhongKham" />
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="control-label col-sm-2" for="NamSinh">Năm
-												sinh</label>
-											<div class="col-sm-10">
-												<input class="form-control" id="NamSinh"
-													placeholder="Năm sinh" name="NamSinh" />
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="GioiTinh">Giới
-												tính</label>
-											<div class="col-sm-10">
-												<input class="form-control" id="GioiTinh"
-													placeholder="Giới tính" name="GioiTinh" />
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="QueQuan">Quê
-												quán</label>
-											<div class="col-sm-10">
-												<input class="form-control" id="QueQuan"
-													placeholder="Quê quán" name="QueQuan" />
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="FK_GiuongBenh">Số
+											<label class="control-label col-sm-2" for="SoGiuong">Số
 												giường</label>
 											<div class="col-sm-10">
-												<input class="form-control" id="FK_GiuongBenh"
-													placeholder="Số giường" name="FK_GiuongBenh" type="number" />
-												<button type="button" class="btn btn-info btn-lg"
-													data-toggle="modal" data-target="#myModal">Chọn
-													giường</button>
-
+												<input class="form-control" id="SoGiuong"
+													placeholder="Họ và tên" name="SoGiuong" />
 											</div>
-
+										</div>
+										<div class="form-group">
+											<label class="control-label col-sm-2" for="FK_BenhNhan">Giới
+												tính</label>
+											<div class="col-sm-10">
+												<input class="form-control" id="FK_BenhNhan"
+													placeholder="Giới tính" name="FK_BenhNhan" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-sm-2" for="status">Trạng
+												thái</label>
+											<div class="col-sm-10">
+												<input class="form-control" id="status"
+													placeholder="Quê quán" name="status" />
+											</div>
 										</div>
 										<div class="form-group">
 											<div class="col-sm-offset-2 col-sm-10">
@@ -188,44 +174,37 @@
 									<form method="post" action="QuanLyBenhNhan/edit">
 										<input class="form-control" style="display: none;" id="ID"
 											name="ID" />
+
 										<div class="form-group">
-											<label class="control-label col-sm-2" for="HoVaTen">Họ
-												và tên</label>
+											<label class="control-label col-sm-2" for="FK_TenPhongKham">Tên
+												phòng</label>
 											<div class="col-sm-10">
-												<input class="form-control" id="HoVaTen"
-													placeholder="Họ và tên" name="HoVaTen" />
+												<input class="form-control" id="FK_TenPhongKham"
+													placeholder="Năm sinh" name="FK_TenPhongKham" />
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="control-label col-sm-2" for="NamSinh">Năm
-												sinh</label>
-											<div class="col-sm-10">
-												<input class="form-control" id="NamSinh"
-													placeholder="Năm sinh" name="NamSinh" />
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="GioiTinh">Giới
-												tính</label>
-											<div class="col-sm-10">
-												<input class="form-control" id="GioiTinh"
-													placeholder="Giới tính" name="GioiTinh" />
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="QueQuan">Quê
-												quán</label>
-											<div class="col-sm-10">
-												<input class="form-control" id="QueQuan"
-													placeholder="Quê quán" name="QueQuan" />
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="FK_GiuongBenh">Số
+											<label class="control-label col-sm-2" for="SoGiuong">Số
 												giường</label>
 											<div class="col-sm-10">
-												<input class="form-control" id="FK_GiuongBenh"
-													placeholder="Số giường" name="FK_GiuongBenh" />
+												<input class="form-control" id="SoGiuong"
+													placeholder="Họ và tên" name="SoGiuong" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-sm-2" for="FK_BenhNhan">Giới
+												tính</label>
+											<div class="col-sm-10">
+												<input class="form-control" id="FK_BenhNhan"
+													placeholder="Giới tính" name="FK_BenhNhan" />
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-sm-2" for="status">Trạng
+												thái</label>
+											<div class="col-sm-10">
+												<input class="form-control" id="status"
+													placeholder="Quê quán" name="status" />
 											</div>
 										</div>
 										<div class="form-group">
@@ -238,6 +217,7 @@
 
 									</form>
 								</div>
+
 								<div class="panel-body">
 									<table style="width: 100%"
 										class="table table-striped table-bordered table-hover"
@@ -246,21 +226,20 @@
 										<thead>
 											<tr>
 												<th>STT</th>
-												<th>Họ và tên</th>
-												<th>Năm sinh</th>
-												<th>Giới tính</th>
-												<th>Quê quán</th>
+												<th>Tên bệnh nhân</th>
+												<th>Tên phòng khám</th>
 												<th>Số giường</th>
+												<th>Trạng thái</th>
 												<th></th>
 												<th></th>
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach var="item" items="${listBenhNhan}">
+											<c:forEach var="item" items="${listgiuongbenh}">
 												<tr class="odd gradeX">
 													<td>${item.getId()}</td>
-													<td>${item.getHoVaTen()}</td>
-
+													<td>${item.getFK_BenhNhan()}</td>
+													<%-- 
 													<c:choose>
 														<c:when test="${item.getGioiTinh() == 0}">
 															<td align="right">Nam</td>
@@ -272,10 +251,10 @@
 															<td align="right">Khác</td>
 														</c:otherwise>
 													</c:choose>
-
-													<td align="right" class="center">${item.getNamSinh()}</td>
-													<td>${item.getQueQuan()}</td>
-													<td>${item.getFK_GiuongBenh()}</td>
+ --%>
+													<td align="right" class="center">${item.getFK_TenPhongKham()}</td>
+													<td>${item.getSoGiuong()}</td>
+													<td>${item.getStatus()}</td>
 													<td><button class="btn btn-primary">
 															<i class="fa fa-edit "></i>Sửa
 														</button></td>
@@ -334,10 +313,6 @@
 
 	<!-- Custom Theme JavaScript -->
 	<script src="<c:url value="/resources/Admin/dist/js/sb-admin-2.js"/>"></script>
-	<script type="text/javascript"
-		src="<c:url value="/resources/js/Benhnhan.js"/>">
-		
-	</script>
 	<!-- Page-Level Demo Scripts - Tables - Use for reference -->
 	<script>
 		$(document).ready(function() {
@@ -346,6 +321,9 @@
 			});
 		});
 	</script>
-
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/Giuongbenh.js"/>">
+		
+	</script>
 </body>
 </html>

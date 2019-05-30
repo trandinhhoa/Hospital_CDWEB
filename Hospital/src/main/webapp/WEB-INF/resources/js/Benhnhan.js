@@ -30,20 +30,20 @@ $(document).ready(function () {
         $('#dataTables-example tbody').on('click','.btn-primary', function () {
         	
         	var currentRow = $(this).closest('tr');
-        	var id = currentRow.find('td:eq(0)').text();
-        	var tenkhoaphong = currentRow.find('td:eq(1)').text();
-        	var loaikhoaphong = currentRow.find('td:eq(2)').text();
-        	var luotxem = currentRow.find('td:eq(3)').text();
-        	var tieudekhoa = currentRow.find('td:eq(4)').text();
-        	var ngaycapnhat = currentRow.find('td:eq(5)').text();
-        	var nguoichinhsua = currentRow.find('td:eq(6)').text();
+        	var ID = currentRow.find('td:eq(0)').text();
+        	var HoVaTen = currentRow.find('td:eq(1)').text();
+        	var NamSinh = currentRow.find('td:eq(2)').text();
+        	var GioiTinh = currentRow.find('td:eq(3)').text();
+        	var QueQuan = currentRow.find('td:eq(4)').text();
+        	var FK_GiuongBenh = currentRow.find('td:eq(5)').text();
         	
         	var modal = $('.centererUpdate')
-        	modal.find('#id').val(id);
-        	modal.find('#tenkhoaphong').val(tenkhoaphong);
-        	modal.find('#tieudekhoa').val(tieudekhoa);
-        	modal.find('#ngaycapnhat').val(ngaycapnhat);
-        	modal.find('#nguoichinhsua').val(nguoichinhsua);
+        	modal.find('#ID').val(ID);
+        	modal.find('#HoVaTen').val(HoVaTen);
+        	modal.find('#NamSinh').val(NamSinh);
+        	modal.find('#GioiTinh').val(GioiTinh);
+        	modal.find('#QueQuan').val(QueQuan);
+        	modal.find('#FK_GiuongBenh').val(FK_GiuongBenh);
         	
         	$('.centererUpdate').show();
         	
