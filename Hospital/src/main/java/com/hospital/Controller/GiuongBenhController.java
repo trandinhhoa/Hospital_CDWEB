@@ -20,7 +20,7 @@ import com.hospital.Service.*;
 public class GiuongBenhController {
 	@Autowired
 	GiuongBenhService giuongbenhService = null;
-	
+	PhongKhamService phongkhamService=null;
 	@GetMapping
 	@Transactional
 	public String Default(ModelMap modelmap,Model model,@ModelAttribute("hovaten") String hovaten,@ModelAttribute("permissionName") String permissionName) {
@@ -31,6 +31,7 @@ public class GiuongBenhController {
 		//model.addAttribute("khoaphongSaveorUpdate",new KhoaPhong());
 		return "GiuongBenh";
 		}
+	
 	@GetMapping(value = "/getgiuongbenh")
 	@Transactional
 	public void a(@ModelAttribute("giuongbenh") GiuongBenh giuongbenh,ModelMap modelmap) {
@@ -39,6 +40,7 @@ public class GiuongBenhController {
 		modelmap.addAttribute("giuongbenh",giuongbenh);
 		return ;
 		}
+	
 	@GetMapping(value = "/edit/{id_giuong_benh}")
 	@Transactional
 	public String getGiuongBenh(@PathVariable int id_giuong_benh, ModelMap modelmap, RedirectAttributes redirectAttributes) {
@@ -60,12 +62,11 @@ public class GiuongBenhController {
 	@PostMapping(value = "/save")
 	@Transactional
 	public String saveOrUpdategiuongbenh(@RequestParam int SoGiuong,
-			@RequestParam int FK_TenPhongKham,@RequestParam int FK_BenhNhan,@RequestParam int status,ModelMap modelmap) {
+			@RequestParam int FK_TenPhongKham,@RequestParam int status,ModelMap modelmap) {
 			GiuongBenh giuongbenh = new GiuongBenh();
 			giuongbenh.setId(new Random().nextInt(1000));
 			giuongbenh.setSoGiuong(SoGiuong);
 			giuongbenh.setFK_TenPhongKham(FK_TenPhongKham);
-			giuongbenh.setFK_BenhNhan(FK_BenhNhan);
 			giuongbenh.setStatus(status);
 			giuongbenhService.addGiuongBenh(giuongbenh);
 			return "redirect:/QuanLyGiuongBenh";
@@ -73,12 +74,11 @@ public class GiuongBenhController {
 	@PostMapping(value = "/edit")
 	@Transactional
 	public String editKhoaPhong(@RequestParam int ID,@RequestParam int SoGiuong,
-			@RequestParam int FK_TenPhongKham,@RequestParam int FK_BenhNhan,@RequestParam int status, ModelMap modelmap) {
+			@RequestParam int FK_TenPhongKham,@RequestParam int status, ModelMap modelmap) {
 		GiuongBenh giuongbenh = new GiuongBenh();
 		giuongbenh.setId(new Random().nextInt(1000));
 		giuongbenh.setSoGiuong(SoGiuong);
 		giuongbenh.setFK_TenPhongKham(FK_TenPhongKham);
-		giuongbenh.setFK_BenhNhan(FK_BenhNhan);
 		giuongbenh.setStatus(status);
 		giuongbenhService.updateGiuongBenh(giuongbenh);
 		return "redirect:/QuanLyGiuongBenh";

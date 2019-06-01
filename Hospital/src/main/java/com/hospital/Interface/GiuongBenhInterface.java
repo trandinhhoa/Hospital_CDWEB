@@ -10,5 +10,6 @@ public interface GiuongBenhInterface {
 	void addGiuongBenh(GiuongBenh item);
 	void deleteGiuongBenh(GiuongBenh item);
 	void updateGiuongBenh(GiuongBenh item);
+	//void findByFK_PhongKham(GiuongBenh item);
 	long countAllGiuongBenh();
 }

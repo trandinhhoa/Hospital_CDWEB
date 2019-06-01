@@ -124,16 +124,22 @@
 							<div class="table-responsive">
 								<div class="centererSave hideform">
 									<button class="btn btn-default" id="closeSave">Đóng</button>
-									<%-- <img id="closeSave"
-										src="<c:url value="/resources/images/cancel.png"/>" /> --%>
-									<form method="post" action="QuanLyBenhNhan/save">
-
+									<form method="post" action="QuanLyGiuongBenh/save">
 										<div class="form-group">
 											<label class="control-label col-sm-2" for="FK_TenPhongKham">Tên
 												phòng</label>
 											<div class="col-sm-10">
+												<div class="ui-field-contain">
+													<select name="TenPhongKham"
+														id="TenPhongKham" data-iconpos="right">
+														<c:forEach var="item" items="${listphongkham}">
+															<option value="${item.getId()}">${item.getTenPhongKham()}</option>
+														</c:forEach>
+													</select>
+												</div>
+
 												<input class="form-control" id="FK_TenPhongKham"
-													placeholder="Năm sinh" name="FK_TenPhongKham" />
+													placeholder="Tên phòng" name="FK_TenPhongKham" />
 											</div>
 										</div>
 										<div class="form-group">
@@ -141,29 +147,21 @@
 												giường</label>
 											<div class="col-sm-10">
 												<input class="form-control" id="SoGiuong"
-													placeholder="Họ và tên" name="SoGiuong" />
+													placeholder="Số giường" name="SoGiuong" />
 											</div>
 										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="FK_BenhNhan">Giới
-												tính</label>
-											<div class="col-sm-10">
-												<input class="form-control" id="FK_BenhNhan"
-													placeholder="Giới tính" name="FK_BenhNhan" />
-											</div>
-										</div>
+
 										<div class="form-group">
 											<label class="control-label col-sm-2" for="status">Trạng
 												thái</label>
 											<div class="col-sm-10">
 												<input class="form-control" id="status"
-													placeholder="Quê quán" name="status" />
+													placeholder="Trạng thái" name="status" />
 											</div>
 										</div>
 										<div class="form-group">
 											<div class="col-sm-offset-2 col-sm-10">
 												<button type="submit" class="btn btn-default">Thêm</button>
-
 											</div>
 										</div>
 									</form>
@@ -171,16 +169,15 @@
 
 								<div class="centererUpdate hideform">
 									<button class="btn btn-default" id="closeUpdate">Đóng</button>
-									<form method="post" action="QuanLyBenhNhan/edit">
+									<form method="post" action="QuanLyGiuongBenh/edit">
 										<input class="form-control" style="display: none;" id="ID"
 											name="ID" />
-
 										<div class="form-group">
 											<label class="control-label col-sm-2" for="FK_TenPhongKham">Tên
 												phòng</label>
 											<div class="col-sm-10">
 												<input class="form-control" id="FK_TenPhongKham"
-													placeholder="Năm sinh" name="FK_TenPhongKham" />
+													placeholder="Tên phòng" name="FK_TenPhongKham" />
 											</div>
 										</div>
 										<div class="form-group">
@@ -188,15 +185,7 @@
 												giường</label>
 											<div class="col-sm-10">
 												<input class="form-control" id="SoGiuong"
-													placeholder="Họ và tên" name="SoGiuong" />
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="FK_BenhNhan">Giới
-												tính</label>
-											<div class="col-sm-10">
-												<input class="form-control" id="FK_BenhNhan"
-													placeholder="Giới tính" name="FK_BenhNhan" />
+													placeholder="Số giường" name="SoGiuong" />
 											</div>
 										</div>
 										<div class="form-group">
@@ -204,17 +193,15 @@
 												thái</label>
 											<div class="col-sm-10">
 												<input class="form-control" id="status"
-													placeholder="Quê quán" name="status" />
+													placeholder="Trạng thái" name="status" />
 											</div>
 										</div>
 										<div class="form-group">
 											<div class="col-sm-offset-2 col-sm-10">
 												<button type="submit" class="btn btn-default">Cập
 													nhật</button>
-
 											</div>
 										</div>
-
 									</form>
 								</div>
 
@@ -222,11 +209,9 @@
 									<table style="width: 100%"
 										class="table table-striped table-bordered table-hover"
 										id="dataTables-example">
-
 										<thead>
 											<tr>
 												<th>STT</th>
-												<th>Tên bệnh nhân</th>
 												<th>Tên phòng khám</th>
 												<th>Số giường</th>
 												<th>Trạng thái</th>
@@ -238,28 +223,24 @@
 											<c:forEach var="item" items="${listgiuongbenh}">
 												<tr class="odd gradeX">
 													<td>${item.getId()}</td>
-													<td>${item.getFK_BenhNhan()}</td>
-													<%-- 
+													<td align="right" class="center">${item.getFK_TenPhongKham()}</td>
+													<td>${item.getSoGiuong()}</td>
 													<c:choose>
-														<c:when test="${item.getGioiTinh() == 0}">
-															<td align="right">Nam</td>
+														<c:when test="${item.getStatus() == 0}">
+															<td align="right">Trống</td>
 														</c:when>
-														<c:when test="${item.getGioiTinh() == 1}">
-															<td align="right">Nữ</td>
+														<c:when test="${item.getStatus() == 1}">
+															<td align="right">Đã có bệnh nhân</td>
 														</c:when>
 														<c:otherwise>
 															<td align="right">Khác</td>
 														</c:otherwise>
 													</c:choose>
- --%>
-													<td align="right" class="center">${item.getFK_TenPhongKham()}</td>
-													<td>${item.getSoGiuong()}</td>
-													<td>${item.getStatus()}</td>
 													<td><button class="btn btn-primary">
 															<i class="fa fa-edit "></i>Sửa
 														</button></td>
 													<td>
-														<form action="QuanLyBenhNhan/delete/${item.getId()}"
+														<form action="QuanLyGiuongBenh/delete/${item.getId()}"
 															method="post">
 															<button class="btn btn-danger"
 																data-hidden-submit="hiddenSubmit_${item.getId()}">

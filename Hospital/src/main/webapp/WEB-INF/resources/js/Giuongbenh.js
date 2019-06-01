@@ -18,7 +18,7 @@ $(document).ready(function () {
      
                       });
         });
-        
+
        /* $('.btn-primary').on('click', function () {
             $('.centererUpdate').show();
             var item = $(e.relatedTarget).data('index');
@@ -33,14 +33,12 @@ $(document).ready(function () {
         	var ID = currentRow.find('td:eq(0)').text();
         	var SoGiuong = currentRow.find('td:eq(1)').text();
         	var FK_TenPhongKham = currentRow.find('td:eq(2)').text();
-        	var FK_BenhNhan = currentRow.find('td:eq(3)').text();
         	var status = currentRow.find('td:eq(4)').text();
         	
         	var modal = $('.centererUpdate')
         	modal.find('#ID').val(ID);
         	modal.find('#SoGiuong').val(SoGiuong);
         	modal.find('#FK_TenPhongKham').val(FK_TenPhongKham);
-        	modal.find('#FK_BenhNhan').val(FK_BenhNhan);
         	modal.find('#status').val(status);
         	
         	$('.centererUpdate').show();
