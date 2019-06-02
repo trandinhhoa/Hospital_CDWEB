@@ -52,6 +52,10 @@
 	background-color: white;
 	border-radius: 100px;
 }
+
+.centererSave {
+	background-color: f5f5f5;
+}
 </style>
 </head>
 <body>
@@ -127,88 +131,89 @@
 								style="align-content: flex-end;">Thêm</a>
 						</div>
 						<div class="panel-body">
-							<div class="table-responsive">
-								<div class="centererSave hideform" hidden="hidden">
-									<button class="btn btn-default" id="closeSave">Đóng</button>
-									<form method="post" action="QuanLyBenhNhan/save">
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="HoVaTen">Họ
-												và tên</label>
-											<div class="col-sm-10">
-												<input class="form-control" id="HoVaTen"
-													placeholder="Họ và tên" name="HoVaTen" />
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="NamSinh">Năm
-												sinh</label>
-											<div class="col-sm-10">
-												<input class="form-control" id="NamSinh"
-													placeholder="Năm sinh" name="NamSinh" />
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="GioiTinh">Giới
-												tính</label>
-											<div class="col-sm-10">
-												<select class="form-control" name="GioiTinh" id="GioiTinh">
-													<option value="0">Nam</option>
-													<option value="1">Nữ</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="QueQuan">Quê
-												quán</label>
-											<div class="col-sm-10">
-												<input class="form-control" id="QueQuan"
-													placeholder="Quê quán" name="QueQuan" />
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="FK_GiuongBenh">Số
-												giường</label>
-											<div class="col-sm-10">
-												<input class="form-control" id="FK_GiuongBenh"
-													placeholder="Số giường" name="FK_GiuongBenh"
-													disabled="disabled" />
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="FK_GiuongBenh"></label>
-											<div class="col-sm-10">
-												<button type="button" id="FK_GiuongBenh"
-													name="FK_GiuongBenh" class="btn btn-info btn-sm giuongbenh">Chọn
-													giường</button>
-											</div>
-										</div>
-										<div class="col-sm-10 chongiuongbenh" hidden="hidden"
-											style="float: right;">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal">&times;</button>
-												<h4 class="modal-title">Danh sách giường bệnh</h4>
-											</div>
-											<div class="row">
-												<div class="ui-field-contain col-lg-6">
-													<label for="phongkham">Khoa:</label>
-													<c:forEach var="item" items="${listPhongKham}">
-														<div class="ui-field-contain">
-															<select name="${item.getId()}" id="${item.getId()}">
-																<option value="${item.getId()}">${item.getTenPhongKham()}</option>
-															</select>
-														</div>
-													</c:forEach>
+							<div class="row">
+								<div class="table-responsive">
+									<div class="centererSave hideform" hidden="hidden">
+										<button class="btn btn-danger" id="closeSave">Đóng</button>
+										<form method="post" action="QuanLyBenhNhan/save">
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="HoVaTen">Họ
+													và tên</label>
+												<div class="col-sm-10">
+													<input class="form-control" id="HoVaTen"
+														placeholder="Họ và tên" name="HoVaTen" />
 												</div>
-												<div class="ui-field-contain col-lg-6">
-													<label for="select-1">Tên phòng:</label> <select
-														name="select-1" id="select-1">
-														<option value="A">A</option>
-														<option value="B">B</option>
-														<option value="C">C</option>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="NamSinh">Năm
+													sinh</label>
+												<div class="col-sm-10">
+													<input class="form-control" id="NamSinh"
+														placeholder="Năm sinh" name="NamSinh" />
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="GioiTinh">Giới
+													tính</label>
+												<div class="col-sm-10">
+													<select class="form-control" name="GioiTinh" id="GioiTinh">
+														<option value="0">Nam</option>
+														<option value="1">Nữ</option>
 													</select>
 												</div>
-												<div class="col-lg-12">
-													<%-- <c:forEach var="item" items="${listgiuongbenh}">
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="QueQuan">Quê
+													quán</label>
+												<div class="col-sm-10">
+													<input class="form-control" id="QueQuan"
+														placeholder="Quê quán" name="QueQuan" />
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="FK_GiuongBenh">Số
+													giường</label>
+												<div class="col-sm-10">
+													<input class="form-control" id="FK_GiuongBenh"
+														placeholder="Số giường" name="FK_GiuongBenh"
+														disabled="disabled" />
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label col-sm-2" for="FK_GiuongBenh"></label>
+												<div class="col-sm-10">
+													<button type="button" id="FK_GiuongBenh"
+														name="FK_GiuongBenh"
+														class="btn btn-info btn-sm giuongbenh">Chọn
+														giường</button>
+												</div>
+											</div>
+											<div class="chongiuongbenh" hidden="hidden">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal">&times;</button>
+													<h4 class="modal-title" style="text-align: center; font-style: italic;font-weight: bold;">Danh sách giường bệnh</h4>
+												</div>
+												<div class="row">
+													<div class="ui-field-contain col-lg-6">
+														<label for="phongkham">Khoa:</label>
+														<c:forEach var="item" items="${listPhongKham}">
+															<div class="ui-field-contain">
+																<select name="${item.getId()}" id="${item.getId()}">
+																	<option value="${item.getId()}">${item.getTenPhongKham()}</option>
+																</select>
+															</div>
+														</c:forEach>
+													</div>
+													<div class="ui-field-contain col-lg-6">
+														<label for="select-1">Tên phòng:</label> <select
+															name="select-1" id="select-1">
+															<option value="A">A</option>
+															<option value="B">B</option>
+															<option value="C">C</option>
+														</select>
+													</div>
+													<div class="col-lg-12">
+														<%-- <c:forEach var="item" items="${listgiuongbenh}">
 														<c:choose>
 															<c:when test="${item.getstatus() == 0}">
 																<Button style="border-color: green;">${item.getSoGiuong()}</Button>
@@ -218,27 +223,30 @@
 															</c:when>
 														</c:choose>
 													</c:forEach> --%>
-													<button class="btn info">01</button>
-													<button class="btn info">02</button>
-													<button class="btn info">03</button>
-													<button class="btn info">04</button>
+														<button class="btn info">01</button>
+														<button class="btn info">02</button>
+														<button class="btn info">03</button>
+														<button class="btn info">04</button>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-info btn-sm"
+														data-dismiss="modal">Lưu</button>
 												</div>
 											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default"
-													data-dismiss="modal">Lưu</button>
-											</div>
-										</div>
 
-										<div class="form-group">
-											<div class="col-sm-offset-2 col-sm-10">
-												<button type="submit" class="btn btn-success">Thêm</button>
+											<div class="form-group">
+												<div class="col-sm-offset-2 col-sm-10">
+													<button type="submit" class="btn btn-success">Thêm</button>
+												</div>
 											</div>
-										</div>
-									</form>
+										</form>
+									</div>
 								</div>
+							</div>
+							<div class="row">
 								<div class="centererUpdate hideform" hidden="hidden">
-									<button class="btn btn-default" id="closeUpdate">Đóng</button>
+									<button class="btn btn-danger" id="closeUpdate">Đóng</button>
 									<form method="post" action="QuanLyBenhNhan/edit">
 										<input class="form-control" style="display: none;" id="ID"
 											name="ID" />
@@ -285,128 +293,78 @@
 													placeholder="Số giường" name="FK_GiuongBenh" />
 											</div>
 										</div>
-										<div class="form-group row">
+										<div class="form-group">
 											<div class="col-sm-offset-2 col-sm-10"></div>
 											<div class="col-sm-offset-2 col-sm-2">
-												<button type="submit" class="btn btn-default" id="capnhat">Cập
+												<button type="submit" class="btn btn-success" id="capnhat">Cập
 													nhật</button>
 											</div>
 										</div>
 									</form>
 								</div>
-								<div class="panel-body">
-									<table style="width: 100%"
-										class="table table-striped table-bordered table-hover"
-										id="dataTables-example">
-
-										<thead>
-											<tr>
-												<th>STT</th>
-												<th>Họ và tên</th>
-												<th>Năm sinh</th>
-												<th>Giới tính</th>
-												<th>Quê quán</th>
-												<th>Số giường</th>
-												<th></th>
-												<th></th>
-											</tr>
-										</thead>
-										<tbody>
-											<c:forEach var="item" items="${listBenhNhan}">
-												<tr class="odd gradeX">
-													<td>${item.getId()}</td>
-													<td>${item.getHoVaTen()}</td>
-													<td align="right" class="center">${item.getNamSinh()}</td>
-
-													<c:choose>
-														<c:when test="${item.getGioiTinh() == 0}">
-															<td align="right">Nam</td>
-														</c:when>
-														<c:when test="${item.getGioiTinh() == 1}">
-															<td align="right">Nữ</td>
-														</c:when>
-													</c:choose>
-
-													<td>${item.getQueQuan()}</td>
-													<td>${item.getFK_GiuongBenh()}</td>
-													<td><button class="btn btn-primary">
-															<i class="fa fa-edit "></i>Sửa
-														</button></td>
-													<td>
-														<form action="QuanLyBenhNhan/delete/${item.getId()}"
-															method="post">
-															<button class="btn btn-danger" id="xoa"
-																data-hidden-submit="hiddenSubmit_${item.getId()}">
-																<i class="fa fa-pencil"></i>Xóa
-															</button>
-															<input id="hiddenSubmit_${item.getId()}" type="submit"
-																style="display: none;">
-														</form>
-													</td>
-												</tr>
-											</c:forEach>
-										</tbody>
-									</table>
-								</div>
 							</div>
 						</div>
-						<!--End Advanced Tables -->
+
+						<div class="panel-body">
+							<table style="width: 100%"
+								class="table table-striped table-bordered table-hover"
+								id="dataTables-example">
+
+								<thead>
+									<tr>
+										<th>STT</th>
+										<th>Họ và tên</th>
+										<th>Năm sinh</th>
+										<th>Giới tính</th>
+										<th>Quê quán</th>
+										<th>Số giường</th>
+										<th></th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach var="item" items="${listBenhNhan}">
+										<tr class="odd gradeX">
+											<td>${item.getId()}</td>
+											<td>${item.getHoVaTen()}</td>
+											<td align="right" class="center">${item.getNamSinh()}</td>
+
+											<c:choose>
+												<c:when test="${item.getGioiTinh() == 0}">
+													<td align="right">Nam</td>
+												</c:when>
+												<c:when test="${item.getGioiTinh() == 1}">
+													<td align="right">Nữ</td>
+												</c:when>
+											</c:choose>
+
+											<td>${item.getQueQuan()}</td>
+											<td>${item.getFK_GiuongBenh()}</td>
+											<td><button class="btn btn-primary">
+													<i class="fa fa-edit "></i>Sửa
+												</button></td>
+											<td>
+												<form action="QuanLyBenhNhan/delete/${item.getId()}"
+													method="post">
+													<button class="btn btn-danger" id="xoa"
+														data-hidden-submit="hiddenSubmit_${item.getId()}">
+														<i class="fa fa-pencil"></i>Xóa
+													</button>
+													<input id="hiddenSubmit_${item.getId()}" type="submit"
+														style="display: none;">
+												</form>
+											</td>
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
-
+				<!--End Advanced Tables -->
 			</div>
 		</div>
 	</div>
-	<!-- Modal -->
-	<%-- <form method="get" action="QuanLyBenhNhan/getPhongKham">
-		<div class="modal fade" id="myModal" role="dialog">
-			<div class="modal-dialog">
-
-				Modal content
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Danh sách giường bệnh</h4>
-					</div>
-					<div class="modal-body">
-						<div class="ui-field-contain col-lg-6">
-							<label for="phongkham">Khoa:</label>
-							<c:forEach var="item" items="${listPhongKham}">
-								<div class="ui-field-contain">
-									<select name="${item.getId()}" id="${item.getId()}">
-										<option value="${item.getId()}">${item.getTenPhongKham()}</option>
-									</select>
-								</div>
-							</c:forEach>
-						</div>
-						<div class="ui-field-contain col-lg-6">
-							<label for="select-1">Tên phòng:</label> <select name="select-1"
-								id="select-1">
-								<option value="A">A</option>
-								<option value="B">B</option>
-								<option value="C">C</option>
-							</select>
-						</div>
-						<div class="container">
-							<c:forEach var="item" items="${listgiuongbenh}">
-								<c:choose>
-									<c:when test="${item.getstatus() == 0}">
-										<Button style="border-color: green;">${item.getSoGiuong()}</Button>
-									</c:when>
-									<c:when test="${item.getstatus() == 1}">
-										<Button style="border-color: red;">${item.getSoGiuong()}</Button>
-									</c:when>
-								</c:choose>
-							</c:forEach>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Lưu</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</form> --%>
 	<!-- Footer-->
 	<footer class="footer-distributed"
 		style="background-color: #3f51b5; text-align: center; font-size: 15px; height: 50px;">
