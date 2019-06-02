@@ -89,7 +89,10 @@
 		<div class="navbar-default sidebar" role="navigation">
 			<div class="sidebar-nav navbar-collapse">
 				<ul class="nav" id="side-menu">
-					<li>Trang chủ</li>
+					<li><a>Trang chủ</a></li>
+					<li><a href="/Hospital/QuanLyBenhNhan">Quản lý bệnh nhân</a></li>
+					<li><a href="/Hospital/QuanLyGiuongBenh">Quản lý giường
+							bệnh</a></li>
 				</ul>
 			</div>
 			<!-- /.sidebar-collapse -->
@@ -122,7 +125,7 @@
 						</div>
 						<div class="panel-body">
 							<div class="table-responsive">
-								<div class="centererSave hideform">
+								<div class="centererSave hideform"  hidden="hidden">
 									<button class="btn btn-default" id="closeSave">Đóng</button>
 									<form method="post" action="QuanLyGiuongBenh/save">
 										<div class="form-group">
@@ -167,7 +170,7 @@
 									</form>
 								</div>
 
-								<div class="centererUpdate hideform">
+								<div class="centererUpdate hideform"  hidden="hidden">
 									<button class="btn btn-default" id="closeUpdate">Đóng</button>
 									<form method="post" action="QuanLyGiuongBenh/edit">
 										<input class="form-control" style="display: none;" id="ID"

@@ -41,6 +41,14 @@ public class GiuongBenhController {
 		return ;
 		}
 	
+	@GetMapping(value = "/getphongkham")
+	@Transactional
+	public void getPhongKham(@ModelAttribute("phongkham") PhongKham phongkham,ModelMap modelmap) {
+		/*List<PhongKham> listphongkham = phongkhamService.getListPhongKham();
+		modelmap.addAttribute("listphongkham",listphongkham);*/
+		modelmap.addAttribute("phongkham",phongkham);
+		return ;
+		}
 	@GetMapping(value = "/edit/{id_giuong_benh}")
 	@Transactional
 	public String getGiuongBenh(@PathVariable int id_giuong_benh, ModelMap modelmap, RedirectAttributes redirectAttributes) {

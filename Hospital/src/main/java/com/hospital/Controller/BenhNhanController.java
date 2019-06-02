@@ -21,6 +21,7 @@ public class BenhNhanController {
 
 	@Autowired
 	BenhNhanService benhnhanService = null;
+	PhongKhamService phongkhamService=null;
 	
 	@GetMapping
 	@Transactional
@@ -32,7 +33,7 @@ public class BenhNhanController {
 		//model.addAttribute("khoaphongSaveorUpdate",new KhoaPhong());
 		return "BenhNhan";
 		}
-	@GetMapping(value = "/getBenhnhan")
+	@GetMapping(value = "/getBenhNhan")
 	@Transactional
 	public void a(@ModelAttribute("benhnhan") BenhNhan benhnhan,ModelMap modelmap) {
 		/*List<KhoaPhong> listKhoaPhong = khoaphongService.getListKhoaPhong();
@@ -40,14 +41,14 @@ public class BenhNhanController {
 		modelmap.addAttribute("benhnhan",benhnhan);
 		return ;
 		}
+	
 	@GetMapping(value = "/edit/{id_benh_nhan}")
 	@Transactional
-	public String getKhoaPhong(@PathVariable int id_benh_nhan, ModelMap modelmap, RedirectAttributes redirectAttributes) {
+	public String geteditBenhNhan(@PathVariable int id_benh_nhan, ModelMap modelmap, RedirectAttributes redirectAttributes) {
 		
 		BenhNhan benhnhan = benhnhanService.getBenhNhan(id_benh_nhan);
 		modelmap.addAttribute("benhnhan",benhnhan);
 		redirectAttributes.addFlashAttribute("benhnhan",benhnhan);
-		//redirectAttributes.addFlashAttribute("flashAttr", "flashAttrVal");
 		return "redirect:/QuanLyBenhNhan/getBenhNhan";
 	}
 	@PostMapping(value = "/delete/{id_benh_nhan}")
@@ -74,7 +75,7 @@ public class BenhNhanController {
 	}
 	@PostMapping(value = "/edit")
 	@Transactional
-	public String editKhoaPhong(@RequestParam int ID,@RequestParam String HoVaTen,
+	public String editBenhNhan(@RequestParam int ID,@RequestParam String HoVaTen,
 			@RequestParam int NamSinh,@RequestParam int GioiTinh,@RequestParam int FK_GiuongBenh,@RequestParam String QueQuan, ModelMap modelmap) {
 		BenhNhan benhnhan = benhnhanService.getBenhNhan(ID);
 		benhnhan.setHoVaTen(HoVaTen);
