@@ -125,35 +125,26 @@
 						</div>
 						<div class="panel-body">
 							<div class="table-responsive">
-								<div class="centererSave hideform"  hidden="hidden">
+								<div class="centererSave hideform" hidden="hidden">
 									<button class="btn btn-default" id="closeSave">Đóng</button>
 									<form method="post" action="QuanLyGiuongBenh/save">
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="FK_TenPhongKham">Tên
-												phòng</label>
-											<div class="col-sm-10">
-												<div class="ui-field-contain">
-													<select name="TenPhongKham"
-														id="TenPhongKham" data-iconpos="right">
-														<c:forEach var="item" items="${listphongkham}">
-															<option value="${item.getId()}">${item.getTenPhongKham()}</option>
-														</c:forEach>
-													</select>
-												</div>
-
-												<input class="form-control" id="FK_TenPhongKham"
-													placeholder="Tên phòng" name="FK_TenPhongKham" />
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="SoGiuong">Số
+									<div class="form-group">
+											<label class="control-label col-sm-2" for="SoGiuong">Tên
 												giường</label>
 											<div class="col-sm-10">
 												<input class="form-control" id="SoGiuong"
 													placeholder="Số giường" name="SoGiuong" />
 											</div>
 										</div>
-
+										<div class="form-group">
+											<label class="control-label col-sm-2" for="FK_TenPhongKham">Tên
+												phòng</label>
+											<div class="col-sm-10">
+												<input class="form-control" id="FK_TenPhongKham"
+													placeholder="Tên phòng" name="FK_TenPhongKham" />
+											</div>
+										</div>
+										
 										<div class="form-group">
 											<label class="control-label col-sm-2" for="status">Trạng
 												thái</label>
@@ -170,25 +161,25 @@
 									</form>
 								</div>
 
-								<div class="centererUpdate hideform"  hidden="hidden">
+								<div class="centererUpdate hideform" hidden="hidden">
 									<button class="btn btn-default" id="closeUpdate">Đóng</button>
 									<form method="post" action="QuanLyGiuongBenh/edit">
 										<input class="form-control" style="display: none;" id="ID"
 											name="ID" />
+										<div class="form-group">
+											<label class="control-label col-sm-2" for="SoGiuong">Tên
+												giường</label>
+											<div class="col-sm-10">
+												<input class="form-control" id="SoGiuong"
+													placeholder="Số giường" name="SoGiuong" />
+											</div>
+										</div>
 										<div class="form-group">
 											<label class="control-label col-sm-2" for="FK_TenPhongKham">Tên
 												phòng</label>
 											<div class="col-sm-10">
 												<input class="form-control" id="FK_TenPhongKham"
 													placeholder="Tên phòng" name="FK_TenPhongKham" />
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="SoGiuong">Số
-												giường</label>
-											<div class="col-sm-10">
-												<input class="form-control" id="SoGiuong"
-													placeholder="Số giường" name="SoGiuong" />
 											</div>
 										</div>
 										<div class="form-group">
@@ -215,8 +206,8 @@
 										<thead>
 											<tr>
 												<th>STT</th>
+												<th>Tên giường</th>
 												<th>Tên phòng khám</th>
-												<th>Số giường</th>
 												<th>Trạng thái</th>
 												<th></th>
 												<th></th>
@@ -226,8 +217,8 @@
 											<c:forEach var="item" items="${listgiuongbenh}">
 												<tr class="odd gradeX">
 													<td>${item.getId()}</td>
-													<td align="right" class="center">${item.getFK_TenPhongKham()}</td>
 													<td>${item.getSoGiuong()}</td>
+													<td align="right" class="center">${item.getFK_TenPhongKham()}</td>
 													<c:choose>
 														<c:when test="${item.getStatus() == 0}">
 															<td align="right">Trống</td>
@@ -235,9 +226,6 @@
 														<c:when test="${item.getStatus() == 1}">
 															<td align="right">Đã có bệnh nhân</td>
 														</c:when>
-														<c:otherwise>
-															<td align="right">Khác</td>
-														</c:otherwise>
 													</c:choose>
 													<td><button class="btn btn-primary">
 															<i class="fa fa-edit "></i>Sửa

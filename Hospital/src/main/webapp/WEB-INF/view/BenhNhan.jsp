@@ -45,6 +45,13 @@
 #textColorWhite {
 	color: #fff;
 }
+
+.info {
+	border-color: #2196F3;
+	color: dodgerblue;
+	background-color: white;
+	border-radius: 100px;
+}
 </style>
 </head>
 <body>
@@ -112,17 +119,12 @@
 			</div>
 			<br />
 			<div class="row">
-				<div class="col-lg-12">
-					<a href="#" class="btn btn-success">Thêm</a>
-				</div>
-
-			</div>
-			<div class="row">
 				<div class="col-md-12">
 					<!-- Advanced Tables -->
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<!-- Advanced Tables -->
+							<a href="#" class="btn btn-success"
+								style="align-content: flex-end;">Thêm</a>
 						</div>
 						<div class="panel-body">
 							<div class="table-responsive">
@@ -168,29 +170,69 @@
 												giường</label>
 											<div class="col-sm-10">
 												<input class="form-control" id="FK_GiuongBenh"
-													placeholder="Số giường" name="FK_GiuongBenh" />
+													placeholder="Số giường" name="FK_GiuongBenh"
+													disabled="disabled" />
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="control-label col-sm-2" for="FK_GiuongBenh">Số
-												giường</label>
+											<label class="control-label col-sm-2" for="FK_GiuongBenh"></label>
 											<div class="col-sm-10">
 												<button type="button" id="FK_GiuongBenh"
-													name="FK_GiuongBenh" class="btn btn-info btn-lg"
-													data-toggle="modal" data-target="#myModal">Chọn
+													name="FK_GiuongBenh" class="btn btn-info btn-sm giuongbenh">Chọn
 													giường</button>
 											</div>
-											<c:forEach var="item" items="${listBenhNhan}">
-												<tr class="odd gradeX">
-													<td>${item.getId()}</td>
-													<td>${item.getHoVaTen()}</td>
-													<td align="right" class="center">${item.getNamSinh()}</td>
-											</tr>
-											</c:forEach>
 										</div>
+										<div class="col-sm-10 chongiuongbenh" hidden="hidden"
+											style="float: right;">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h4 class="modal-title">Danh sách giường bệnh</h4>
+											</div>
+											<div class="row">
+												<div class="ui-field-contain col-lg-6">
+													<label for="phongkham">Khoa:</label>
+													<c:forEach var="item" items="${listPhongKham}">
+														<div class="ui-field-contain">
+															<select name="${item.getId()}" id="${item.getId()}">
+																<option value="${item.getId()}">${item.getTenPhongKham()}</option>
+															</select>
+														</div>
+													</c:forEach>
+												</div>
+												<div class="ui-field-contain col-lg-6">
+													<label for="select-1">Tên phòng:</label> <select
+														name="select-1" id="select-1">
+														<option value="A">A</option>
+														<option value="B">B</option>
+														<option value="C">C</option>
+													</select>
+												</div>
+												<div class="col-lg-12">
+													<%-- <c:forEach var="item" items="${listgiuongbenh}">
+														<c:choose>
+															<c:when test="${item.getstatus() == 0}">
+																<Button style="border-color: green;">${item.getSoGiuong()}</Button>
+															</c:when>
+															<c:when test="${item.getstatus() == 1}">
+																<Button style="border-color: red;">${item.getSoGiuong()}</Button>
+															</c:when>
+														</c:choose>
+													</c:forEach> --%>
+													<button class="btn info">01</button>
+													<button class="btn info">02</button>
+													<button class="btn info">03</button>
+													<button class="btn info">04</button>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default"
+													data-dismiss="modal">Lưu</button>
+											</div>
+										</div>
+
 										<div class="form-group">
 											<div class="col-sm-offset-2 col-sm-10">
-												<button type="submit" class="btn btn-default">Thêm</button>
+												<button type="submit" class="btn btn-success">Thêm</button>
 											</div>
 										</div>
 									</form>
@@ -316,11 +358,11 @@
 		</div>
 	</div>
 	<!-- Modal -->
-	<form method="get" action="QuanLyBenhNhan/getphongkham">
+	<%-- <form method="get" action="QuanLyBenhNhan/getPhongKham">
 		<div class="modal fade" id="myModal" role="dialog">
 			<div class="modal-dialog">
 
-				<!-- Modal content-->
+				Modal content
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -328,12 +370,14 @@
 					</div>
 					<div class="modal-body">
 						<div class="ui-field-contain col-lg-6">
-							<label for="phongkham">Khoa:</label> <select name="phongkham"
-								id="phongkham">
-								<c:forEach var="item" items="${listphongkham}">
-									<option value="${item.getId()}">${item.getTenPhongKham()}</option>
-								</c:forEach>
-							</select>
+							<label for="phongkham">Khoa:</label>
+							<c:forEach var="item" items="${listPhongKham}">
+								<div class="ui-field-contain">
+									<select name="${item.getId()}" id="${item.getId()}">
+										<option value="${item.getId()}">${item.getTenPhongKham()}</option>
+									</select>
+								</div>
+							</c:forEach>
 						</div>
 						<div class="ui-field-contain col-lg-6">
 							<label for="select-1">Tên phòng:</label> <select name="select-1"
@@ -362,7 +406,7 @@
 				</div>
 			</div>
 		</div>
-	</form>
+	</form> --%>
 	<!-- Footer-->
 	<footer class="footer-distributed"
 		style="background-color: #3f51b5; text-align: center; font-size: 15px; height: 50px;">

@@ -83,8 +83,7 @@ public class GiuongBenhController {
 	@Transactional
 	public String editKhoaPhong(@RequestParam int ID,@RequestParam int SoGiuong,
 			@RequestParam int FK_TenPhongKham,@RequestParam int status, ModelMap modelmap) {
-		GiuongBenh giuongbenh = new GiuongBenh();
-		giuongbenh.setId(new Random().nextInt(1000));
+		GiuongBenh giuongbenh = giuongbenhService.getGiuongBenh(ID);
 		giuongbenh.setSoGiuong(SoGiuong);
 		giuongbenh.setFK_TenPhongKham(FK_TenPhongKham);
 		giuongbenh.setStatus(status);

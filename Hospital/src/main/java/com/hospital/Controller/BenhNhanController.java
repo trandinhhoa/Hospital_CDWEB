@@ -22,6 +22,7 @@ public class BenhNhanController {
 	@Autowired
 	BenhNhanService benhnhanService = null;
 	PhongKhamService phongkhamService=null;
+	GiuongBenhService giuongbenhService = null;
 	
 	@GetMapping
 	@Transactional
@@ -42,6 +43,22 @@ public class BenhNhanController {
 		return ;
 		}
 	
+	@GetMapping(value = "/getPhongKham")
+	@Transactional
+	public void gPhongKham(@ModelAttribute("phongkham") PhongKham phongkham,ModelMap modelmap) {
+		List<PhongKham> listPhongKham = phongkhamService.getListPhongKham();
+		modelmap.addAttribute("listPhongKham",listPhongKham);
+		modelmap.addAttribute("phongkham",phongkham);
+		return ;
+		}
+	@GetMapping(value = "/getgiuongbenh")
+	@Transactional
+	public void a(@ModelAttribute("giuongbenh") GiuongBenh giuongbenh,ModelMap modelmap) {
+		List<GiuongBenh> listgiuongbenh = giuongbenhService.getListGiuongBenh();
+		modelmap.addAttribute("listgiuongbenh",listgiuongbenh);
+		modelmap.addAttribute("giuongbenh",giuongbenh);
+		return ;
+		}
 	@GetMapping(value = "/edit/{id_benh_nhan}")
 	@Transactional
 	public String geteditBenhNhan(@PathVariable int id_benh_nhan, ModelMap modelmap, RedirectAttributes redirectAttributes) {

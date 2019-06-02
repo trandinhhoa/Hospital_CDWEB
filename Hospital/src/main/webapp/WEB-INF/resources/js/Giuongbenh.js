@@ -33,7 +33,7 @@ $(document).ready(function () {
         	var ID = currentRow.find('td:eq(0)').text();
         	var SoGiuong = currentRow.find('td:eq(1)').text();
         	var FK_TenPhongKham = currentRow.find('td:eq(2)').text();
-        	var status = currentRow.find('td:eq(4)').text();
+        	var status = currentRow.find('td:eq(3)').text();
         	
         	var modal = $('.centererUpdate')
         	modal.find('#ID').val(ID);

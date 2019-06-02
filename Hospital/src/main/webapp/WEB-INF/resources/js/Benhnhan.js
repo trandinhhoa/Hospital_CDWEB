@@ -26,8 +26,7 @@ $(document).ready(
 			 * $('.centererUpdate').show(); var item =
 			 * $(e.relatedTarget).data('index'); var modal = $(this)
 			 * modal.find('.modal-title').text('Cập nhật khoa phòng ' +
-			 * item.tenKhoaPhong) modal.find('#tenkhoaphong').val(i)
-			 *  })
+			 * item.tenKhoaPhong) modal.find('#tenkhoaphong').val(i) })
 			 */
 			$('#dataTables-example tbody').on('click', '.btn-primary',
 					function() {
@@ -59,7 +58,12 @@ $(document).ready(
 			$('.btn-success').on('click', function() {
 				$('.centererSave').show();
 			})
-
+			$('.giuongbenh').on('click', function() {
+				$('.chongiuongbenh').show();
+			})
+			$('.close').on('click', function() {
+				$('.chongiuongbenh').hide();
+			})
 			$('#closeSave').on('click', function() {
 				$('.centererSave').hide();
 			})
