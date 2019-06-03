@@ -41,7 +41,7 @@ public class HenKhamBenhDAO implements HenKhamBenhInterface{
 	public void addHenKhamBenh(HenKhamBenh item) {
 		try {
 			Session session = sessionFactory.getCurrentSession();
-			session.save(item);
+			session.save(item); 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

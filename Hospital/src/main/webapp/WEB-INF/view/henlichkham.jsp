@@ -1,9 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>
+
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
+<html dir="ltr" lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 
 <!-- Meta Tags -->
@@ -15,8 +17,9 @@
 	content="building,business,construction,cleaning,transport,workshop" />
 <meta name="author" content="ThemeMascot" />
 
+
 <!-- Page Title -->
-<title>Register</title>
+<title>Schedule</title>
 
 <!-- Favicon and Touch Icons -->
 <link href="<c:url value="/resources/images/favicon.png"/>"
@@ -349,11 +352,11 @@
 					<div class="section-content">
 						<div class="row">
 							<div class="col-md-12 xs-text-center">
-								<h2 class="font-28">Login/Register</h2>
+								<h2 class="font-28">Schedule an appointment</h2>
 								<ol class="breadcrumb white mt-10">
 									<li><a href="#">Home</a></li>
 									<li><a href="#">Pages</a></li>
-									<li class="active text-theme-colored">Login/Register</li>
+									<li class="active text-theme-colored">Schedule</li>
 								</ol>
 							</div>
 						</div>
@@ -365,208 +368,136 @@
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
-							<c:choose>
-								<c:when test="${not empty kiemtradangky}">
-									<ul class="nav nav-tabs" data-tabs="tabs">
-										<li><a href="#login-tab" data-toggle="tab">Login</a></li>
-										<li class="active"><a href="#register-tab"
-											data-toggle="tab">Register</a></li>
-									</ul>
-									<div class="tab-content">
-										<div class="tab-pane fade in p-15" id="login-tab">
-											<h4 class="text-gray mt-0 pt-5">Login</h4>
-											<hr>
-											<p id="ketqua" Style="Color: red"></p>
-											<div name="login-form" class="clearfix">
-												<div class="row">
-													<div class="form-group col-md-12">
-														<label for="form_username_email">Username/Email</label> <input
-															id="form_username_email" name="form_username_email"
-															class="form-control" type="text">
+							<ul class="nav nav-tabs" data-tabs="tabs">
+								<li class="active"><a href="#schedule-tab" Style="font-size: 20px"
+									data-toggle="tab">Schedule Examination</a></li>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane fade in active p-15" id="schedule-tab">
+									<form name="reg-form" class="register-form" action="datlichkham" method="POST">
+										<div class="icon-box mb-0 p-0">
+											<a href="#"
+												class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
+												<i class="pe-7s-users"></i>
+											</a>
+											<h4 class="text-gray pt-10 mt-0 mb-30">Not logged in,
+												login to use this function. Please!!!</h4>
+										</div>
+										<hr>
+										<input type="hidden" name="id" value="0"/>
+										<input type="hidden" name="FK_BacSi" value="1"/>
+										<input type="hidden" name="FK_QuocTich" value="1"/>
+										<input type="hidden" name="FK_TinhTrangHonNhan" value="1"/>
+										<input type="hidden" name="FK_TrangThai" value="1"/>
+										<input type="hidden" name="gioiTinh" value="true"/>
+										<input type="hidden" name="ngayGui" value="2019-06-01"/>
+										<input type="hidden" name="soDienThoaiNha" value="0147852369"/>
+										<input type="hidden" name="FK_ChuyenKhoa" value="1"/>
+										<input type="hidden" name="FK_GioHen" value="1"/>
+										<input type="hidden" name="FK_NamSinh" value="1"/>
+										<div class="row">
+											<div class="form-group col-md-12">
+												<label for="form_choose_username">Name*</label> <input
+													id="form_choose_username" name="hoVaTen"
+													class="form-control" type="text">
+											</div>
+										</div>
+										<div class="row">
+											<div class="form-group col-md-12">
+												<label for="form_choose_username">Address*</label> <input
+													id="form_choose_address" name="diaChi"
+													class="form-control" type="text">
+											</div>
+										</div>
+										<div class="row">
+											<div class="form-group col-md-12">
+												<label for="form_choose_username">Telephone*</label> <input
+													id="form_choose_telephone" name="soDienThoaiDiDong"
+													class="form-control" type="text">
+											</div>
+										</div>
+										<div class="row">
+											<div class="form-group col-md-12">
+												<label for="form_choose_username">Email Address*</label> <input
+													id="form_choose_email" name="diaChiEmail" class="form-control"
+													type="text">
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="form-group col-md-12">
+												<label for="form_choose_username">Gender*</label>
+												<div class="form-inline required">
+													<div class="form-group has-feedback">
+														<label class="input-group"> <span
+															class="input-group-addon"> <input type="radio" name="gioitinh" value="0" />
+														</span>
+															<div class="form-control form-control-static">Male</div>
+															<span class="glyphicon form-control-feedback "></span>
+														</label>
 													</div>
-												</div>
-												<div class="row">
-													<div class="form-group col-md-12">
-														<label for="form_password">Password</label> <input
-															id="form_password" name="form_password"
-															class="form-control" type="password">
+													<div class="form-group has-feedback ">
+														<label class="input-group"> <span class="input-group-addon"> 
+															<input type="radio" name="gioitinh" value="1" />
+														</span>
+															<div class="form-control form-control-static">Female</div>
+															<span class="glyphicon form-control-feedback "></span>
+														</label>
 													</div>
-												</div>
-												<div class="checkbox pull-left mt-15">
-													<label for="form_checkbox"> <input
-														id="form_checkbox" name="form_checkbox" type="checkbox">
-														Remember me
-													</label>
-												</div>
-												<div class="form-group pull-right mt-10">
-													<button id="btnDangnhap"
-														Style="background-color: rgb(0, 172, 238) !important;"
-														class="btn btn-dark btn-sm">Login</button>
-												</div>
-												<div class="clear text-center pt-10">
-													<a class="text-theme-colored font-weight-600 font-12"
-														href="#">Forgot Your Password?</a>
-												</div>
-												<div class="clear text-center pt-10">
-													<a
-														class="btn btn-dark btn-lg btn-block no-border mt-15 mb-15"
-														href="#" data-bg-color="#3b5998">Login with facebook</a> <a
-														class="btn btn-dark btn-lg btn-block no-border" href="#"
-														data-bg-color="#00acee">Login with twitter</a>
 												</div>
 											</div>
 										</div>
-										<div class="tab-pane fade in active p-15" id="register-tab">
-											<form name="reg-form" class="register-form" action=""
-												method="post">
-												<div class="icon-box mb-0 p-0">
-													<a href="#"
-														class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
-														<i class="pe-7s-users"></i>
-													</a>
-													<h4 class="text-gray pt-10 mt-0 mb-30">Don't have an
-														Account? Register Now.</h4>
-												</div>
-												<hr>
-												<p class="text-gray" Style="Color: red">${kiemtradangky}</p>
 
-												<div class="row">
-													<div class="form-group col-md-12">
-														<label for="form_choose_username">Name</label> <input
-															id="form_choose_username" name="hoVaTen"
-															class="form-control" type="text">
-													</div>
-												</div>
-												<div class="row">
-													<div class="form-group col-md-12">
-														<label for="form_choose_username">Email Address</label> <input
-															id="form_choose_username" name="email"
-															class="form-control" type="text">
-													</div>
-												</div>
-												<div class="row">
-													<div class="form-group col-md-6">
-														<label for="form_choose_password">Choose Password</label>
-														<input id="form_choose_password" name="passWord"
-															class="form-control" type="password">
-													</div>
-													<div class="form-group col-md-6">
-														<label>Re-enter Password</label> <input
-															id="form_re_enter_password" name="re_passWord"
-															class="form-control" type="password">
-													</div>
-												</div>
-												<div class="form-group">
-													<button class="btn btn-dark btn-lg btn-block mt-15"
-														type="submit" Style="background-color: Green">Register
-														Now</button>
-												</div>
-											</form>
-										</div>
-									</div>
-								</c:when>
-								<c:otherwise>
-									<ul class="nav nav-tabs" data-tabs="tabs">
-										<li class="active"><a href="#login-tab" data-toggle="tab">Login</a></li>
-										<li><a href="#register-tab" data-toggle="tab">Register</a></li>
-									</ul>
-									<div class="tab-content">
-										<div class="tab-pane fade in active p-15" id="login-tab">
-											<h4 class="text-gray mt-0 pt-5">Login</h4>
-											<hr>
-											<p id="ketqua" Style="Color: red"></p>
-											<div name="login-form" class="clearfix">
-												<div class="row">
-													<div class="form-group col-md-12">
-														<label for="form_username_email">Username/Email</label> <input
-															id="form_username_email" name="form_username_email"
-															class="form-control" type="text">
-													</div>
-												</div>
-												<div class="row">
-													<div class="form-group col-md-12">
-														<label for="form_password">Password</label> <input
-															id="form_password" name="form_password"
-															class="form-control" type="password">
-													</div>
-												</div>
-												<div class="checkbox pull-left mt-15">
-													<label for="form_checkbox"> <input
-														id="form_checkbox" name="form_checkbox" type="checkbox">
-														Remember me
-													</label>
-												</div>
-												<div class="form-group pull-right mt-10">
-													<button id="btnDangnhap"
-														Style="background-color: rgb(0, 172, 238) !important;"
-														class="btn btn-dark btn-sm">Login</button>
-												</div>
-												<div class="clear text-center pt-10">
-													<a class="text-theme-colored font-weight-600 font-12"
-														href="#">Forgot Your Password?</a>
-												</div>
-												<div class="clear text-center pt-10">
-													<a
-														class="btn btn-dark btn-lg btn-block no-border mt-15 mb-15"
-														href="#" data-bg-color="#3b5998">Login with facebook</a> <a
-														class="btn btn-dark btn-lg btn-block no-border" href="#"
-														data-bg-color="#00acee">Login with twitter</a>
-												</div>
+										<div class="row">
+											<div class="form-group col-md-12">
+												<label for="form_choose_username">Year of Birth*</label> 
+												<form:select path ="listNamSinh" class="form-control" name="namSinh" >
+								                     <form:options items ="${listNamSinh }"/>
+							                   </form:select>
 											</div>
 										</div>
-										<div class="tab-pane fade in p-15" id="register-tab">
-											<form name="reg-form" class="register-form" action=""
-												method="post">
-												<div class="icon-box mb-0 p-0">
-													<a href="#"
-														class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
-														<i class="pe-7s-users"></i>
-													</a>
-													<h4 class="text-gray pt-10 mt-0 mb-30">Don't have an
-														Account? Register Now.</h4>
-												</div>
-												<hr>
-												<p class="text-gray" Style="Color: red">${kiemtradangky}</p>
-
-												<div class="row">
-													<div class="form-group col-md-12">
-														<label for="form_choose_username">Name</label> <input
-															id="form_choose_username" name="hoVaTen"
-															class="form-control" type="text">
-													</div>
-												</div>
-												<div class="row">
-													<div class="form-group col-md-12">
-														<label for="form_choose_username">Email Address</label> <input
-															id="form_choose_username" name="email"
-															class="form-control" type="text">
-													</div>
-												</div>
-												<div class="row">
-													<div class="form-group col-md-6">
-														<label for="form_choose_password">Choose Password</label>
-														<input id="form_choose_password" name="passWord"
-															class="form-control" type="password">
-													</div>
-													<div class="form-group col-md-6">
-														<label>Re-enter Password</label> <input
-															id="form_re_enter_password" name="re_passWord"
-															class="form-control" type="password">
-													</div>
-												</div>
-												<div class="form-group">
-													<button class="btn btn-dark btn-lg btn-block mt-15"
-														type="submit" Style="background-color: Green">Register
-														Now</button>
-												</div>
-											</form>
+										<div class="row">
+											<div class="form-group col-md-12">
+												<label for="form_choose_username">Specialized Faculty*</label> 
+												<form:select path ="listPhongKham" class="form-control" name="phongKham">
+								                     <form:options items ="${listPhongKham}"/>
+							                   </form:select>
+											</div>
 										</div>
-									</div>
-								</c:otherwise>
-							</c:choose>
-
-
-
+										<div class="row">
+											<div class="form-group col-md-12">
+												<label for="form_choose_username">Doctor</label> <input
+													id="form_choose_doctor" name="bacSi" class="form-control"
+													type="text">
+											</div>
+										</div>
+										<div class="row">
+											<div class="form-group col-md-6">
+												<label for="form_choose_password">Date</label> <input
+													id="form_choose_date" name="ngayHen" class="form-control"
+													type="date">
+											</div>
+											<div class="form-group col-md-6">
+												<label>Hour</label>
+												<form:select path ="listGioKham" class="form-control" name="gioHen">
+								                     <form:options items ="${listGioKham}"/>
+							                   </form:select> 							                                    
+											</div>
+										</div>
+										<div class="row">
+											<div class="form-group col-md-12">
+												<label for="form_choose_reason">Reason Examination*</label>
+												<textarea class="form-control rounded-0" id="exampleFormControlTextarea2" name="moTaTrieuChung" rows="5"></textarea>
+											</div>
+										</div>
+										<div class="form-group">
+											<button class="btn btn-dark btn-lg btn-block mt-15"
+												type="submit" Style="background-color: Green">Schedule
+												Now</button>
+										</div>
+									</form>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

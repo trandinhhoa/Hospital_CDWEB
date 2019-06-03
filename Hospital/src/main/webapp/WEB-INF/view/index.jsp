@@ -163,12 +163,18 @@
 						<div class="col-md-6">
 							<div id="side-panel-trigger"
 								class="side-panel-trigger pull-right flip sm-pull-none mt-5">
-								<a href="#"><i class="fa fa-bars font-24 text-white"></i></a>
+								<a href="login/"><i class="fa fa-ambulance font-24 text-white"></i></a>
 							</div>
 							<div class="widget no-border m-0">
-								<ul
-									class="list-inline pull-right flip sm-pull-none sm-text-center mt-5">
-									<li><a href="#" class="text-white">Login</a></li>
+								<ul class="list-inline pull-right flip sm-pull-none sm-text-center mt-5">
+								<c:choose>       
+							         <c:when test = "${not empty email }">
+							             <li><a href="login/" class="text-white">${email }</a></li>
+							         </c:when> 
+							         <c:otherwise>
+							           <li><a href="login/" class="text-white">Login</a></li>
+							         </c:otherwise>					         
+							      </c:choose>									
 								</ul>
 							</div>
 						</div>

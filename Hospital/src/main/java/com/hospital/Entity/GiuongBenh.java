@@ -17,9 +17,6 @@ public class GiuongBenh implements Serializable {
 	@Id
 	private int id;
 
-	@Column(name="\"FK_BenhNhan\"")
-	private int FK_BenhNhan;
-
 	@Column(name="\"FK_TenPhongKham\"")
 	private int FK_TenPhongKham;
 
@@ -38,14 +35,6 @@ public class GiuongBenh implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getFK_BenhNhan() {
-		return this.FK_BenhNhan;
-	}
-
-	public void setFK_BenhNhan(int FK_BenhNhan) {
-		this.FK_BenhNhan = FK_BenhNhan;
 	}
 
 	public int getFK_TenPhongKham() {

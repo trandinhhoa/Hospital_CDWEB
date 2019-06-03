@@ -2,7 +2,6 @@ package com.hospital.Entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 
 /**
@@ -59,10 +58,10 @@ public class HenKhamBenh implements Serializable {
 	private String moTaTrieuChung;
 
 	@Column(name="\"NgayGui\"")
-	private Timestamp ngayGui;
+	private String ngayGui;
 
 	@Column(name="\"NgayHen\"")
-	private Timestamp ngayHen;
+	private String ngayHen;
 
 	@Column(name="\"SoDienThoaiDiDong\"")
 	private String soDienThoaiDiDong;
@@ -185,19 +184,19 @@ public class HenKhamBenh implements Serializable {
 		this.moTaTrieuChung = moTaTrieuChung;
 	}
 
-	public Timestamp getNgayGui() {
+	public String getNgayGui() {
 		return this.ngayGui;
 	}
 
-	public void setNgayGui(Timestamp ngayGui) {
+	public void setNgayGui(String ngayGui) {
 		this.ngayGui = ngayGui;
 	}
 
-	public Timestamp getNgayHen() {
+	public String getNgayHen() {
 		return this.ngayHen;
 	}
 
-	public void setNgayHen(Timestamp ngayHen) {
+	public void setNgayHen(String ngayHen) {
 		this.ngayHen = ngayHen;
 	}
 
