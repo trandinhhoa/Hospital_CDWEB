@@ -17,6 +17,7 @@ public class GiuongBenh implements Serializable {
 	@Id
 	private int id;
 
+	
 	@Column(name="\"FK_TenPhongKham\"")
 	private int FK_TenPhongKham;
 

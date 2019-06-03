@@ -350,7 +350,6 @@ margin-bottom: 10px;
 	</script>
 	<script type="text/javascript"
 		src="<c:url value="/resources/js/phuc.js"/>">
-		
 	</script>
 </body>
 </html>

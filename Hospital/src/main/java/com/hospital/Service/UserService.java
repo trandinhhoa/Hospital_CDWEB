@@ -19,8 +19,8 @@ public class UserService implements UserInterface{
 		return itemDAO.getListUser();
 	}
 
-	public User getUser(int id) {
-		return itemDAO.getUser(id);
+	public User getUser(String username) {
+		return itemDAO.getUser(username);
 	}
 
 	public void addUser(User item) {
@@ -43,5 +43,7 @@ public class UserService implements UserInterface{
 	public User login(String username, String pass) {
 		return itemDAO.login(username, pass);
 	}
+
+	
 
 }

@@ -1,0 +1,14 @@
+package com.hospital.Interface;
+
+import java.util.List;
+
+import com.hospital.Entity.*;
+
+public interface TenPhongKhamInterface {
+	List<TenPhongKham> getListTenPhongKham();
+	TenPhongKham getTenPhongKham(int id);
+	void addTenPhongKham(TenPhongKham item);
+	void deleteTenPhongKham(TenPhongKham item);
+	void updateTenPhongKham(TenPhongKham item);
+	long countAllTenPhongKham();
+}

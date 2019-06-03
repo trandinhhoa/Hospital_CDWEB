@@ -31,9 +31,9 @@ public class UserDAO implements UserInterface{
 	}
 	
 	@Transactional
-	public User getUser(int id) {
+	public User getUser(String username) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = "from User where UserName= '" + id + "'";
+		String sql = "from User where UserName= '" + username + "'";
 		User item = (User)session.createQuery(sql).getSingleResult();
 		return item;
 	}
@@ -74,5 +74,7 @@ public class UserDAO implements UserInterface{
 		User user = (User)session.createQuery(sql).getSingleResult();
 		return user;
 	}
+
+	
 }
 

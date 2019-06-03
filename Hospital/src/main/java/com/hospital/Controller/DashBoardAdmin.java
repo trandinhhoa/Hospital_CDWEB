@@ -12,14 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.hospital.Entity.KhoaPhong;
-import com.hospital.Entity.Permission;
-import com.hospital.Entity.User;
-import com.hospital.Entity.UserPermission;
-import com.hospital.Service.PermissionService;
-import com.hospital.Service.UserPermissionService;
+import com.hospital.Entity.*;
+import com.hospital.Service.*;
 
 @Controller
 @RequestMapping("/DashBoardAdmin")
@@ -30,10 +27,14 @@ public class DashBoardAdmin {
 	@Autowired
 	PermissionService permissionService = null;
 	
+	@Autowired
+	UserService userService = null;
+	
 	@GetMapping
 	@Transactional
-	public String Default(ModelMap modelmap,Model model,@ModelAttribute("user") User user) {
+	public String Default(ModelMap modelmap,Model model,@RequestParam String tendangnhap) {
 		
+		User user = userService.getUser(tendangnhap);
 		modelmap.addAttribute("user",user);
 		UserPermission userPerrmission = userpermissionService.getUserPermission(user.getUserName());
 		if(userPerrmission != null) {
