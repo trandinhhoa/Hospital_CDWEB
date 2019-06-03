@@ -66,61 +66,6 @@ public class HenLichKhamController {
 		return "henlichkham";
 	}
 	
-//	@PostMapping(value="datlichkham")
-//	public String datLichKham(@RequestParam int gioiTinh,@RequestParam int namSinh,@RequestParam String diaChi,@RequestParam String hoVaTen,
-//			                  @RequestParam String soDienThoaiDiDong,@RequestParam String diaChiEmail,@RequestParam String bacSi,@RequestParam String gioHen,
-//			                  @RequestParam String ngayHen,@RequestParam String moTaTrieuChung, @RequestParam String phongKham,ModelMap modelMap) {
-//		
-//		Date date = new Date();		
-//		HenKhamBenh khamBenh = new HenKhamBenh();	
-//		khamBenh.setId(new Random().nextInt(1000));
-//		khamBenh.setBacSi(bacSi);
-//		khamBenh.setDiaChi(diaChi);
-//		khamBenh.setDiaChiEmail(diaChiEmail);
-//		khamBenh.setFK_BacSi(1);
-//		khamBenh.setHoVaTen(hoVaTen);
-//		khamBenh.setMoTaTrieuChung(moTaTrieuChung);
-//		khamBenh.setSoDienThoaiDiDong(soDienThoaiDiDong);
-//		khamBenh.setNgayHen(convertStringToDate(ngayHen));
-//		khamBenh.setNgayGui(date);
-//		khamBenh.setFK_QuocTich(1);
-//		khamBenh.setFK_TinhTrangHonNhan(1);
-//		khamBenh.setFK_TrangThai(1);
-//		khamBenh.setSoDienThoaiNha("0123456789");
-//		
-//		
-//		if(gioiTinh == 1) {
-//			khamBenh.setGioiTinh(true);
-//		}else {
-//			khamBenh.setGioiTinh(false);
-//		}
-//		
-//		for (GioKham gioKham : listGioKhamDB) {
-//			if(gioKham.getGio().equals(gioHen)) {
-//				khamBenh.setFK_GioHen(gioKham.getId());
-//				break;
-//			}
-//		}
-//		
-//		for (NamSinh namsinh : listNamSinhDB) {
-//			if(namSinh == namsinh.getNam()) {
-//				khamBenh.setFK_NamSinh(namsinh.getId());
-//				break;
-//			}
-//		}
-//		
-//		for (PhongKham phongkham : listPhongKhamDB) {
-//			if(phongkham.getTenPhongKham().equals(phongKham)){
-//				khamBenh.setFK_ChuyenKhoa(phongkham.getId());
-//				break;
-//			}
-//		}
-//		
-//		henkhambenhService.addHenKhamBenh(khamBenh);
-//		
-//		return "henlichkham";
-//	}
-	
 	@PostMapping(value="datlichkham")
 	public String datLichKham(@ModelAttribute HenKhamBenh khamBenh,@RequestParam int gioitinh,@RequestParam int namSinh,@RequestParam String gioHen,
 			                  @RequestParam String phongKham) {
@@ -128,6 +73,8 @@ public class HenLichKhamController {
 		Date date = new Date();		
 		
 		khamBenh.setId(new Random().nextInt(1000));
+		khamBenh.setNgayGui(convertStringToDate(date));
+		
 		if(gioitinh == 1) {
 			khamBenh.setGioiTinh(true);
 		}else {
@@ -158,6 +105,18 @@ public class HenLichKhamController {
 		henkhambenhService.addHenKhamBenh(khamBenh);
 		
 		return "henlichkham";
+	}
+	
+	public String convertStringToDate(Date indate)
+	{
+	   String dateString = null;
+	   SimpleDateFormat sdfr = new SimpleDateFormat("yyyy-MM-dd");
+	   try{
+		dateString = sdfr.format(indate);
+	   }catch (Exception ex ){
+		System.out.println(ex);
+	   }
+	   return dateString;
 	}
 	
 }

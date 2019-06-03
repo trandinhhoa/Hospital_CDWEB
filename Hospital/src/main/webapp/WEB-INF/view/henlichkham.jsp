@@ -305,7 +305,7 @@
 											</div>
 										</div>
 									</div></li>
-								<li><a href="javascript:void(0)">Shortcodes</a>
+								<li><a href="henlichkham/">Schedule</a>
 									<div class="megamenu">
 										<div class="megamenu-row">
 											<div class="col3">
