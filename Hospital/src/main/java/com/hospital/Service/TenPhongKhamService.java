@@ -18,6 +18,10 @@ public class TenPhongKhamService implements TenPhongKhamInterface{
 		
 		return itemDAO.getListTenPhongKham();
 	}
+	
+	public List<TenPhongKham> getListTenPhongKhamByPhongKhamID(int phongkhamID) {
+		return itemDAO.getListTenPhongKhamByPhongKhamID(phongkhamID);
+	}
 
 	public TenPhongKham getTenPhongKham(int id) {
 		return itemDAO.getTenPhongKham(id);
@@ -39,4 +43,5 @@ public class TenPhongKhamService implements TenPhongKhamInterface{
 		return itemDAO.countAllTenPhongKham();
 	}
 
+	
 }

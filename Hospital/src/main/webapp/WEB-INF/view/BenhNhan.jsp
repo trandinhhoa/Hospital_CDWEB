@@ -191,38 +191,36 @@
 											<div class="chongiuongbenh" hidden="hidden">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h4 class="modal-title" style="text-align: center; font-style: italic;font-weight: bold;">Danh sách giường bệnh</h4>
+													<h4 class="modal-title"
+														style="text-align: center; font-style: italic; font-weight: bold;">Danh
+														sách giường bệnh</h4>
 												</div>
 												<div class="row">
 													<div class="ui-field-contain col-lg-6">
 														<label for="phongkham">Khoa:</label>
-														<c:forEach var="item" items="${listPhongKham}">
-															<div class="ui-field-contain">
-																<select name="${item.getId()}" id="${item.getId()}">
-																	<option value="${item.getId()}">${item.getTenPhongKham()}</option>
-																</select>
-															</div>
-														</c:forEach>
+														<div class="ui-field-contain">
+															<select class="form-control phongkhambyID" name="phongkhamID"
+																id="listPhongKham">
+																<c:forEach var="item" items="${listPhongKham}">
+																	<option value="${item.getId()}">${item.getTenPhongKham()}
+																	</option>
+																</c:forEach>
+															</select>
+														</div>
 													</div>
 													<div class="ui-field-contain col-lg-6">
-														<label for="select-1">Tên phòng:</label> <select
-															name="select-1" id="select-1">
-															<option value="A">A</option>
-															<option value="B">B</option>
-															<option value="C">C</option>
-														</select>
+														<label for="listTenPhongKham">Tên phòng:</label>
+														<div class="ui-field-contain">
+															<form:select path="listTenPhongKham" class="form-control"
+																name="listTenPhongKham" id="listTenPhongKham">
+																<c:forEach var="lst" items="${listTenPhongKham}">
+																	<form:option value="${lst.getId()}">${lst.getTenPhongKham()}</form:option>
+																</c:forEach>
+															</form:select>
+														</div>
 													</div>
+
 													<div class="col-lg-12">
-														<%-- <c:forEach var="item" items="${listgiuongbenh}">
-														<c:choose>
-															<c:when test="${item.getstatus() == 0}">
-																<Button style="border-color: green;">${item.getSoGiuong()}</Button>
-															</c:when>
-															<c:when test="${item.getstatus() == 1}">
-																<Button style="border-color: red;">${item.getSoGiuong()}</Button>
-															</c:when>
-														</c:choose>
-													</c:forEach> --%>
 														<button class="btn info">01</button>
 														<button class="btn info">02</button>
 														<button class="btn info">03</button>

@@ -122,4 +122,32 @@ $(document).ready(
 							}
 						})
 					});
+			
+//			$(".phongkhambyID").click(
+//					function() {
+//						var phongkhamID = $(".phongkhambyID").val();
+//						$.ajax({
+//							url : "/Hospital/QuanLyBenhNhan",
+//							type : "GET",
+//							data : {
+//								phongkhamID : phongkhamID,
+//
+//							},
+//							success : function(value) {
+//								duongDanHIenTai = window.location.href;
+//								if (value == "false") {
+//									window.location = duongDanHIenTai;
+//								} else if (value == "true") {
+//									window.location = duongDanHIenTai.replace(
+//											"QuanLyBenhNhan", "");
+//								}
+//							}
+//						})
+//					});
 		});
+/*$(document).ready(function() {
+	$("select.phongkhambyID").change(function() {
+		var selectedCountry = $(this).children("option:selected").val();
+		alert("You have selected the country - " + selectedCountry);
+	});
+});*/

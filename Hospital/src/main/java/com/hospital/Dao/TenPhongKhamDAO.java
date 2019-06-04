@@ -66,5 +66,15 @@ public class TenPhongKhamDAO implements TenPhongKhamInterface{
 		long countTenPhongKham = (Long)session.createQuery(sql).getSingleResult();
 		return countTenPhongKham;
 	}
+
+	@Transactional
+	public List<TenPhongKham> getListTenPhongKhamByPhongKhamID(int phongkhamID) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "select TenPhongKham.TenPhongKham from TenPhongKham JOIN PhongKham ON TenPhongKham.FK_PhongKham = PhongKham.ID where PhongKham.ID = "+ phongkhamID;	
+		@SuppressWarnings("unchecked")
+		List<TenPhongKham> listTenPhongKhamByFK_PhongKham = (List<TenPhongKham>) session.createQuery(sql).getResultList();
+		return listTenPhongKhamByFK_PhongKham;
+	}
+
 }
 
