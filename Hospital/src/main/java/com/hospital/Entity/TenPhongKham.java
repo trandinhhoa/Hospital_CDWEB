@@ -61,4 +61,11 @@ public class TenPhongKham implements Serializable {
 		this.tenPhongKham = tenPhongKham;
 	}
 
+	@Override
+	public String toString() {
+		return "TenPhongKham [id=" + id + ", FK_LoaiPhongKham=" + FK_LoaiPhongKham + ", FK_PhongKham=" + FK_PhongKham
+				+ ", tenPhongKham=" + tenPhongKham + "]";
+	}
+	
+	
 }

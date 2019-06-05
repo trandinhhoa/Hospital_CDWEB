@@ -3,6 +3,7 @@ package com.hospital.Interface;
 import java.util.List;
 
 import com.hospital.Entity.*;
+import com.hospital.model.TenPhongKhamModel;
 
 public interface TenPhongKhamInterface {
 	List<TenPhongKham> getListTenPhongKham();

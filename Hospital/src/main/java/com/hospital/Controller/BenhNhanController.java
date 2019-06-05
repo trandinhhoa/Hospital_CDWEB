@@ -20,7 +20,7 @@ import com.hospital.Service.*;
 @Controller
 @RequestMapping("/QuanLyBenhNhan")
 public class BenhNhanController {
-
+	//private List<TenPhongKham> listTenPhongKham=null;
 	@Autowired
 	BenhNhanService benhnhanService = null;
 	@Autowired
@@ -31,30 +31,30 @@ public class BenhNhanController {
 	@GetMapping
 	@Transactional
 	public String Default(ModelMap modelmap, Model model, @ModelAttribute("hovaten") String hovaten,
+			@RequestParam(value = "phongkhamID", required = false) String phongkhamID,
 			@ModelAttribute("permissionName") String permissionName) {
 		List<BenhNhan> listBenhNhan = benhnhanService.getListBenhNhan();
 		List<PhongKham> listPhongKham = phongKhamService.getListPhongKham();
-		//List<TenPhongKham> listTenPhongKham = tenphongkhamService.getListTenPhongKhamByPhongKhamID(2);
-//		if(phongkhamID==0) {
-//			phongkhamID=1;
-//		}
-
-		//modelmap.addAttribute("listTenPhongKham", listTenPhongKham);
+		List<TenPhongKham> listTenPhongKham=null;
+		int iD;
+		if (phongkhamID == null) {
+			phongkhamID = "1";
+			iD = Integer.parseInt(phongkhamID);
+		} else {
+			iD = Integer.parseInt(phongkhamID);
+		}
+		listTenPhongKham = tenphongkhamService.getListTenPhongKhamByPhongKhamID(iD);
+		modelmap.addAttribute("listTenPhongKham", listTenPhongKham);
 		modelmap.addAttribute("listBenhNhan", listBenhNhan);
 		modelmap.addAttribute("listPhongKham", listPhongKham);
 		modelmap.addAttribute("hovaten", hovaten);
 		modelmap.addAttribute("permissionName", permissionName);
-		// model.addAttribute("khoaphongSaveorUpdate",new KhoaPhong());
 		return "BenhNhan";
 	}
 
 	@GetMapping(value = "/getBenhNhan")
 	@Transactional
 	public void a(@ModelAttribute("benhnhan") BenhNhan benhnhan, ModelMap modelmap) {
-		/*
-		 * List<KhoaPhong> listKhoaPhong = khoaphongService.getListKhoaPhong();
-		 * modelmap.addAttribute("listKhoaPhong",listKhoaPhong);
-		 */
 		modelmap.addAttribute("benhnhan", benhnhan);
 		return;
 	}

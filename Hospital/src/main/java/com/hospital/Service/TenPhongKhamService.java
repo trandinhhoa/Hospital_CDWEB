@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.hospital.Dao.*;
 import com.hospital.Interface.*;
+import com.hospital.model.TenPhongKhamModel;
 import com.hospital.Entity.*;
 @Service
 public class TenPhongKhamService implements TenPhongKhamInterface{
