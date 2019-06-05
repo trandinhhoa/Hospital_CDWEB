@@ -20,12 +20,7 @@ $(document).ready(function() {
 		});
 	});
 });
-/*
- * $('.btn-primary').on('click', function () { $('.centererUpdate').show(); var
- * item = $(e.relatedTarget).data('index'); var modal = $(this)
- * modal.find('.modal-title').text('Cập nhật khoa phòng ' + item.tenKhoaPhong)
- * modal.find('#tenkhoaphong').val(i) })
- */
+
 $('#dataTables-example tbody').on('click', '.btn-primary', function() {
 
 	var currentRow = $(this).closest('tr');
@@ -64,6 +59,14 @@ $('.close').on('click', function() {
 $('#closeSave').on('click', function() {
 	$('.centererSave').hide();
 })
+$('.noSelect').on('click', function() {
+	alert("Đã có bệnh nhân. Vui lòng chọn giường khác!");
+});
+
+$(".chongiuongnay").click(function(){
+	var item=$(this).val();
+    $(".hienthigiuongchon").val(item);
+  });
 
 $(".btn-block").click(
 		function() {
@@ -127,21 +130,51 @@ $(document).ready(
 						var phongkhamID = $(this).children("option:selected")
 								.val();
 						console.log(phongkhamID);
-						$.ajax({
-							url : "/Hospital/QuanLyBenhNhan",
-							type : "GET",
-							data : {
-								phongkhamID : phongkhamID,
-							},
-							success : function(value) {
-								duongDanHIenTai = window.location.href;
-								if (value == "false") {
-									window.location = duongDanHIenTai;
-								} else if (value == "true") {
-									window.location = duongDanHIenTai.replace(
-											"QuanLyBenhNhan", "QuanLyBenhNhan");
-								}
-							}
-						})
+						$
+								.ajax({
+									url : "/Hospital/QuanLyBenhNhan",
+									type : "GET",
+									data : {
+										phongkhamID : phongkhamID,
+									},
+									success : function(value) {
+										duongDanHIenTai = window.location.href;
+										if (value == "false") {
+											window.location = duongDanHIenTai;
+										} else if (value == "true") {
+											window.location = duongDanHIenTai
+													.replace("QuanLyBenhNhan",
+															"QuanLyBenhNhan");
+										}
+									}
+								})
+					});
+		});
+
+$(document).ready(
+		function() {
+			$("select.tenphongkhambyID").change(
+					function() {
+						var tenphongkhamID = $(this)
+								.children("option:selected").val();
+						console.log(tenphongkhamID);
+						$
+								.ajax({
+									url : "/Hospital/QuanLyBenhNhan",
+									type : "GET",
+									data : {
+										tenphongkhamID : tenphongkhamID,
+									},
+									success : function(value) {
+										duongDanHIenTai = window.location.href;
+										if (value == "false") {
+											window.location = duongDanHIenTai;
+										} else if (value == "true") {
+											window.location = duongDanHIenTai
+													.replace("QuanLyBenhNhan",
+															"QuanLyBenhNhan");
+										}
+									}
+								})
 					});
 		});

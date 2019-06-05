@@ -174,9 +174,9 @@
 												<label class="control-label col-sm-2" for="FK_GiuongBenh">Số
 													giường</label>
 												<div class="col-sm-10">
-													<input class="form-control" id="FK_GiuongBenh"
-														placeholder="Số giường" name="FK_GiuongBenh"
-														disabled="disabled" />
+													<input class="form-control hienthigiuongchon"
+														id="FK_GiuongBenh" placeholder="Số giường" disabled="disabled"
+														name="FK_GiuongBenh" />
 												</div>
 											</div>
 											<div class="form-group">
@@ -199,8 +199,8 @@
 													<div class="ui-field-contain col-lg-6">
 														<label for="phongkham">Khoa:</label>
 														<div class="ui-field-contain">
-															<select class="form-control phongkhambyID" name="phongkhamID"
-																id="listPhongKham">
+															<select class="form-control phongkhambyID"
+																name="phongkhamID" id="listPhongKham">
 																<c:forEach var="item" items="${listPhongKham}">
 																	<option value="${item.getId()}">${item.getTenPhongKham()}
 																	</option>
@@ -211,24 +211,36 @@
 													<div class="ui-field-contain col-lg-6">
 														<label for="listTenPhongKham">Tên phòng:</label>
 														<div class="ui-field-contain">
-															<form:select path="listTenPhongKham" class="form-control"
-																name="listTenPhongKham" id="listTenPhongKham">
+															<select class="form-control tenphongkhambyID"
+																name="tenphongkhamID" id="listTenPhongKham">
 																<c:forEach var="lst" items="${listTenPhongKham}">
-																	<form:option value="${lst.getId()}">${lst.getTenPhongKham()}</form:option>
+																	<option value="${lst.getId()}">${lst.getTenPhongKham()}</option>
 																</c:forEach>
-															</form:select>
+															</select>
 														</div>
 													</div>
 
-													<div class="col-lg-12">
-														<button class="btn info">01</button>
-														<button class="btn info">02</button>
-														<button class="btn info">03</button>
-														<button class="btn info">04</button>
+													<div class="ui-field-contain col-lg-12">
+														<label for="listTenGiuongBenh">Tên giường bệnh:</label>
+														<div class="ui-field-contain">
+															<c:forEach var="item" items="${listGiuongBenh}">
+																<c:choose>
+																	<c:when test="${item.getStatus() == 0}">
+																		<button type="button" name="select_GB"
+																			class="btn info chongiuongnay"
+																			value="${item.getSoGiuong()}">${item.getSoGiuong()}</button>
+																	</c:when>
+																	<c:when test="${item.getStatus() == 1}">
+																		<button type="button" class="btn info noSelect"
+																			style="border-color: red">${item.getSoGiuong()}</button>
+																	</c:when>
+																</c:choose>
+															</c:forEach>
+														</div>
 													</div>
 												</div>
 												<div class="modal-footer">
-													<button type="button" class="btn btn-info btn-sm"
+													<button type="button" class="btn btn-success btn-sm"
 														data-dismiss="modal">Lưu</button>
 												</div>
 											</div>

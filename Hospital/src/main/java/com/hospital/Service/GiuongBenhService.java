@@ -18,7 +18,11 @@ public class GiuongBenhService implements GiuongBenhInterface{
 		
 		return itemDAO.getListGiuongBenh();
 	}
-
+	
+	public List<GiuongBenh> getListGiuongBenhByTenPhongKhamID(int tenphongkhamID) {
+		return itemDAO.getListGiuongBenhByTenPhongKhamID(tenphongkhamID);
+	}
+	
 	public GiuongBenh getGiuongBenh(int id) {
 		return itemDAO.getGiuongBenh(id);
 	}
