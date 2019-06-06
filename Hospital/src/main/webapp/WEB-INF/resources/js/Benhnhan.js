@@ -132,7 +132,7 @@ $(document).ready(
 						console.log(phongkhamID);
 						$
 								.ajax({
-									url : "/Hospital/QuanLyBenhNhan",
+									url : "/Hospital/QuanLyBenhNhan/getPK",
 									type : "GET",
 									data : {
 										phongkhamID : phongkhamID,
@@ -144,7 +144,7 @@ $(document).ready(
 										} else if (value == "true") {
 											window.location = duongDanHIenTai
 													.replace("QuanLyBenhNhan",
-															"QuanLyBenhNhan");
+															"BenhNhan");
 										}
 									}
 								})
@@ -160,7 +160,7 @@ $(document).ready(
 						console.log(tenphongkhamID);
 						$
 								.ajax({
-									url : "/Hospital/QuanLyBenhNhan",
+									url : "/Hospital/QuanLyBenhNhan/getGB",
 									type : "GET",
 									data : {
 										tenphongkhamID : tenphongkhamID,

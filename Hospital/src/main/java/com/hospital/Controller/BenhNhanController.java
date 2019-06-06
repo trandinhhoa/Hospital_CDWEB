@@ -20,7 +20,7 @@ import com.hospital.Service.*;
 @Controller
 @RequestMapping("/QuanLyBenhNhan")
 public class BenhNhanController {
-	//private List<TenPhongKham> listTenPhongKham=null;
+	// private List<TenPhongKham> listTenPhongKham=null;
 	@Autowired
 	BenhNhanService benhnhanService = null;
 	@Autowired
@@ -29,40 +29,15 @@ public class BenhNhanController {
 	TenPhongKhamService tenphongkhamService;
 	@Autowired
 	GiuongBenhService giuongbenhService;
+	List<TenPhongKham> listTenPhongKham;
+	List<GiuongBenh> listGiuongBenh;
+
 	@GetMapping
 	@Transactional
 	public String Default(ModelMap modelmap, Model model, @ModelAttribute("hovaten") String hovaten,
-			@RequestParam(value = "phongkhamID", required = false) String phongkhamID,
-			@RequestParam(value = "tenphongkhamID", required = false) String tenphongkhamID,
 			@ModelAttribute("permissionName") String permissionName) {
 		List<BenhNhan> listBenhNhan = benhnhanService.getListBenhNhan();
 		List<PhongKham> listPhongKham = phongKhamService.getListPhongKham();
-		List<TenPhongKham> listTenPhongKham=null;
-		List<GiuongBenh> listGiuongBenh=null;
-		//TenPhongKham
-		int iD;
-		if (phongkhamID == null) {
-			phongkhamID = "1";
-			iD = Integer.parseInt(phongkhamID);
-		} else {
-			iD = Integer.parseInt(phongkhamID);
-		}
-		
-		//GiuongBenh
-		int tenphongkham_iD;
-		if (tenphongkhamID == null) {
-			tenphongkhamID = "1";
-			tenphongkham_iD = Integer.parseInt(tenphongkhamID);
-		} else {
-			tenphongkham_iD = Integer.parseInt(tenphongkhamID);
-		}
-		
-		listTenPhongKham = tenphongkhamService.getListTenPhongKhamByPhongKhamID(iD);
-		modelmap.addAttribute("listTenPhongKham", listTenPhongKham);
-		
-		listGiuongBenh = giuongbenhService.getListGiuongBenhByTenPhongKhamID(tenphongkham_iD);
-		modelmap.addAttribute("listGiuongBenh", listGiuongBenh);
-		
 		modelmap.addAttribute("listBenhNhan", listBenhNhan);
 		modelmap.addAttribute("listPhongKham", listPhongKham);
 		modelmap.addAttribute("hovaten", hovaten);
@@ -77,11 +52,32 @@ public class BenhNhanController {
 		return;
 	}
 
+	@GetMapping(value = "/getPK")
+	@Transactional
+	public String getTenPK(ModelMap modelmap,
+			@RequestParam(value = "phongkhamID", required = false) String phongkhamID) {
+		int iD;
+		iD = Integer.parseInt(phongkhamID);
+		listTenPhongKham = tenphongkhamService.getListTenPhongKhamByPhongKhamID(iD);
+		modelmap.addAttribute("listTenPhongKham", listTenPhongKham);
+		return "redirect:/QuanLyBenhNhan";
+	}
+
+	@GetMapping(value = "/getGB")
+	@Transactional
+	public String getTenGB(ModelMap modelmap,
+			@RequestParam(value = "tenphongkhamID", required = false) String tenphongkhamID) {
+		int tenphongkham_iD;
+		tenphongkham_iD = Integer.parseInt(tenphongkhamID);
+		listGiuongBenh = giuongbenhService.getListGiuongBenhByTenPhongKhamID(tenphongkham_iD);
+		modelmap.addAttribute("listGiuongBenh", listGiuongBenh);
+		return "redirect:/QuanLyBenhNhan";
+	}
+
 	@GetMapping(value = "/edit/{id_benh_nhan}")
 	@Transactional
 	public String geteditBenhNhan(@PathVariable int id_benh_nhan, ModelMap modelmap,
 			RedirectAttributes redirectAttributes) {
-
 		BenhNhan benhnhan = benhnhanService.getBenhNhan(id_benh_nhan);
 		modelmap.addAttribute("benhnhan", benhnhan);
 		redirectAttributes.addFlashAttribute("benhnhan", benhnhan);
@@ -109,7 +105,7 @@ public class BenhNhanController {
 		benhnhan.setFK_GiuongBenh(FK_GiuongBenh);
 		benhnhan.setQueQuan(QueQuan);
 		benhnhanService.addBenhNhan(benhnhan);
-		
+
 //		GiuongBenh giuongbenh=giuongbenhService.getGiuongBenh(FK_GiuongBenh);
 //		giuongbenh.setStatus(1);
 //		giuongbenhService.updateGiuongBenh(giuongbenh);

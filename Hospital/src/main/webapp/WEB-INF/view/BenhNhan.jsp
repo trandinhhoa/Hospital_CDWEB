@@ -175,8 +175,8 @@
 													giường</label>
 												<div class="col-sm-10">
 													<input class="form-control hienthigiuongchon"
-														id="FK_GiuongBenh" placeholder="Số giường" disabled="disabled"
-														name="FK_GiuongBenh" />
+														id="FK_GiuongBenh" placeholder="Số giường"
+														disabled="disabled" name="FK_GiuongBenh" />
 												</div>
 											</div>
 											<div class="form-group">
@@ -239,14 +239,11 @@
 														</div>
 													</div>
 												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-success btn-sm"
-														data-dismiss="modal">Lưu</button>
-												</div>
 											</div>
 
-											<div class="form-group">
-												<div class="col-sm-offset-2 col-sm-10">
+											<div class="form-group row">
+												<div class="col-sm-10"></div>
+												<div class="col-sm-2">
 													<button type="submit" class="btn btn-success">Thêm</button>
 												</div>
 											</div>
