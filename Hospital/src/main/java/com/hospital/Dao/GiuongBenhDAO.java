@@ -66,5 +66,13 @@ public class GiuongBenhDAO implements GiuongBenhInterface{
 		long countGiuongBenh = (Long)session.createQuery(sql).getSingleResult();
 		return countGiuongBenh;
 	}
+	@Transactional
+	public List<GiuongBenh> getListGiuongBenhByTenPhongKhamID(int tenphongkhamID) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "from GiuongBenh where FK_TenPhongKham = '"+ tenphongkhamID +"'";	
+		@SuppressWarnings("unchecked")
+		List<GiuongBenh> listGiuongBenhByFK_TenPhongKham = (List<GiuongBenh>)session.createQuery(sql).getResultList();
+		return listGiuongBenhByFK_TenPhongKham;
+	}
 }
 

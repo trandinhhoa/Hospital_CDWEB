@@ -6,6 +6,7 @@ import com.hospital.Entity.*;
 
 public interface TenPhongKhamInterface {
 	List<TenPhongKham> getListTenPhongKham();
+	List<TenPhongKham> getListTenPhongKhamByPhongKhamID(int phongkhamID);
 	TenPhongKham getTenPhongKham(int id);
 	void addTenPhongKham(TenPhongKham item);
 	void deleteTenPhongKham(TenPhongKham item);

@@ -12,6 +12,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 
 import com.hospital.Interface.*;
+import com.hospital.model.*;
 import com.hospital.Entity.*;
 
 @Repository
@@ -66,5 +67,15 @@ public class TenPhongKhamDAO implements TenPhongKhamInterface{
 		long countTenPhongKham = (Long)session.createQuery(sql).getSingleResult();
 		return countTenPhongKham;
 	}
+
+	@Transactional
+	public List<TenPhongKham> getListTenPhongKhamByPhongKhamID(int phongkhamID) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "from TenPhongKham where FK_PhongKham = '"+ phongkhamID +"'";	
+		@SuppressWarnings("unchecked")
+		List<TenPhongKham> listTenPhongKhamByFK_PhongKham = (List<TenPhongKham>)session.createQuery(sql).getResultList();
+		return listTenPhongKhamByFK_PhongKham;
+	}
+
 }
 
