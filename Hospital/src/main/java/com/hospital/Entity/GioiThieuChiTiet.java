@@ -46,7 +46,6 @@ public class GioiThieuChiTiet implements Serializable {
 	public GioiThieuChiTiet() {
 	}
 
-
 	public String getFK_UserModify() {
 		return this.FK_UserModify;
 	}

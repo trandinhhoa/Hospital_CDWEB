@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <!DOCTYPE html>
 <html dir="ltr" lang="en" xmlns:th="http://www.thymeleaf.org">
@@ -78,7 +78,6 @@
 <link href="<c:url value="/resources/css/colors/theme-skin-blue.css"/>"
 	rel="stylesheet" type="text/css">
 
-
 <script src="<c:url value="/resources/js/jquery-2.2.0.min.js"/>"></script>
 <script src="<c:url value="/resources/js/jquery-ui.min.js"/>"></script>
 <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
@@ -90,6 +89,7 @@
 	src="<c:url value="/resources/js/revolution-slider/js/jquery.themepunch.tools.min.js"/>"></script>
 <script
 	src="<c:url value="/resources/js/revolution-slider/js/jquery.themepunch.revolution.min.js"/>"></script>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 </head>
 <body class="">
 	<div id="wrapper">
@@ -369,12 +369,14 @@
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
 							<ul class="nav nav-tabs" data-tabs="tabs">
-								<li class="active"><a href="#schedule-tab" Style="font-size: 20px"
-									data-toggle="tab">Schedule Examination</a></li>
+								<li class="active"><a href="#schedule-tab"
+									Style="font-size: 20px" data-toggle="tab">Schedule
+										Examination</a></li>
 							</ul>
 							<div class="tab-content">
 								<div class="tab-pane fade in active p-15" id="schedule-tab">
-									<form name="reg-form" class="register-form" action="datlichkham" method="POST">
+									<form name="reg-form" class="register-form"
+										action="datlichkham/" method="POST" id="formRequired">
 										<div class="icon-box mb-0 p-0">
 											<a href="#"
 												class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
@@ -384,43 +386,36 @@
 												login to use this function. Please!!!</h4>
 										</div>
 										<hr>
-										<input type="hidden" name="id" value="0"/>
-										<input type="hidden" name="FK_BacSi" value="1"/>
-										<input type="hidden" name="FK_QuocTich" value="1"/>
-										<input type="hidden" name="FK_TinhTrangHonNhan" value="1"/>
-										<input type="hidden" name="FK_TrangThai" value="1"/>
-										<input type="hidden" name="gioiTinh" value="true"/>
-										<input type="hidden" name="ngayGui" value="2019-06-01"/>
-										<input type="hidden" name="soDienThoaiNha" value="0147852369"/>
-										<input type="hidden" name="FK_ChuyenKhoa" value="1"/>
-										<input type="hidden" name="FK_GioHen" value="1"/>
-										<input type="hidden" name="FK_NamSinh" value="1"/>
+										<input type="hidden" name="id" value="1" /> <input
+											type="hidden" name="FK_BacSi" value="1" /> <input
+											type="hidden" name="gioiTinh" value="true" /> <input
+											type="hidden" name="ngayGui" value="2019-06-01" /> 
 										<div class="row">
 											<div class="form-group col-md-12">
 												<label for="form_choose_username">Name*</label> <input
 													id="form_choose_username" name="hoVaTen"
-													class="form-control" type="text">
+													class="form-control" type="text" required>
 											</div>
 										</div>
 										<div class="row">
 											<div class="form-group col-md-12">
 												<label for="form_choose_username">Address*</label> <input
-													id="form_choose_address" name="diaChi"
-													class="form-control" type="text">
+													id="form_choose_address" name="diaChi" class="form-control"
+													type="text" required>
 											</div>
 										</div>
 										<div class="row">
 											<div class="form-group col-md-12">
 												<label for="form_choose_username">Telephone*</label> <input
 													id="form_choose_telephone" name="soDienThoaiDiDong"
-													class="form-control" type="text">
+													class="form-control" type="text" required>
 											</div>
 										</div>
 										<div class="row">
 											<div class="form-group col-md-12">
 												<label for="form_choose_username">Email Address*</label> <input
-													id="form_choose_email" name="diaChiEmail" class="form-control"
-													type="text">
+													id="form_choose_email" name="diaChiEmail"
+													class="form-control" type="text" required>
 											</div>
 										</div>
 
@@ -430,15 +425,17 @@
 												<div class="form-inline required">
 													<div class="form-group has-feedback">
 														<label class="input-group"> <span
-															class="input-group-addon"> <input type="radio" name="gioitinh" value="0" />
+															class="input-group-addon"> <input type="radio"
+																name="gioitinh" value="0" />
 														</span>
 															<div class="form-control form-control-static">Male</div>
 															<span class="glyphicon form-control-feedback "></span>
 														</label>
 													</div>
 													<div class="form-group has-feedback ">
-														<label class="input-group"> <span class="input-group-addon"> 
-															<input type="radio" name="gioitinh" value="1" />
+														<label class="input-group"> <span
+															class="input-group-addon"> <input type="radio"
+																name="gioitinh" value="1" />
 														</span>
 															<div class="form-control form-control-static">Female</div>
 															<span class="glyphicon form-control-feedback "></span>
@@ -450,18 +447,22 @@
 
 										<div class="row">
 											<div class="form-group col-md-12">
-												<label for="form_choose_username">Year of Birth*</label> 
-												<form:select path ="listNamSinh" class="form-control" name="namSinh" >
-								                     <form:options items ="${listNamSinh }"/>
-							                   </form:select>
+												<label for="form_choose_username">Year of Birth*</label> <select
+													name="FK_NamSinh" class="form-control">
+													<c:forEach items="${listNamSinh }" var="v">
+														<option value="${v.getId()}">${v.getNam()}</option>
+													</c:forEach>
+												</select>
 											</div>
 										</div>
 										<div class="row">
 											<div class="form-group col-md-12">
-												<label for="form_choose_username">Specialized Faculty*</label> 
-												<form:select path ="listPhongKham" class="form-control" name="phongKham">
-								                     <form:options items ="${listPhongKham}"/>
-							                   </form:select>
+												<label for="form_choose_username">Specialized
+													Faculty*</label> <select name="FK_ChuyenKhoa" class="form-control">
+													<c:forEach items="${listPhongKham }" var="v">
+														<option value="${v.getId()}">${v.getTenPhongKham()}</option>
+													</c:forEach>
+												</select>
 											</div>
 										</div>
 										<div class="row">
@@ -475,19 +476,23 @@
 											<div class="form-group col-md-6">
 												<label for="form_choose_password">Date</label> <input
 													id="form_choose_date" name="ngayHen" class="form-control"
-													type="date">
+													type="date" required>
 											</div>
 											<div class="form-group col-md-6">
-												<label>Hour</label>
-												<form:select path ="listGioKham" class="form-control" name="gioHen">
-								                     <form:options items ="${listGioKham}"/>
-							                   </form:select> 							                                    
+												<label>Hour</label> <select name="FK_GioHen"
+													class="form-control">
+													<c:forEach items="${listGioKham }" var="v">
+														<option value="${v.getId()}">${v.getGio()}</option>
+													</c:forEach>
+												</select>
 											</div>
 										</div>
 										<div class="row">
 											<div class="form-group col-md-12">
 												<label for="form_choose_reason">Reason Examination*</label>
-												<textarea class="form-control rounded-0" id="exampleFormControlTextarea2" name="moTaTrieuChung" rows="5"></textarea>
+												<textarea class="form-control rounded-0"
+													id="exampleFormControlTextarea2" name="moTaTrieuChung"
+													rows="5" required></textarea>
 											</div>
 										</div>
 										<div class="form-group">

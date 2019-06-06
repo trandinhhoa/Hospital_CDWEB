@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,14 +38,32 @@ public class HenKhamBenhDAO implements HenKhamBenhInterface{
 		HenKhamBenh item = (HenKhamBenh)session.createQuery(sql).getSingleResult();
 		return item;
 	}
+	
 	@Transactional
 	public void addHenKhamBenh(HenKhamBenh item) {
-		try {
-			Session session = sessionFactory.getCurrentSession();
-			session.save(item); 
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
+//			sessionFactory.getCurrentSession().save(item);
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "insert into [HenKhamBenh] ([FK_BacSi], [FK_ChuyenKhoa], [FK_GioHen], [FK_NamSinh], [BacSi], [DiaChi], [DiaChiEmail], [GioiTinh], [HoVaTen], [MoTaTrieuChung], [NgayGui], [NgayHen], [SoDienThoaiDiDong], id) "
+				+ " values (:FK_BacSi, :FK_ChuyenKhoa, :FK_GioHen, :FK_NamSinh, :BacSi, :DiaChi, :DiaChiEmail, :GioiTinh, :HoVaTen, :MoTaTrieuChung, :NgayGui, :NgayHen, :SoDienThoaiDiDong, :id)";
+		SQLQuery<HenKhamBenh> query = session.createSQLQuery(sql);
+		query.setParameter("BacSi", item.getBacSi());
+		query.setParameter("FK_ChuyenKhoa", item.getFK_ChuyenKhoa());
+		query.setParameter("FK_GioHen", item.getFK_GioHen());
+		query.setParameter("FK_NamSinh", item.getFK_NamSinh());
+		query.setParameter("GioiTinh", item.getGioiTinh());
+		query.setParameter("HoVaTen", item.getHoVaTen());
+		query.setParameter("id", item.getId());
+		query.setParameter("MoTaTrieuChung", item.getMoTaTrieuChung());
+		query.setParameter("NgayGui", item.getNgayGui());
+		query.setParameter("NgayHen", item.getNgayHen());
+		query.setParameter("SoDienThoaiDiDong", item.getSoDienThoaiDiDong());
+		query.setParameter("DiaChi", item.getDiaChi());
+		query.setParameter("DiaChiEmail", item.getDiaChiEmail());
+		query.setParameter("FK_BacSi", item.getFK_BacSi());
+		query.executeUpdate();
+		System.out.println("success");
+
+		
 	}
 	
 	@Transactional

@@ -9,7 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name="\"HenKhamBenh\"")
+@Table(name="HenKhamBenh")
 @NamedQuery(name="HenKhamBenh.findAll", query="SELECT h FROM HenKhamBenh h")
 public class HenKhamBenh implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -38,15 +38,6 @@ public class HenKhamBenh implements Serializable {
 	@Column(name="\"FK_NamSinh\"")
 	private int FK_NamSinh;
 
-	@Column(name="\"FK_QuocTich\"")
-	private int FK_QuocTich;
-
-	@Column(name="\"FK_TinhTrangHonNhan\"")
-	private int FK_TinhTrangHonNhan;
-
-	@Column(name="\"FK_TrangThai\"")
-	private int FK_TrangThai;
-
 	@Column(name="\"GioiTinh\"")
 	private boolean gioiTinh;
 
@@ -65,9 +56,6 @@ public class HenKhamBenh implements Serializable {
 
 	@Column(name="\"SoDienThoaiDiDong\"")
 	private String soDienThoaiDiDong;
-
-	@Column(name="\"SoDienThoaiNha\"")
-	private String soDienThoaiNha;
 
 	public HenKhamBenh() {
 	}
@@ -136,30 +124,6 @@ public class HenKhamBenh implements Serializable {
 		this.FK_NamSinh = FK_NamSinh;
 	}
 
-	public int getFK_QuocTich() {
-		return this.FK_QuocTich;
-	}
-
-	public void setFK_QuocTich(int FK_QuocTich) {
-		this.FK_QuocTich = FK_QuocTich;
-	}
-
-	public int getFK_TinhTrangHonNhan() {
-		return this.FK_TinhTrangHonNhan;
-	}
-
-	public void setFK_TinhTrangHonNhan(int FK_TinhTrangHonNhan) {
-		this.FK_TinhTrangHonNhan = FK_TinhTrangHonNhan;
-	}
-
-	public int getFK_TrangThai() {
-		return this.FK_TrangThai;
-	}
-
-	public void setFK_TrangThai(int FK_TrangThai) {
-		this.FK_TrangThai = FK_TrangThai;
-	}
-
 	public boolean getGioiTinh() {
 		return this.gioiTinh;
 	}
@@ -206,14 +170,6 @@ public class HenKhamBenh implements Serializable {
 
 	public void setSoDienThoaiDiDong(String soDienThoaiDiDong) {
 		this.soDienThoaiDiDong = soDienThoaiDiDong;
-	}
-
-	public String getSoDienThoaiNha() {
-		return this.soDienThoaiNha;
-	}
-
-	public void setSoDienThoaiNha(String soDienThoaiNha) {
-		this.soDienThoaiNha = soDienThoaiNha;
 	}
 
 }
