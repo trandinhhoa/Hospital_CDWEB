@@ -212,30 +212,16 @@
 														<label for="listTenPhongKham">Tên phòng:</label>
 														<div class="ui-field-contain">
 															<select class="form-control tenphongkhambyID"
-																name="tenphongkhamID" id="listTenPhongKham">
-																<c:forEach var="lst" items="${listTenPhongKham}">
-																	<option value="${lst.getId()}">${lst.getTenPhongKham()}</option>
-																</c:forEach>
+																name="tenphongkhamID" id="listTPK">
 															</select>
 														</div>
 													</div>
 
 													<div class="ui-field-contain col-lg-12">
 														<label for="listTenGiuongBenh">Tên giường bệnh:</label>
-														<div class="ui-field-contain">
-															<c:forEach var="item" items="${listGiuongBenh}">
-																<c:choose>
-																	<c:when test="${item.getStatus() == 0}">
-																		<button type="button" name="select_GB"
-																			class="btn info chongiuongnay"
-																			value="${item.getSoGiuong()}">${item.getSoGiuong()}</button>
-																	</c:when>
-																	<c:when test="${item.getStatus() == 1}">
-																		<button type="button" class="btn info noSelect"
-																			style="border-color: red">${item.getSoGiuong()}</button>
-																	</c:when>
-																</c:choose>
-															</c:forEach>
+														<div class="ui-field-contain" id="lstGB">
+															<button type="button" name="select_GB"
+																class="btn info chongiuongnay"></button>
 														</div>
 													</div>
 												</div>
