@@ -173,21 +173,17 @@
 											<div class="form-group">
 												<label class="control-label col-sm-2" for="FK_GiuongBenh">Số
 													giường</label>
-												<div class="col-sm-10">
+												<div class="col-sm-10 showgiuongbenh">
 													<input class="form-control hienthigiuongchon"
 														id="FK_GiuongBenh" placeholder="Số giường"
-														disabled="disabled" name="FK_GiuongBenh" />
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="control-label col-sm-2" for="FK_GiuongBenh"></label>
-												<div class="col-sm-10">
+														name="FK_GiuongBenh" />
 													<button type="button" id="FK_GiuongBenh"
 														name="FK_GiuongBenh"
 														class="btn btn-info btn-sm giuongbenh">Chọn
 														giường</button>
 												</div>
 											</div>
+
 											<div class="chongiuongbenh" hidden="hidden">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -219,9 +215,7 @@
 
 													<div class="ui-field-contain col-lg-12">
 														<label for="listTenGiuongBenh">Tên giường bệnh:</label>
-														<div class="ui-field-contain" id="listGB">
-															
-														</div>
+														<div class="ui-field-contain" id="listGB"></div>
 													</div>
 												</div>
 											</div>
@@ -277,7 +271,7 @@
 													placeholder="Quê quán" name="QueQuan" />
 											</div>
 										</div>
-										<div class="form-group">
+										<div class="form-group" hidden="hidden">
 											<label class="control-label col-sm-2" for="FK_GiuongBenh">Số
 												giường</label>
 											<div class="col-sm-10">
@@ -315,9 +309,15 @@
 									</tr>
 								</thead>
 								<tbody>
+									<%
+										int count = 0;
+									%>
 									<c:forEach var="item" items="${listBenhNhan}">
+										<%
+											count++;
+										%>
 										<tr class="odd gradeX">
-											<td>${item.getId()}</td>
+											<td><%=count %></td>
 											<td>${item.getHoVaTen()}</td>
 											<td align="right" class="center">${item.getNamSinh()}</td>
 

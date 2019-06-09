@@ -128,7 +128,7 @@
 								<div class="centererSave hideform" hidden="hidden">
 									<button class="btn btn-default" id="closeSave">Đóng</button>
 									<form method="post" action="QuanLyGiuongBenh/save">
-									<div class="form-group">
+										<div class="form-group">
 											<label class="control-label col-sm-2" for="SoGiuong">Tên
 												giường</label>
 											<div class="col-sm-10">
@@ -144,13 +144,15 @@
 													placeholder="Tên phòng" name="FK_TenPhongKham" />
 											</div>
 										</div>
-										
+
 										<div class="form-group">
 											<label class="control-label col-sm-2" for="status">Trạng
 												thái</label>
 											<div class="col-sm-10">
-												<input class="form-control" id="status"
-													placeholder="Trạng thái" name="status" />
+												<select class="form-control" name="status" id="status">
+													<option value="0">Trống</option>
+													<option value="1">Đã có bệnh nhân</option>
+												</select>
 											</div>
 										</div>
 										<div class="form-group">
@@ -186,8 +188,10 @@
 											<label class="control-label col-sm-2" for="status">Trạng
 												thái</label>
 											<div class="col-sm-10">
-												<input class="form-control" id="status"
-													placeholder="Trạng thái" name="status" />
+												<select class="form-control" name="status" id="status">
+													<option value="0">Trống</option>
+													<option value="1">Đã có bệnh nhân</option>
+												</select>
 											</div>
 										</div>
 										<div class="form-group">
@@ -214,9 +218,15 @@
 											</tr>
 										</thead>
 										<tbody>
+											<%
+												int count = 0;
+											%>
 											<c:forEach var="item" items="${listgiuongbenh}">
+												<%
+													count++;
+												%>
 												<tr class="odd gradeX">
-													<td>${item.getId()}</td>
+													<td><%=count%></td>
 													<td>${item.getSoGiuong()}</td>
 													<td align="right" class="center">${item.getFK_TenPhongKham()}</td>
 													<c:choose>

@@ -109,10 +109,10 @@ public class BenhNhanController {
 		benhnhan.setQueQuan(QueQuan);
 		benhnhanService.addBenhNhan(benhnhan);
 
-//		GiuongBenh giuongbenh=giuongbenhService.getGiuongBenh(FK_GiuongBenh);
-//		giuongbenh.setStatus(1);
-//		giuongbenhService.updateGiuongBenh(giuongbenh);
-//		
+		GiuongBenh giuongbenh=giuongbenhService.getGiuongBenh(FK_GiuongBenh);
+		giuongbenh.setStatus(1);
+		giuongbenhService.updateGiuongBenh(giuongbenh);
+		
 		return "redirect:/QuanLyBenhNhan";
 	}
 
