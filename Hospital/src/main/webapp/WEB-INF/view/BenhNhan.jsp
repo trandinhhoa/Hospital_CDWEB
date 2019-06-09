@@ -219,9 +219,8 @@
 
 													<div class="ui-field-contain col-lg-12">
 														<label for="listTenGiuongBenh">Tên giường bệnh:</label>
-														<div class="ui-field-contain" id="lstGB">
-															<button type="button" name="select_GB"
-																class="btn info chongiuongnay"></button>
+														<div class="ui-field-contain" id="listGB">
+															
 														</div>
 													</div>
 												</div>

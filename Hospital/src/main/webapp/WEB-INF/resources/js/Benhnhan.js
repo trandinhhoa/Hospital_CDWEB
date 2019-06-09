@@ -59,11 +59,10 @@ $('.close').on('click', function() {
 $('#closeSave').on('click', function() {
 	$('.centererSave').hide();
 })
-$('.noSelect').on('click', function() {
+$('#listGB').delegate('.noSelect', 'click', function(e) {
 	alert("Đã có bệnh nhân. Vui lòng chọn giường khác!");
 });
-
-$(".chongiuongnay").click(function() {
+$('#listGB').delegate('.chongiuongnay', 'click', function(e) {
 	var item = $(this).val();
 	$(".hienthigiuongchon").val(item);
 });
@@ -137,7 +136,9 @@ $(document).ready(
 								phongkhamID : phongkhamID,
 							},
 							success : function(values) {
+								console.log(values);
 								var list = $('#listTPK');
+								$('#listTPK').html("");
 								$.each(values, function(index, value) {
 									list.append($(
 											'<option>' + value.tenPhongKham
@@ -164,13 +165,22 @@ $(document).ready(
 							},
 							success : function(value1) {
 								console.log(value1);
-								var listGB = $('#lstGB');
+								var listGB = $('#listGB');
+								$('#listGB').html("");
+								
 								$.each(value1, function(index, value) {
-									listGB.append($('.chonGB').val(value.id));
-
+//									listGB.append($('<button class="chongiuongnay">'+value.soGiuong+'</button>')
+//											.val(value.id));
+									if(value.status == 0)
+										listGB.append($('<button type="button"  class="btn info chongiuongnay">'+value.soGiuong+'</button>')
+											.val(value.id));
+									else
+										listGB.append($('<button type="button"  class="btn info noSelect" style="border-color: red">'+value.soGiuong+'</button>')
+									.val(value.id));
 								});
 								
 							}
 						})
 					});
 		});
+
