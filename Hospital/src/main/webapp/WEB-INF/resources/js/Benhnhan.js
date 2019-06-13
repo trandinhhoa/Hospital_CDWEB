@@ -51,7 +51,7 @@ $('.btn-success').on('click', function() {
 	$('.centererSave').show();
 })
 $('.giuongbenh').on('click', function() {
-	$('.giuongbenh').hide();
+	$('.anbtngiuongbenh').hide();
 	$('.chongiuongbenh').show();
 })
 $('.close').on('click', function() {
@@ -65,7 +65,6 @@ $('#listGB').delegate('.noSelect', 'click', function(e) {
 	alert("Đã có bệnh nhân. Vui lòng chọn giường khác!");
 });
 $('#listGB').delegate('.chongiuongnay', 'click', function(e) {
-	$('.showgiuongbenh').show();
 	var item = $(this).val();
 	$('.hienthigiuongchon').val(item);
 });
@@ -131,7 +130,7 @@ $(document).ready(
 					function() {
 						var phongkhamID = $(this).children("option:selected")
 								.val();
-						console.log(phongkhamID);
+						//console.log(phongkhamID);
 						$.ajax({
 							url : "/Hospital/QuanLyBenhNhan/getPK",
 							type : "GET",

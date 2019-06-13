@@ -141,7 +141,8 @@
 													và tên</label>
 												<div class="col-sm-10">
 													<input class="form-control" id="HoVaTen"
-														placeholder="Họ và tên" name="HoVaTen" />
+														required="required" type="text" placeholder="Họ và tên"
+														name="HoVaTen" />
 												</div>
 											</div>
 											<div class="form-group">
@@ -149,7 +150,8 @@
 													sinh</label>
 												<div class="col-sm-10">
 													<input class="form-control" id="NamSinh"
-														placeholder="Năm sinh" name="NamSinh" />
+														required="required" type="number" placeholder="Năm sinh"
+														name="NamSinh" />
 												</div>
 											</div>
 											<div class="form-group">
@@ -167,16 +169,19 @@
 													quán</label>
 												<div class="col-sm-10">
 													<input class="form-control" id="QueQuan"
-														placeholder="Quê quán" name="QueQuan" />
+														required="required" type="text" placeholder="Quê quán"
+														name="QueQuan" />
 												</div>
 											</div>
-											<div class="form-group">
+											<div class="form-group anbtngiuongbenh">
 												<label class="control-label col-sm-2" for="FK_GiuongBenh">Số
 													giường</label>
-												<div class="col-sm-10 showgiuongbenh">
-													<input class="form-control hienthigiuongchon"
+												<div class="col-sm-10" hidden="hidden">
+													<input class="form-control hienthigiuongchon" required="required"
 														id="FK_GiuongBenh" placeholder="Số giường"
 														name="FK_GiuongBenh" />
+												</div>
+												<div class="col-sm-10">
 													<button type="button" id="FK_GiuongBenh"
 														name="FK_GiuongBenh"
 														class="btn btn-info btn-sm giuongbenh">Chọn
@@ -257,7 +262,7 @@
 												tính</label>
 											<div class="col-sm-10">
 												<select class="form-control" name="GioiTinh" id="GioiTinh">
-													<option value="0">Nam</option>
+													<option value="0" selected>Nam</option>
 													<option value="1">Nữ</option>
 												</select>
 											</div>
@@ -317,7 +322,7 @@
 											count++;
 										%>
 										<tr class="odd gradeX">
-											<td><%=count %></td>
+											<td><%=count%></td>
 											<td>${item.getHoVaTen()}</td>
 											<td align="right" class="center">${item.getNamSinh()}</td>
 
@@ -332,15 +337,15 @@
 
 											<td>${item.getQueQuan()}</td>
 											<td>${item.getFK_GiuongBenh()}</td>
-											<td><button class="btn btn-primary">
-													<i class="fa fa-edit "></i>Sửa
+											<td  title="Sửa"><button class="btn btn-primary">
+													<i class="fa fa-edit "></i>
 												</button></td>
-											<td>
+											<td  title="Xóa">
 												<form action="QuanLyBenhNhan/delete/${item.getId()}"
 													method="post">
 													<button class="btn btn-danger" id="xoa"
 														data-hidden-submit="hiddenSubmit_${item.getId()}">
-														<i class="fa fa-pencil"></i>Xóa
+														<i class="glyphicon glyphicon-trash"></i>
 													</button>
 													<input id="hiddenSubmit_${item.getId()}" type="submit"
 														style="display: none;">
