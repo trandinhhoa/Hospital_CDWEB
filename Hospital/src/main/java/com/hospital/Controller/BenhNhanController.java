@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.hospital.Entity.*;
 import com.hospital.Service.*;
@@ -53,25 +54,27 @@ public class BenhNhanController {
 	}
 
 	@GetMapping(value = "/getPK")
+	@ResponseBody
 	@Transactional
-	public String getTenPK(ModelMap modelmap,
+	public List<TenPhongKham> getTenPK(ModelMap modelmap,
 			@RequestParam(value = "phongkhamID", required = false) String phongkhamID) {
 		int iD;
 		iD = Integer.parseInt(phongkhamID);
 		listTenPhongKham = tenphongkhamService.getListTenPhongKhamByPhongKhamID(iD);
 		modelmap.addAttribute("listTenPhongKham", listTenPhongKham);
-		return "redirect:/QuanLyBenhNhan";
+		return listTenPhongKham;
 	}
 
 	@GetMapping(value = "/getGB")
+	@ResponseBody
 	@Transactional
-	public String getTenGB(ModelMap modelmap,
+	public List<GiuongBenh> getTenGB(ModelMap modelmap,
 			@RequestParam(value = "tenphongkhamID", required = false) String tenphongkhamID) {
 		int tenphongkham_iD;
 		tenphongkham_iD = Integer.parseInt(tenphongkhamID);
 		listGiuongBenh = giuongbenhService.getListGiuongBenhByTenPhongKhamID(tenphongkham_iD);
 		modelmap.addAttribute("listGiuongBenh", listGiuongBenh);
-		return "redirect:/QuanLyBenhNhan";
+		return listGiuongBenh;
 	}
 
 	@GetMapping(value = "/edit/{id_benh_nhan}")
@@ -106,10 +109,10 @@ public class BenhNhanController {
 		benhnhan.setQueQuan(QueQuan);
 		benhnhanService.addBenhNhan(benhnhan);
 
-//		GiuongBenh giuongbenh=giuongbenhService.getGiuongBenh(FK_GiuongBenh);
-//		giuongbenh.setStatus(1);
-//		giuongbenhService.updateGiuongBenh(giuongbenh);
-//		
+		GiuongBenh giuongbenh=giuongbenhService.getGiuongBenh(FK_GiuongBenh);
+		giuongbenh.setStatus(1);
+		giuongbenhService.updateGiuongBenh(giuongbenh);
+		
 		return "redirect:/QuanLyBenhNhan";
 	}
 

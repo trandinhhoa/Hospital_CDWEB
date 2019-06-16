@@ -51,22 +51,23 @@ $('.btn-success').on('click', function() {
 	$('.centererSave').show();
 })
 $('.giuongbenh').on('click', function() {
+	$('.anbtngiuongbenh').hide();
 	$('.chongiuongbenh').show();
 })
 $('.close').on('click', function() {
 	$('.chongiuongbenh').hide();
+	$('.giuongbenh').show();
 })
 $('#closeSave').on('click', function() {
 	$('.centererSave').hide();
 })
-$('.noSelect').on('click', function() {
+$('#listGB').delegate('.noSelect', 'click', function(e) {
 	alert("Đã có bệnh nhân. Vui lòng chọn giường khác!");
 });
-
-$(".chongiuongnay").click(function(){
-	var item=$(this).val();
-    $(".hienthigiuongchon").val(item);
-  });
+$('#listGB').delegate('.chongiuongnay', 'click', function(e) {
+	var item = $(this).val();
+	$('.hienthigiuongchon').val(item);
+});
 
 $(".btn-block").click(
 		function() {
@@ -129,25 +130,25 @@ $(document).ready(
 					function() {
 						var phongkhamID = $(this).children("option:selected")
 								.val();
-						console.log(phongkhamID);
-						$
-								.ajax({
-									url : "/Hospital/QuanLyBenhNhan/getPK",
-									type : "GET",
-									data : {
-										phongkhamID : phongkhamID,
-									},
-									success : function(value) {
-										duongDanHIenTai = window.location.href;
-										if (value == "false") {
-											window.location = duongDanHIenTai;
-										} else if (value == "true") {
-											window.location = duongDanHIenTai
-													.replace("QuanLyBenhNhan",
-															"BenhNhan");
-										}
-									}
-								})
+						//console.log(phongkhamID);
+						$.ajax({
+							url : "/Hospital/QuanLyBenhNhan/getPK",
+							type : "GET",
+							data : {
+								phongkhamID : phongkhamID,
+							},
+							success : function(values) {
+								console.log(values);
+								var list = $('#listTPK');
+								$('#listTPK').html("");
+								$.each(values, function(index, value) {
+									list.append($(
+											'<option>' + value.tenPhongKham
+													+ '</option>')
+											.val(value.id));
+								});
+							}
+						})
 					});
 		});
 
@@ -158,23 +159,30 @@ $(document).ready(
 						var tenphongkhamID = $(this)
 								.children("option:selected").val();
 						console.log(tenphongkhamID);
-						$
-								.ajax({
-									url : "/Hospital/QuanLyBenhNhan/getGB",
-									type : "GET",
-									data : {
-										tenphongkhamID : tenphongkhamID,
-									},
-									success : function(value) {
-										duongDanHIenTai = window.location.href;
-										if (value == "false") {
-											window.location = duongDanHIenTai;
-										} else if (value == "true") {
-											window.location = duongDanHIenTai
-													.replace("QuanLyBenhNhan",
-															"QuanLyBenhNhan");
-										}
-									}
-								})
+						$.ajax({
+							url : "/Hospital/QuanLyBenhNhan/getGB",
+							type : "GET",
+							data : {
+								tenphongkhamID : tenphongkhamID,
+							},
+							success : function(value1) {
+								console.log(value1);
+								var listGB = $('#listGB');
+								$('#listGB').html("");
+								
+								$.each(value1, function(index, value) {
+//									listGB.append($('<button class="chongiuongnay">'+value.soGiuong+'</button>')
+//											.val(value.id));
+									if(value.status == 0)
+										listGB.append($('<button type="button"  class="btn info chongiuongnay">'+value.soGiuong+'</button>')
+											.val(value.id));
+									else
+										listGB.append($('<button type="button"  class="btn info noSelect" style="border-color: red">'+value.soGiuong+'</button>')
+									.val(value.id));
+								});
+								
+							}
+						})
 					});
 		});
+
