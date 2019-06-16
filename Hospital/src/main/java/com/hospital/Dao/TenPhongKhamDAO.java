@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 
 import com.hospital.Interface.*;
-import com.hospital.model.*;
+//import com.hospital.model.*;
 import com.hospital.Entity.*;
 
 @Repository
