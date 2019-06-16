@@ -61,9 +61,8 @@ public class HenKhamBenhDAO implements HenKhamBenhInterface{
 		query.setParameter("DiaChiEmail", item.getDiaChiEmail());
 		query.setParameter("FK_BacSi", item.getFK_BacSi());
 		query.executeUpdate();
-		System.out.println("success");
-
 		
+		System.out.println("success");
 	}
 	
 	@Transactional

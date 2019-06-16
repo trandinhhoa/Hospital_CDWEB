@@ -143,7 +143,7 @@
 								src="<c:url value="/resources/images/logo-wide.png"/>" alt="">
 							</a>
 							<ul class="menuzord-menu">
-								<li class="active"><a href="#home">Home</a>
+								<li class="active"><a href="/Hospital/">Home</a>
 									<ul class="dropdown">
 										<li><a href="#">Multipage Layout</a>
 											<ul class="dropdown">
@@ -407,13 +407,13 @@
 													<a class="text-theme-colored font-weight-600 font-12"
 														href="#">Forgot Your Password?</a>
 												</div>
-												<div class="clear text-center pt-10">
-													<a
-														class="btn btn-dark btn-lg btn-block no-border mt-15 mb-15"
-														href="#" data-bg-color="#3b5998">Login with facebook</a> <a
-														class="btn btn-dark btn-lg btn-block no-border" href="#"
-														data-bg-color="#00acee">Login with twitter</a>
-												</div>
+<!-- 												<div class="clear text-center pt-10"> -->
+<!-- 													<a -->
+<!-- 														class="btn btn-dark btn-lg btn-block no-border mt-15 mb-15" -->
+<!-- 														href="#" data-bg-color="#3b5998">Login with facebook</a> <a -->
+<!-- 														class="btn btn-dark btn-lg btn-block no-border" href="#" -->
+<!-- 														data-bg-color="#00acee">Login with twitter</a> -->
+<!-- 												</div> -->
 											</div>
 										</div>
 										<div class="tab-pane fade in active p-15" id="register-tab">
@@ -505,13 +505,13 @@
 													<a class="text-theme-colored font-weight-600 font-12"
 														href="#">Forgot Your Password?</a>
 												</div>
-												<div class="clear text-center pt-10">
-													<a
-														class="btn btn-dark btn-lg btn-block no-border mt-15 mb-15"
-														href="#" data-bg-color="#3b5998">Login with facebook</a> <a
-														class="btn btn-dark btn-lg btn-block no-border" href="#"
-														data-bg-color="#00acee">Login with twitter</a>
-												</div>
+<!-- 												<div class="clear text-center pt-10"> -->
+<!-- 													<a -->
+<!-- 														class="btn btn-dark btn-lg btn-block no-border mt-15 mb-15" -->
+<!-- 														href="#" data-bg-color="#3b5998">Login with facebook</a> <a -->
+<!-- 														class="btn btn-dark btn-lg btn-block no-border" href="#" -->
+<!-- 														data-bg-color="#00acee">Login with twitter</a> -->
+<!-- 												</div> -->
 											</div>
 										</div>
 										<div class="tab-pane fade in p-15" id="register-tab">
