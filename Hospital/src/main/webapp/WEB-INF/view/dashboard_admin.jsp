@@ -64,7 +64,7 @@
 									<li><a href="DashBoardAdmin/quanlykhoaphong/${permission.getPermissionName()}/${user.getHoVaTen()}">Quản lý khoa phòng</a></li>
 							</c:when>
 							<c:when test="${permission.getPermissionName() == PermissionEnum.Y_ta.toString()}">
-									<li><a href="#">Quản lý đặt lịch khám</a></li>		
+									<li><a href="DashBoardAdmin/QuanLyBenhNhan/${permission.getPermissionName()}/${user.getHoVaTen()}">Quản lý bệnh nhân</a></li>		
 							</c:when>
 							<c:otherwise>
 									<li><a href="#">Quản lý khác</a></li>

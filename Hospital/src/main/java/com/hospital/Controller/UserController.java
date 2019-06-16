@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hospital.Entity.*;
@@ -20,6 +21,7 @@ import com.hospital.Service.*;
 
 @Controller
 @RequestMapping("/LoginAdmin")
+@SessionAttributes("tendangnhap")
 public class UserController {
 
 	@Autowired
@@ -35,17 +37,18 @@ public class UserController {
 	@Transactional
 	@ResponseBody
 	public String login(@RequestParam String tendangnhap,@RequestParam String matkhau,
-			ModelMap modelmap,RedirectAttributes redirectAttributes) {
+			ModelMap modelmap) {
 		boolean isCheck = true;
 		User user = userService.login(tendangnhap, matkhau);
 		if(user == null) {
 			isCheck = false;
 			modelmap.addAttribute("errorLogin","Tên đăng nhập hoặc mật khẩu sai!");
-			//return "login_admin";
-			return "" + isCheck;
+			
+			return "" +isCheck;
 		}
-		redirectAttributes.addFlashAttribute("user",user);
+		modelmap.addAttribute("tendangnhap",tendangnhap);
+		//redirectAttributes.addFlashAttribute("user",user);
 		//return "redirect:/DashBoardAdmin";
-		return "" + isCheck; 
+		return ""+isCheck; 
 		}
 }
