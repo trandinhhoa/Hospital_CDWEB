@@ -11,6 +11,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <title>Admin bênh viện</title>
+<link href="<c:url value="/resources/css/jquery-confirm.min.css"/>"
+	rel="stylesheet" type="text/css" />
 <link
 	href="<c:url value="/resources/Admin/vendor/metisMenu/metisMenu.min.css"/>
 "
@@ -343,7 +345,7 @@
 											<td title="Xóa">
 												<form action="QuanLyBenhNhan/delete/${item.getId()}"
 													method="post">
-													<button class="btn btn-danger" id="xoa"
+													<button class="btn btn-danger" 
 														data-hidden-submit="hiddenSubmit_${item.getId()}">
 														<i class="glyphicon glyphicon-trash"></i>
 													</button>
@@ -388,7 +390,10 @@
 		src="<c:url value="/resources/Admin/vendor/datatables-plugins/dataTables.bootstrap.min.js"/>"></script>
 	<script
 		src="<c:url value="/resources/Admin/vendor/datatables-responsive/dataTables.responsive.js"/>"></script>
-
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/jquery-confirm.min.js"/>">
+		
+	</script>
 	<!-- Custom Theme JavaScript -->
 	<script src="<c:url value="/resources/Admin/dist/js/sb-admin-2.js"/>"></script>
 	<script type="text/javascript"
