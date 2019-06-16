@@ -73,7 +73,6 @@ $(document).ready(function () {
     			data : {
     				tendangnhap : tendangnhap,
     				matkhau : matkhau,
-    				
     			},
     			success : function(value) {
     				duongDanHIenTai = window.location.href;
@@ -82,6 +81,8 @@ $(document).ready(function () {
     				} else if(value == "true") {
     					window.location = duongDanHIenTai.replace("LoginAdmin","DashBoardAdmin");
     				}
+    				
+    				
     			}
     		})
     	});

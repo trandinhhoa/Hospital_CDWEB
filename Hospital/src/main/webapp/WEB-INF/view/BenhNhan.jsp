@@ -41,6 +41,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 <style>
 #textColorWhite {
 	color: #fff;
@@ -70,8 +72,7 @@
 					class="icon-bar"></span>
 			</button>
 
-			<a class="navbar-brand" href="#" id="textColorWhite">Nguyễn Thị
-				Cẩm Tuyên_15130225</a>
+			<a class="navbar-brand" href="#" id="textColorWhite">Bệnh viện đa khoa ABC</a>
 		</div>
 
 		<!-- /.navbar-header -->
@@ -94,7 +95,7 @@
 			<!-- /.dropdown -->
 		</ul>
 		<ul class="nav navbar-top-links navbar-right">
-			<li><a id="textColorWhite">Nguyễn Thị Cẩm Tuyên</a></li>
+			<li><a id="textColorWhite">Xin chào ${hovaten}</a></li>
 		</ul>
 		<!-- /.navbar-top-links -->
 		<div class="navbar-default sidebar" role="navigation">
@@ -135,30 +136,30 @@
 								<div class="table-responsive">
 									<div class="centererSave hideform" hidden="hidden">
 										<button class="btn btn-danger" id="closeSave">Đóng</button>
-										<form method="post" action="QuanLyBenhNhan/save">
+										<form method="post" action="QuanLyBenhNhan/save"
+											id="form_Required">
 											<div class="form-group">
 												<label class="control-label col-sm-2" for="HoVaTen">Họ
 													và tên</label>
 												<div class="col-sm-10">
-													<input class="form-control" id="HoVaTen"
-														required="required" type="text" placeholder="Họ và tên"
-														name="HoVaTen" />
+													<input class="form-control" id="HoVaTen" required
+														type="text" placeholder="Họ và tên" name="HoVaTen" />
 												</div>
 											</div>
 											<div class="form-group">
 												<label class="control-label col-sm-2" for="NamSinh">Năm
 													sinh</label>
 												<div class="col-sm-10">
-													<input class="form-control" id="NamSinh"
-														required="required" type="number" placeholder="Năm sinh"
-														name="NamSinh" />
+													<input class="form-control" id="NamSinh" required
+														type="number" placeholder="Năm sinh" name="NamSinh" />
 												</div>
 											</div>
 											<div class="form-group">
 												<label class="control-label col-sm-2" for="GioiTinh">Giới
 													tính</label>
 												<div class="col-sm-10">
-													<select class="form-control" name="GioiTinh" id="GioiTinh">
+													<select class="form-control" name="GioiTinh" id="GioiTinh"
+														required>
 														<option value="0">Nam</option>
 														<option value="1">Nữ</option>
 													</select>
@@ -168,16 +169,15 @@
 												<label class="control-label col-sm-2" for="QueQuan">Quê
 													quán</label>
 												<div class="col-sm-10">
-													<input class="form-control" id="QueQuan"
-														required="required" type="text" placeholder="Quê quán"
-														name="QueQuan" />
+													<input class="form-control" id="QueQuan" required
+														type="text" placeholder="Quê quán" name="QueQuan" />
 												</div>
 											</div>
 											<div class="form-group anbtngiuongbenh">
 												<label class="control-label col-sm-2" for="FK_GiuongBenh">Số
 													giường</label>
 												<div class="col-sm-10" hidden="hidden">
-													<input class="form-control hienthigiuongchon" required="required"
+													<input class="form-control hienthigiuongchon" required
 														id="FK_GiuongBenh" placeholder="Số giường"
 														name="FK_GiuongBenh" />
 												</div>
@@ -337,10 +337,10 @@
 
 											<td>${item.getQueQuan()}</td>
 											<td>${item.getFK_GiuongBenh()}</td>
-											<td  title="Sửa"><button class="btn btn-primary">
+											<td title="Sửa"><button class="btn btn-primary">
 													<i class="fa fa-edit "></i>
 												</button></td>
-											<td  title="Xóa">
+											<td title="Xóa">
 												<form action="QuanLyBenhNhan/delete/${item.getId()}"
 													method="post">
 													<button class="btn btn-danger" id="xoa"

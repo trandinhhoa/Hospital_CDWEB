@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hospital.Entity.*;
@@ -32,7 +33,7 @@ public class DashBoardAdmin {
 	
 	@GetMapping
 	@Transactional
-	public String Default(ModelMap modelmap,Model model,@RequestParam String tendangnhap) {
+	public String Default(ModelMap modelmap,Model model,@SessionAttribute("tendangnhap") String tendangnhap) {
 		
 		User user = userService.getUser(tendangnhap);
 		modelmap.addAttribute("user",user);
@@ -54,5 +55,14 @@ public class DashBoardAdmin {
 		redirectAttributes.addFlashAttribute("permissionName",permissionName);
 		redirectAttributes.addFlashAttribute("hovaten",hovaten);
 		return "redirect:/QuanLyKhoaPhong";
+		}
+	@GetMapping(value="/QuanLyBenhNhan/{permissionName}/{hovaten}")
+	@Transactional
+	public String quanlybenhnhan(ModelMap modelmap,Model model,@PathVariable String permissionName,
+			@PathVariable String hovaten,RedirectAttributes redirectAttributes) {
+		
+		redirectAttributes.addFlashAttribute("permissionName",permissionName);
+		redirectAttributes.addFlashAttribute("hovaten",hovaten);
+		return "redirect:/QuanLyBenhNhan";
 		}
 }

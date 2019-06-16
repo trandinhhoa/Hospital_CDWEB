@@ -185,4 +185,20 @@ $(document).ready(
 						})
 					});
 		});
+$("#form_Required").validate({
+    rules: {
+    	HoVaTen: "required",
+        NamSinh : "required",
+        GioiTinh : "required",
+        QueQuan : "required",
+        FK_GiuongBenh : "required",
+    },
+    messages: {
+    	HoVaTen: "Vui lòng nhập họ và tên",
+        NamSinh: "Vui lòng nhập năm sinh",
+        GioiTinh: "Vui lòng chọn giới tính",
+        QueQuan: "Vui lòng nhập quê quán",
+        FK_GiuongBenh: "Vui lòng chọn giường bệnh",
+    }
+});
 

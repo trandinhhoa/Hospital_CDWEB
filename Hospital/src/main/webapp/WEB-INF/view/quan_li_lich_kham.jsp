@@ -91,17 +91,16 @@ margin-bottom: 10px;
 						<ul id="menu-top" class="nav navbar-nav navbar-right">
 						<%@ page import="com.hospital.Enum.*" %>
 						<c:choose>
-							<c:when test="${permissionName == PermissionEnum.Admin.toString()}">
-									<li><a href="QuanLyKhoaPhong">Quản lý khoa phòng</a></li>
+							<c:when test="${permission.getPermissionName() == PermissionEnum.Admin.toString()}">
+									<li><a href="DashBoardAdmin/quanlykhoaphong/${permission.getPermissionName()}/${user.getHoVaTen()}">Quản lý khoa phòng</a></li>
 							</c:when>
-							<c:when test="${permissionName == PermissionEnum.Y_ta.toString()}">
-									<li><a href="#">Quản lý đặt lịch khám</a></li>		
+							<c:when test="${permission.getPermissionName() == PermissionEnum.Y_ta.toString()}">
+									<li><a href="DashBoardAdmin/QuanLyBenhNhan/${permission.getPermissionName()}/${user.getHoVaTen()}">Quản lý bệnh nhân</a></li>		
 							</c:when>
 							<c:otherwise>
 									<li><a href="#">Quản lý khác</a></li>
 							</c:otherwise>
 						</c:choose>
-							
 
 							
 							<!-- <li>
