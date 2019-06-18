@@ -23,7 +23,6 @@ import com.hospital.Service.*;
 @SessionAttributes("tendangnhap")
 @RequestMapping("/QuanLyBenhNhan")
 public class BenhNhanController {
-	// private List<TenPhongKham> listTenPhongKham=null;
 	@Autowired
 	BenhNhanService benhnhanService = null;
 	@Autowired
@@ -34,6 +33,7 @@ public class BenhNhanController {
 	GiuongBenhService giuongbenhService;
 	List<TenPhongKham> listTenPhongKham;
 	List<GiuongBenh> listGiuongBenh;
+	
 
 	@GetMapping
 	@Transactional
@@ -91,9 +91,14 @@ public class BenhNhanController {
 
 	@PostMapping(value = "/delete/{id_benh_nhan}")
 	@Transactional
-	public String deleteKhoaPhong(@PathVariable int id_benh_nhan, ModelMap modelmap) {
+	public String deleteKhoaPhong(@PathVariable int id_benh_nhan,ModelMap modelmap) {
 		BenhNhan benhnhan = benhnhanService.getBenhNhan(id_benh_nhan);
 		benhnhanService.deleteBenhNhan(benhnhan);
+		
+		GiuongBenh giuongbenh=giuongbenhService.getGiuongBenh(benhnhan.getFK_GiuongBenh());
+		giuongbenh.setStatus(0);
+		giuongbenhService.updateGiuongBenh(giuongbenh);
+		
 		return "redirect:/QuanLyBenhNhan";
 	}
 
@@ -130,6 +135,13 @@ public class BenhNhanController {
 		benhnhan.setFK_GiuongBenh(FK_GiuongBenh);
 		benhnhan.setQueQuan(QueQuan);
 		benhnhanService.updateBenhNhan(benhnhan);
+		return "redirect:/QuanLyBenhNhan";
+	}
+	@PostMapping(value = "/detail/{FK_GiuongBenh}")
+	@Transactional
+	public String getDetailBN(@PathVariable int FK_GiuongBenh, ModelMap modelmap) {
+		GiuongBenh GiuongBenhbyFK_GiuongBenh = giuongbenhService.getGiuongBenh(FK_GiuongBenh);
+		modelmap.addAttribute("GiuongBenhbyFK_GiuongBenh", GiuongBenhbyFK_GiuongBenh);
 		return "redirect:/QuanLyBenhNhan";
 	}
 }

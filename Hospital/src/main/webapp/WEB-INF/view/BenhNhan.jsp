@@ -43,8 +43,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<script type="text/javascript"
-	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
 <style>
 #textColorWhite {
 	color: #fff;
@@ -60,6 +59,10 @@
 .centererSave {
 	background-color: f5f5f5;
 }
+
+.error {
+	color: red;
+}
 </style>
 </head>
 <body>
@@ -74,7 +77,8 @@
 					class="icon-bar"></span>
 			</button>
 
-			<a class="navbar-brand" href="#" id="textColorWhite">Bệnh viện đa khoa ABC</a>
+			<a class="navbar-brand" href="#" id="textColorWhite">Bệnh viện đa
+				khoa ABC</a>
 		</div>
 
 		<!-- /.navbar-header -->
@@ -97,13 +101,19 @@
 			<!-- /.dropdown -->
 		</ul>
 		<ul class="nav navbar-top-links navbar-right">
-			<li><a id="textColorWhite">Xin chào ${hovaten}</a></li>
+			<c:choose>
+				<c:when test="${not empty hovaten }">
+					<li><a id="textColorWhite" class="text-white">${hovaten}</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a id="textColorWhite" class="text-white">Login</a></li>
+				</c:otherwise>
+			</c:choose>
 		</ul>
 		<!-- /.navbar-top-links -->
 		<div class="navbar-default sidebar" role="navigation">
 			<div class="sidebar-nav navbar-collapse">
 				<ul class="nav" id="side-menu">
-					<li><a>Trang chủ</a></li>
 					<li><a href="/Hospital/QuanLyBenhNhan">Quản lý bệnh nhân</a></li>
 					<li><a href="/Hospital/QuanLyGiuongBenh">Quản lý giường
 							bệnh</a></li>
@@ -141,23 +151,23 @@
 										<form method="post" action="QuanLyBenhNhan/save"
 											id="form_Required">
 											<div class="form-group">
-												<label class="control-label col-sm-2" for="HoVaTen">Họ
+												<label class="control-label col-sm-2" for="HoVaTen">*Họ
 													và tên</label>
 												<div class="col-sm-10">
-													<input class="form-control" id="HoVaTen" required
-														type="text" placeholder="Họ và tên" name="HoVaTen" />
+													<input class="form-control" required type="text"
+														placeholder="Họ và tên" name="HoVaTen" />
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="control-label col-sm-2" for="NamSinh">Năm
+												<label class="control-label col-sm-2" for="NamSinh">*Năm
 													sinh</label>
 												<div class="col-sm-10">
-													<input class="form-control" id="NamSinh" required
-														type="number" placeholder="Năm sinh" name="NamSinh" />
+													<input class="form-control" required type="number"
+														placeholder="Năm sinh" name="NamSinh" />
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="control-label col-sm-2" for="GioiTinh">Giới
+												<label class="control-label col-sm-2" for="GioiTinh">*Giới
 													tính</label>
 												<div class="col-sm-10">
 													<select class="form-control" name="GioiTinh" id="GioiTinh"
@@ -168,7 +178,7 @@
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="control-label col-sm-2" for="QueQuan">Quê
+												<label class="control-label col-sm-2" for="QueQuan">*Quê
 													quán</label>
 												<div class="col-sm-10">
 													<input class="form-control" id="QueQuan" required
@@ -176,13 +186,18 @@
 												</div>
 											</div>
 											<div class="form-group anbtngiuongbenh">
-												<label class="control-label col-sm-2" for="FK_GiuongBenh">Số
+												<label class="control-label col-sm-2" for="FK_GiuongBenh">*Số
 													giường</label>
-												<div class="col-sm-10" hidden="hidden">
-													<input class="form-control hienthigiuongchon" required
-														id="FK_GiuongBenh" placeholder="Số giường"
+												<div class="col-sm-10">
+													<input class="form-control hienthigiuongchon"
+														required="required" id="FK_GiuongBenh"
+														placeholder="Số giường" readonly="false"
 														name="FK_GiuongBenh" />
 												</div>
+
+											</div>
+											<div class="form-group ">
+												<label class="control-label col-sm-2"></label>
 												<div class="col-sm-10">
 													<button type="button" id="FK_GiuongBenh"
 														name="FK_GiuongBenh"
@@ -190,7 +205,6 @@
 														giường</button>
 												</div>
 											</div>
-
 											<div class="chongiuongbenh" hidden="hidden">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -313,6 +327,7 @@
 										<th>Số giường</th>
 										<th></th>
 										<th></th>
+										<th></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -324,7 +339,7 @@
 											count++;
 										%>
 										<tr class="odd gradeX">
-											<td><%=count%></td>
+											<td>${item.getId()}</td>
 											<td>${item.getHoVaTen()}</td>
 											<td align="right" class="center">${item.getNamSinh()}</td>
 
@@ -345,12 +360,25 @@
 											<td title="Xóa">
 												<form action="QuanLyBenhNhan/delete/${item.getId()}"
 													method="post">
-													<button class="btn btn-danger" 
+													<button class="btn btn-danger btnxoa"
 														data-hidden-submit="hiddenSubmit_${item.getId()}">
 														<i class="glyphicon glyphicon-trash"></i>
 													</button>
 													<input id="hiddenSubmit_${item.getId()}" type="submit"
 														style="display: none;">
+												</form>
+											</td>
+											<td title="Chi tiết">
+												<form
+													action="QuanLyBenhNhan/detail/${item.getFK_GiuongBenh()}"
+													method="post">
+													<button class="btn btn-primary" data-toggle="modal"
+														data-target="#myModal"
+														data-hidden-submit="hiddenSubmitdetail_${item.getFK_GiuongBenh()}">
+														<i class="glyphicon glyphicon-info-sign"></i>
+													</button>
+													<input id="hiddenSubmitdetail_${item.getFK_GiuongBenh()}"
+														type="submit" style="display: none;">
 												</form>
 											</td>
 										</tr>
@@ -364,6 +392,27 @@
 			</div>
 		</div>
 	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Modal Header</h4>
+				</div>
+				<div class="modal-body">
+					<p>${GiuongBenhbyFK_GiuongBenh.getId()}</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
 	<!-- Footer-->
 	<footer class="footer-distributed"
 		style="background-color: #3f51b5; text-align: center; font-size: 15px; height: 50px;">
@@ -400,6 +449,8 @@
 		src="<c:url value="/resources/js/Benhnhan.js"/>">
 		
 	</script>
+	<script
+		src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 	<!-- Page-Level Demo Scripts - Tables - Use for reference -->
 	<script>
 		$(document).ready(function() {

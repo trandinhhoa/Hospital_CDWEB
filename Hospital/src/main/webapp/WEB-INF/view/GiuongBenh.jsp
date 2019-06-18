@@ -59,8 +59,8 @@
 					class="icon-bar"></span>
 			</button>
 
-			<a class="navbar-brand" href="#" id="textColorWhite">Nguyễn Thị
-				Cẩm Tuyên_15130225</a>
+			<a class="navbar-brand" href="#" id="textColorWhite">Bệnh viện đa
+				khoa ABC</a>
 		</div>
 
 		<!-- /.navbar-header -->
@@ -83,13 +83,12 @@
 			<!-- /.dropdown -->
 		</ul>
 		<ul class="nav navbar-top-links navbar-right">
-			<li><a id="textColorWhite">Nguyễn Thị Cẩm Tuyên</a></li>
+			<li><a id="textColorWhite">Xin chào ${hovaten}</a></li>
 		</ul>
 		<!-- /.navbar-top-links -->
 		<div class="navbar-default sidebar" role="navigation">
 			<div class="sidebar-nav navbar-collapse">
 				<ul class="nav" id="side-menu">
-					<li><a>Trang chủ</a></li>
 					<li><a href="/Hospital/QuanLyBenhNhan">Quản lý bệnh nhân</a></li>
 					<li><a href="/Hospital/QuanLyGiuongBenh">Quản lý giường
 							bệnh</a></li>

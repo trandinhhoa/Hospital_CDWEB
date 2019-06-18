@@ -38,5 +38,7 @@ public class KhoaPhongService implements KhoaPhongInterface{
 	public long countAllKhoaPhong() {
 		return itemDAO.countAllKhoaPhong();
 	}
-
+	public void editKhoaPhong(KhoaPhong item) {
+		 itemDAO.editKhoaPhong(item);
+	}
 }

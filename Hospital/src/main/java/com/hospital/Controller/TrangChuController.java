@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+
 import com.hospital.Entity.TinTuc;
 import com.hospital.Service.TinTucService;
-
 
 
 @Controller
@@ -29,4 +29,5 @@ public class TrangChuController {
 		modelMap.addAttribute("listTinTuc", listTinTuc); 
 		return "index";
 	}
+	
 }

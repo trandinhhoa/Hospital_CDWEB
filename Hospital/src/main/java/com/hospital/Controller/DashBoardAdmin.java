@@ -65,4 +65,13 @@ public class DashBoardAdmin {
 		redirectAttributes.addFlashAttribute("hovaten",hovaten);
 		return "redirect:/QuanLyBenhNhan";
 		}
+	@GetMapping(value="/QuanLyGiuongBenh/{permissionName}/{hovaten}")
+	@Transactional
+	public String quanlygiuongbenh(ModelMap modelmap,Model model,@PathVariable String permissionName,
+			@PathVariable String hovaten,RedirectAttributes redirectAttributes) {
+		
+		redirectAttributes.addFlashAttribute("permissionName",permissionName);
+		redirectAttributes.addFlashAttribute("hovaten",hovaten);
+		return "redirect:/QuanLyBenhNhan";
+		}
 }

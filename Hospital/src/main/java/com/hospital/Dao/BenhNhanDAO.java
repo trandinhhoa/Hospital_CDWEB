@@ -33,7 +33,7 @@ public class BenhNhanDAO implements BenhNhanInterface{
 	@Transactional
 	public BenhNhan getBenhNhan(int id) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = "from BenhNhan where ID= '" + id + "'";
+		String sql = "from BenhNhan where ID= " + id;
 		BenhNhan item = (BenhNhan)session.createQuery(sql).getSingleResult();
 		return item;
 	}
@@ -66,5 +66,6 @@ public class BenhNhanDAO implements BenhNhanInterface{
 		long countBenhNhan = (Long)session.createQuery(sql).getSingleResult();
 		return countBenhNhan;
 	}
+
 }
 

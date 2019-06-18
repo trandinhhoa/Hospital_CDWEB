@@ -2,6 +2,8 @@ package com.hospital.Entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 import java.sql.Timestamp;
 
 
@@ -39,7 +41,6 @@ public class User implements Serializable {
 
 	@Column(name="\"NearLastLogin\"")
 	private Timestamp nearLastLogin;
-
 	@Column(name="\"PassWord\"")
 	private String passWord;
 
