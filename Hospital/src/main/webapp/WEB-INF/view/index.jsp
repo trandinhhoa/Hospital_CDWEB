@@ -1008,8 +1008,11 @@
 										class="icon-ambulance14 text-theme-colored"></i></a>
 									<div class="media-body">
 										<h5 class="media-heading heading">Emergency Care</h5>
-										<p>The service "Registration for appointment appointment" starts to operate from April 9, 2009. In addition, parents with children who need to see the service at the clinic can still schedule ahead by ...
-											elit. Cum consectetur sit ullam perspiciatis, deserunt.</p>
+										<p>The service "Registration for appointment appointment"
+											starts to operate from April 9, 2009. In addition, parents
+											with children who need to see the service at the clinic can
+											still schedule ahead by ... elit. Cum consectetur sit ullam
+											perspiciatis, deserunt.</p>
 									</div>
 								</div>
 							</div>
@@ -1019,8 +1022,11 @@
 										class="icon-illness text-theme-colored"></i></a>
 									<div class="media-body">
 										<h5 class="media-heading heading">Operation Theatre</h5>
-										<p>The service "Registration for appointment appointment" starts to operate from April 9, 2009. In addition, parents with children who need to see the service at the clinic can still schedule ahead by ...
-											elit. Cum consectetur sit ullam perspiciatis, deserunt.</p>
+										<p>The service "Registration for appointment appointment"
+											starts to operate from April 9, 2009. In addition, parents
+											with children who need to see the service at the clinic can
+											still schedule ahead by ... elit. Cum consectetur sit ullam
+											perspiciatis, deserunt.</p>
 									</div>
 								</div>
 							</div>
@@ -1030,8 +1036,11 @@
 										class="icon-stethoscope10 text-theme-colored"></i></a>
 									<div class="media-body">
 										<h5 class="media-heading heading">Outdoor Checkup</h5>
-										<p>The service "Registration for appointment appointment" starts to operate from April 9, 2009. In addition, parents with children who need to see the service at the clinic can still schedule ahead by ...
-											elit. Cum consectetur sit ullam perspiciatis, deserunt.</p>
+										<p>The service "Registration for appointment appointment"
+											starts to operate from April 9, 2009. In addition, parents
+											with children who need to see the service at the clinic can
+											still schedule ahead by ... elit. Cum consectetur sit ullam
+											perspiciatis, deserunt.</p>
 									</div>
 								</div>
 							</div>
@@ -1041,8 +1050,11 @@
 										class="icon-medical51 text-theme-colored"></i></a>
 									<div class="media-body">
 										<h5 class="media-heading heading">Cancer Service</h5>
-										<p>The service "Registration for appointment appointment" starts to operate from April 9, 2009. In addition, parents with children who need to see the service at the clinic can still schedule ahead by ...
-											elit. Cum consectetur sit ullam perspiciatis, deserunt.</p>
+										<p>The service "Registration for appointment appointment"
+											starts to operate from April 9, 2009. In addition, parents
+											with children who need to see the service at the clinic can
+											still schedule ahead by ... elit. Cum consectetur sit ullam
+											perspiciatis, deserunt.</p>
 									</div>
 								</div>
 							</div>
@@ -1052,8 +1064,11 @@
 										class="icon-hospital35 text-theme-colored"></i></a>
 									<div class="media-body">
 										<h5 class="media-heading heading">Blood Test</h5>
-										<p>The service "Registration for appointment appointment" starts to operate from April 9, 2009. In addition, parents with children who need to see the service at the clinic can still schedule ahead by ...
-											elit. Cum consectetur sit ullam perspiciatis, deserunt.</p>
+										<p>The service "Registration for appointment appointment"
+											starts to operate from April 9, 2009. In addition, parents
+											with children who need to see the service at the clinic can
+											still schedule ahead by ... elit. Cum consectetur sit ullam
+											perspiciatis, deserunt.</p>
 									</div>
 								</div>
 							</div>
@@ -1063,8 +1078,11 @@
 										class="icon-tablets9 text-theme-colored"></i></a>
 									<div class="media-body">
 										<h5 class="media-heading heading">Pharmacy</h5>
-										<p>The service "Registration for appointment appointment" starts to operate from April 9, 2009. In addition, parents with children who need to see the service at the clinic can still schedule ahead by ...
-											elit. Cum consectetur sit ullam perspiciatis, deserunt.</p>
+										<p>The service "Registration for appointment appointment"
+											starts to operate from April 9, 2009. In addition, parents
+											with children who need to see the service at the clinic can
+											still schedule ahead by ... elit. Cum consectetur sit ullam
+											perspiciatis, deserunt.</p>
 									</div>
 								</div>
 							</div>
@@ -1403,8 +1421,7 @@
 									<div class="content border-1px p-15 bg-white-light">
 										<h4 class="name mb-0 mt-0">Dr. Smile Jhon</h4>
 										<h6 class="title mt-0">Orthopaedics</h6>
-										<p class="mb-30">Doctor
-											.</p>
+										<p class="mb-30">Doctor .</p>
 										<ul
 											class="social-icons icon-dark icon-circled icon-theme-colored icon-sm pull-left flip">
 											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -1426,8 +1443,7 @@
 									<div class="content border-1px p-15 bg-white-light">
 										<h4 class="name mb-0 mt-0">Dr. Mark Jacobson</h4>
 										<h6 class="title mt-0">Cardiology</h6>
-										<p class="mb-30">Doctor
-											.</p>
+										<p class="mb-30">Doctor .</p>
 										<ul
 											class="social-icons icon-dark icon-circled icon-theme-colored icon-sm pull-left flip">
 											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -1449,8 +1465,7 @@
 									<div class="content border-1px p-15 bg-white-light">
 										<h4 class="name mb-0 mt-0">Dr. Jaka Alex</h4>
 										<h6 class="title mt-0">Neurology</h6>
-										<p class="mb-30">Doctor
-											.</p>
+										<p class="mb-30">Doctor .</p>
 										<ul
 											class="social-icons icon-dark icon-circled icon-theme-colored icon-sm pull-left flip">
 											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -1472,8 +1487,7 @@
 									<div class="content border-1px p-15 bg-white-light">
 										<h4 class="name mb-0 mt-0">Dr. Alex Davidson</h4>
 										<h6 class="title mt-0">Haematology</h6>
-										<p class="mb-30">Doctor
-											.</p>
+										<p class="mb-30">Doctor .</p>
 										<ul
 											class="social-icons icon-dark icon-circled icon-theme-colored icon-sm pull-left flip">
 											<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -1663,7 +1677,8 @@
 					<div class="section-content">
 						<div class="row multi-row-clearfix">
 							<div class="blog-posts">
-								<div class="col-xs-12 col-sm-12 col-md-4">
+							<c:forEach items="${listTinTuc}" var="v">
+								<div class="col-xs-12 col-sm-12 col-md-4" Style="min-height: 600px">
 									<article class="post style1 clearfix maxwidth500">
 										<div class="col-md-12 p-0">
 											<div class="entry-header">
@@ -1679,14 +1694,13 @@
 										<div class="col-md-12 p-0">
 											<div class="entry-content pl-50 p-20 pt-30 pr-20">
 												<h5 class="entry-title pt-0">
-													<a href="#">Different types of stroke</a>
+													<a href="#">${v.getTieuDe()}</a>
 												</h5>
-												<p>The service "Registration for appointment appointment" starts to operate from April 9, 2009. In addition, parents with children who need to see the service at the clinic can still schedule ahead by ...
-													</p>
+												<p>${v.getGioiThieu() }</p>
 												<div class="entry-meta pull-left flip mt-10">
 													<ul class="list-inline">
-														<li><i class="fa fa-thumbs-o-up mr-5"></i> 13</li>
-														<li><i class="fa fa-comments-o mr-5"></i> 43</li>
+														<li><i class="fa fa-thumbs-o-up mr-5"></i> ${v.getStt() }</li>
+														<li><i class="fa fa-comments-o mr-5"></i> ${v.getLuotXem() }</li>
 													</ul>
 												</div>
 												<a class="text-theme-colored mt-10 mb-0 pull-right flip"
@@ -1696,171 +1710,8 @@
 										</div>
 									</article>
 								</div>
-								<div class="col-xs-12 col-sm-12 col-md-4">
-									<article class="post style1 clearfix maxwidth500">
-										<div class="col-md-12 p-0">
-											<div class="entry-header">
-												<div class="post-thumb">
-													<img src="<c:url value="/resources/images/blog/2.jpg"/>"
-														alt="" class="img-responsive img-fullwidth">
-												</div>
-												<div class="entry-date entry-date-absolute">
-													25 <span>Dec</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-12 p-0">
-											<div class="entry-content pl-50 p-20 pt-30 pr-20">
-												<h5 class="entry-title pt-0">
-													<a href="#">Different types of stroke</a>
-												</h5>
-												<p>The service "Registration for appointment appointment" starts to operate from April 9, 2009. In addition, parents with children who need to see the service at the clinic can still schedule ahead by ...
-													</p>
-												<div class="entry-meta pull-left flip mt-10">
-													<ul class="list-inline">
-														<li><i class="fa fa-thumbs-o-up mr-5"></i> 13</li>
-														<li><i class="fa fa-comments-o mr-5"></i> 43</li>
-													</ul>
-												</div>
-												<a class="text-theme-colored mt-10 mb-0 pull-right flip"
-													href="#">Read more <i class="fa fa-angle-double-right"></i></a>
-												<div class="clearfix"></div>
-											</div>
-										</div>
-									</article>
-								</div>
-								<div class="col-xs-12 col-sm-12 col-md-4">
-									<article class="post style1 clearfix maxwidth500">
-										<div class="col-md-12 p-0">
-											<div class="entry-header">
-												<div class="post-thumb">
-													<img src="<c:url value="/resources/images/blog/3.jpg"/>"
-														alt="" class="img-responsive img-fullwidth">
-												</div>
-												<div class="entry-date entry-date-absolute">
-													25 <span>Dec</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-12 p-0">
-											<div class="entry-content pl-50 p-20 pt-30 pr-20">
-												<h5 class="entry-title pt-0">
-													<a href="#">Different types of stroke</a>
-												</h5>
-												<p>The service "Registration for appointment appointment" starts to operate from April 9, 2009. In addition, parents with children who need to see the service at the clinic can still schedule ahead by ...
-													</p>
-												<div class="entry-meta pull-left flip mt-10">
-													<ul class="list-inline">
-														<li><i class="fa fa-thumbs-o-up mr-5"></i> 13</li>
-														<li><i class="fa fa-comments-o mr-5"></i> 43</li>
-													</ul>
-												</div>
-												<a class="text-theme-colored mt-10 mb-0 pull-right flip"
-													href="#">Read more <i class="fa fa-angle-double-right"></i></a>
-												<div class="clearfix"></div>
-											</div>
-										</div>
-									</article>
-								</div>
-								<div class="col-xs-12 col-sm-12 col-md-4">
-									<article class="post style1 clearfix maxwidth500">
-										<div class="col-md-12 p-0">
-											<div class="entry-header">
-												<div class="post-thumb">
-													<img src="<c:url value="/resources/images/blog/4.jpg"/>"
-														alt="" class="img-responsive img-fullwidth">
-												</div>
-												<div class="entry-date entry-date-absolute">
-													25 <span>Dec</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-12 p-0">
-											<div class="entry-content pl-50 p-20 pt-30 pr-20">
-												<h5 class="entry-title pt-0">
-													<a href="#">Different types of stroke</a>
-												</h5>
-												<p>The service "Registration for appointment appointment" starts to operate from April 9, 2009. In addition, parents with children who need to see the service at the clinic can still schedule ahead by ...
-													</p>
-												<div class="entry-meta pull-left flip mt-10">
-													<ul class="list-inline">
-														<li><i class="fa fa-thumbs-o-up mr-5"></i> 13</li>
-														<li><i class="fa fa-comments-o mr-5"></i> 43</li>
-													</ul>
-												</div>
-												<a class="text-theme-colored mt-10 mb-0 pull-right flip"
-													href="#">Read more <i class="fa fa-angle-double-right"></i></a>
-												<div class="clearfix"></div>
-											</div>
-										</div>
-									</article>
-								</div>
-								<div class="col-xs-12 col-sm-12 col-md-4">
-									<article class="post style1 clearfix maxwidth500">
-										<div class="col-md-12 p-0">
-											<div class="entry-header">
-												<div class="post-thumb">
-													<img src="<c:url value="/resources/images/blog/5.jpg"/>"
-														alt="" class="img-responsive img-fullwidth">
-												</div>
-												<div class="entry-date entry-date-absolute">
-													25 <span>Dec</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-12 p-0">
-											<div class="entry-content pl-50 p-20 pt-30 pr-20">
-												<h5 class="entry-title pt-0">
-													<a href="#">Different types of stroke</a>
-												</h5>
-												<p>The service "Registration for appointment appointment" starts to operate from April 9, 2009. In addition, parents with children who need to see the service at the clinic can still schedule ahead by ...
-													</p>
-												<div class="entry-meta pull-left flip mt-10">
-													<ul class="list-inline">
-														<li><i class="fa fa-thumbs-o-up mr-5"></i> 13</li>
-														<li><i class="fa fa-comments-o mr-5"></i> 43</li>
-													</ul>
-												</div>
-												<a class="text-theme-colored mt-10 mb-0 pull-right flip"
-													href="#">Read more <i class="fa fa-angle-double-right"></i></a>
-												<div class="clearfix"></div>
-											</div>
-										</div>
-									</article>
-								</div>
-								<div class="col-xs-12 col-sm-12 col-md-4">
-									<article class="post style1 clearfix maxwidth500">
-										<div class="col-md-12 p-0">
-											<div class="entry-header">
-												<div class="post-thumb">
-													<img src="<c:url value="/resources/images/blog/6.jpg"/>"
-														alt="" class="img-responsive img-fullwidth">
-												</div>
-												<div class="entry-date entry-date-absolute">
-													25 <span>Dec</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-12 p-0">
-											<div class="entry-content pl-50 p-20 pt-30 pr-20">
-												<h5 class="entry-title pt-0">
-													<a href="#">Different types of stroke</a>
-												</h5>
-												<p>The service "Registration for appointment appointment" starts to operate from April 9, 2009. In addition, parents with children who need to see the service at the clinic can still schedule ahead by ...
-													</p>
-												<div class="entry-meta pull-left flip mt-10">
-													<ul class="list-inline">
-														<li><i class="fa fa-thumbs-o-up mr-5"></i> 13</li>
-														<li><i class="fa fa-comments-o mr-5"></i> 43</li>
-													</ul>
-												</div>
-												<a class="text-theme-colored mt-10 mb-0 pull-right flip"
-													href="#">Read more <i class="fa fa-angle-double-right"></i></a>
-												<div class="clearfix"></div>
-											</div>
-										</div>
-									</article>
-								</div>
+								</c:forEach>
+								
 							</div>
 						</div>
 					</div>
@@ -1879,8 +1730,8 @@
 									class="testimonial style1 testimonial-carousel-3col owl-nav-top">
 									<div class="item">
 										<div class="comment">
-											<p>Experienced and skilled doctors have undergone professional training
-												.</p>
+											<p>Experienced and skilled doctors have undergone
+												professional training .</p>
 										</div>
 										<div class="content mt-20">
 											<div class="thumb pull-right">
@@ -1896,8 +1747,8 @@
 									</div>
 									<div class="item">
 										<div class="comment">
-											<p>Experienced and skilled doctors have undergone professional training
-												.</p>
+											<p>Experienced and skilled doctors have undergone
+												professional training .</p>
 										</div>
 										<div class="content mt-20">
 											<div class="thumb pull-right">
@@ -1913,8 +1764,8 @@
 									</div>
 									<div class="item">
 										<div class="comment">
-											<p>Experienced and skilled doctors have undergone professional training
-												.</p>
+											<p>Experienced and skilled doctors have undergone
+												professional training .</p>
 										</div>
 										<div class="content mt-20">
 											<div class="thumb pull-right">
@@ -1948,8 +1799,11 @@
 										<div class="media-body">
 											<h4 class="media-heading heading title">24 Hours Service</h4>
 											<p>
-												The service "Registration for appointment appointment" starts to operate from April 9, 2009. In addition, parents with children who need to see the service at the clinic can still schedule ahead by ... elit. <a
-													href="#"><i class="fa fa-arrow-circle-right font-14"></i></a>
+												The service "Registration for appointment appointment"
+												starts to operate from April 9, 2009. In addition, parents
+												with children who need to see the service at the clinic can
+												still schedule ahead by ... elit. <a href="#"><i
+													class="fa fa-arrow-circle-right font-14"></i></a>
 											</p>
 										</div>
 									</div>
@@ -1961,8 +1815,11 @@
 										<div class="media-body">
 											<h4 class="media-heading heading title">Online Help</h4>
 											<p>
-												The service "Registration for appointment appointment" starts to operate from April 9, 2009. In addition, parents with children who need to see the service at the clinic can still schedule ahead by ... elit. <a
-													href="#"><i class="fa fa-arrow-circle-right font-14"></i></a>
+												The service "Registration for appointment appointment"
+												starts to operate from April 9, 2009. In addition, parents
+												with children who need to see the service at the clinic can
+												still schedule ahead by ... elit. <a href="#"><i
+													class="fa fa-arrow-circle-right font-14"></i></a>
 											</p>
 										</div>
 									</div>
@@ -1974,8 +1831,11 @@
 										<div class="media-body">
 											<h4 class="media-heading heading title">Online Payment</h4>
 											<p>
-												The service "Registration for appointment appointment" starts to operate from April 9, 2009. In addition, parents with children who need to see the service at the clinic can still schedule ahead by ... elit. <a
-													href="#"><i class="fa fa-arrow-circle-right font-14"></i></a>
+												The service "Registration for appointment appointment"
+												starts to operate from April 9, 2009. In addition, parents
+												with children who need to see the service at the clinic can
+												still schedule ahead by ... elit. <a href="#"><i
+													class="fa fa-arrow-circle-right font-14"></i></a>
 											</p>
 										</div>
 									</div>
@@ -2013,10 +1873,12 @@
 								<img class="mb-20"
 									src="<c:url value="/resources/images/logo-wide-white.png"/>"
 									alt="">
-								<p>The service "Registration for appointment appointment" starts to operate from April 9, 2009. In addition, parents with children who need to see the service at the clinic can still schedule ahead by ... elit.
-									Consequuntur exercitationem repellendus iusto quos, quasi
-									dolorum hic cum voluptatibus, voluptas suscipit numquam
-									quisquam!</p>
+								<p>The service "Registration for appointment appointment"
+									starts to operate from April 9, 2009. In addition, parents with
+									children who need to see the service at the clinic can still
+									schedule ahead by ... elit. Consequuntur exercitationem
+									repellendus iusto quos, quasi dolorum hic cum voluptatibus,
+									voluptas suscipit numquam quisquam!</p>
 							</div>
 							<div class="footer-news-letter mt-30">
 								<h4 class="text-white mb-30">Subscribe Our Newsletter</h4>
