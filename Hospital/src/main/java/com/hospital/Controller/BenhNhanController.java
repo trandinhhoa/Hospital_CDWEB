@@ -37,7 +37,7 @@ public class BenhNhanController {
 
 	@GetMapping
 	@Transactional
-	public String Default(ModelMap modelmap, Model model,@PathVariable int FK_GiuongBenh, @ModelAttribute("hovaten") String hovaten,
+	public String Default(ModelMap modelmap, Model model, @ModelAttribute("hovaten") String hovaten,
 			@ModelAttribute("permissionName") String permissionName) {
 		List<BenhNhan> listBenhNhan = benhnhanService.getListBenhNhan();
 		List<PhongKham> listPhongKham = phongKhamService.getListPhongKham();
@@ -45,13 +45,6 @@ public class BenhNhanController {
 		modelmap.addAttribute("listPhongKham", listPhongKham);
 		modelmap.addAttribute("hovaten", hovaten);
 		modelmap.addAttribute("permissionName", permissionName);
-		
-		GiuongBenh GiuongBenhbyFK_GiuongBenh = giuongbenhService.getGiuongBenh(FK_GiuongBenh);
-		modelmap.addAttribute("GiuongBenhbyFK_GiuongBenh", GiuongBenhbyFK_GiuongBenh);
-		TenPhongKham tenphongkham=tenphongkhamService.getTenPhongKham(GiuongBenhbyFK_GiuongBenh.getFK_TenPhongKham());
-		modelmap.addAttribute("tenphongkham", tenphongkham);
-		PhongKham phongkham=phongKhamService.getPhongKham(tenphongkham.getFK_PhongKham());
-		modelmap.addAttribute("phongkham", phongkham);
 		return "BenhNhan";
 	}
 
