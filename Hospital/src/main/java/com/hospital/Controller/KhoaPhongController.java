@@ -65,7 +65,7 @@ public class KhoaPhongController {
 	@PostMapping(value = "/save")
 	@Transactional
 	public String saveOrUpdateKhoaPhong(@RequestParam String tenkhoaphong,
-			@RequestParam String tieudekhoa,@RequestParam Timestamp ngaycapnhat,@RequestParam String nguoichinhsua, ModelMap modelmap) {
+			@RequestParam String tieudekhoa,@RequestParam String nguoichinhsua, ModelMap modelmap) {
 			KhoaPhong khoaphong = new KhoaPhong();
 			khoaphong.setFK_LoaiKhoaPhong(new Random().nextInt(3));
 			khoaphong.setFK_NgonNgu(1);
@@ -74,7 +74,6 @@ public class KhoaPhongController {
 			khoaphong.setHinhAnhDaiDien(null);
 			khoaphong.setId(new Random().nextInt(1000));
 			khoaphong.setLuotXem(0);
-			khoaphong.setNgayCapNhat(ngaycapnhat);
 			khoaphong.setNoiDung(null);
 			khoaphong.setStt(0);
 			khoaphong.setTenKhoaPhong(tenkhoaphong);

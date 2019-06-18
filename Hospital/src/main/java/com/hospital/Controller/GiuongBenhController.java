@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.hospital.Entity.*;
 import com.hospital.Service.*;
 @Controller
+@SessionAttributes("tendangnhap")
 @RequestMapping("/QuanLyGiuongBenh")
 public class GiuongBenhController {
 	@Autowired
@@ -28,15 +30,12 @@ public class GiuongBenhController {
 		modelmap.addAttribute("listgiuongbenh",listgiuongbenh);
 		modelmap.addAttribute("hovaten",hovaten);
 		modelmap.addAttribute("permissionName",permissionName);
-		//model.addAttribute("khoaphongSaveorUpdate",new KhoaPhong());
 		return "GiuongBenh";
 		}
 	
 	@GetMapping(value = "/getgiuongbenh")
 	@Transactional
 	public void a(@ModelAttribute("giuongbenh") GiuongBenh giuongbenh,ModelMap modelmap) {
-		/*List<KhoaPhong> listKhoaPhong = khoaphongService.getListKhoaPhong();
-		modelmap.addAttribute("listKhoaPhong",listKhoaPhong);*/
 		modelmap.addAttribute("giuongbenh",giuongbenh);
 		return ;
 		}
@@ -44,8 +43,6 @@ public class GiuongBenhController {
 	@GetMapping(value = "/getphongkham")
 	@Transactional
 	public void getPhongKham(@ModelAttribute("phongkham") PhongKham phongkham,ModelMap modelmap) {
-		/*List<PhongKham> listphongkham = phongkhamService.getListPhongKham();
-		modelmap.addAttribute("listphongkham",listphongkham);*/
 		modelmap.addAttribute("phongkham",phongkham);
 		return ;
 		}

@@ -1,6 +1,6 @@
 $(document).ready(
 		function() {
-			$('.btn-danger').click(function(e) {
+			$('.btnxoa').click(function(e) {
 				e.preventDefault();
 				var keyHIddenSubmit = $(this).data('hidden-submit');
 
@@ -44,6 +44,20 @@ $(document).ready(
 
 					})
 
+					$('#dataTables-example tbody').on('click', '.btn-info',
+					function() {
+
+						var currentRow = $(this).closest('tr');
+						
+						var FK_GiuongBenh = currentRow.find('td:eq(5)').text();
+
+						var modal = $('.detailBenhNhan')
+						
+						modal.find('#detailFK_GiuongBenh').val(FK_GiuongBenh);
+
+						$('.detailBenhNhan').show();
+
+					})
 			$('#closeUpdate').on('click', function() {
 				$('.centererUpdate').hide();
 			})
@@ -52,7 +66,7 @@ $(document).ready(
 				$('.centererSave').show();
 			})
 			$('.giuongbenh').on('click', function() {
-				$('.anbtngiuongbenh').hide();
+
 				$('.chongiuongbenh').show();
 			})
 			$('.close').on('click', function() {
@@ -68,6 +82,8 @@ $(document).ready(
 			$('#listGB').delegate('.chongiuongnay', 'click', function(e) {
 				var item = $(this).val();
 				$('.hienthigiuongchon').val(item);
+				$('.anbtngiuongbenh').hide();
+
 			});
 
 			$(".btn-block").click(
@@ -124,12 +140,32 @@ $(document).ready(
 							}
 						})
 					});
+			$("#detailcapnhat").click(
+					function() {
+						var FK_GiuongBenh = $("#detailFK_GiuongBenh").val();
+						$.ajax({
+							url : "/Hospital/QuanLyBenhNhan/detail",
+							type : "POST",
+							data : {
+								FK_GiuongBenh : FK_GiuongBenh
+
+							},
+							success : function(value) {
+								duongDanHIenTai = window.location.href;
+								if (value == "false") {
+									window.location = duongDanHIenTai;
+								} else if (value == "true") {
+									window.location = duongDanHIenTai.replace(
+											"QuanLyBenhNhan", "BenhNhan");
+								}
+							}
+						})
+					});
 
 			$("select.phongkhambyID").change(
 					function() {
 						var phongkhamID = $(this).children("option:selected")
 								.val();
-						// console.log(phongkhamID);
 						$.ajax({
 							url : "/Hospital/QuanLyBenhNhan/getPK",
 							type : "GET",
@@ -154,7 +190,6 @@ $(document).ready(
 					function() {
 						var tenphongkhamID = $(this)
 								.children("option:selected").val();
-						console.log(tenphongkhamID);
 						$.ajax({
 							url : "/Hospital/QuanLyBenhNhan/getGB",
 							type : "GET",
@@ -162,14 +197,10 @@ $(document).ready(
 								tenphongkhamID : tenphongkhamID,
 							},
 							success : function(value1) {
-								console.log(value1);
 								var listGB = $('#listGB');
 								$('#listGB').html("");
 
 								$.each(value1, function(index, value) {
-									// listGB.append($('<button
-									// class="chongiuongnay">'+value.soGiuong+'</button>')
-									// .val(value.id));
 									if (value.status == 0)
 										listGB.append($(
 												'<button type="button"  class="btn info chongiuongnay">'

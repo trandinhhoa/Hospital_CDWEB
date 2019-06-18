@@ -66,5 +66,6 @@ public class BenhNhanDAO implements BenhNhanInterface{
 		long countBenhNhan = (Long)session.createQuery(sql).getSingleResult();
 		return countBenhNhan;
 	}
+
 }
 
