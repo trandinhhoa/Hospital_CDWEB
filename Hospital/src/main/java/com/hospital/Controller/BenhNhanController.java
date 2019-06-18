@@ -137,5 +137,18 @@ public class BenhNhanController {
 		benhnhanService.updateBenhNhan(benhnhan);
 		return "redirect:/QuanLyBenhNhan";
 	}
-	
+	@PostMapping(value = "/detail")
+	@Transactional
+	public void Default(@RequestParam(value = "FK_GiuongBenh", required = false) String FK_GiuongBenh, ModelMap modelmap) {
+		int id;
+		id = Integer.parseInt(FK_GiuongBenh);
+		GiuongBenh giuongbenh = giuongbenhService.getGiuongBenh(id);
+		modelmap.addAttribute("GiuongBenhbyFK_GiuongBenh", giuongbenh);
+		TenPhongKham tenphongkham = tenphongkhamService
+				.getTenPhongKham(giuongbenh.getFK_TenPhongKham());
+		modelmap.addAttribute("tenphongkham", tenphongkham);
+		PhongKham phongkham = phongKhamService.getPhongKham(tenphongkham.getFK_PhongKham());
+		modelmap.addAttribute("phongkham", phongkham);
+		return;
+	}
 }

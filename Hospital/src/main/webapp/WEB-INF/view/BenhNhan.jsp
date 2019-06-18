@@ -337,13 +337,9 @@
 									</tr>
 								</thead>
 								<tbody>
-									<%
-										int count = 0;
-									%>
+
 									<c:forEach var="item" items="${listBenhNhan}">
-										<%
-											count++;
-										%>
+
 										<tr class="odd gradeX">
 											<td>${item.getId()}</td>
 											<td>${item.getHoVaTen()}</td>
@@ -364,7 +360,7 @@
 													<i class="fa fa-edit "></i>
 												</button></td>
 											<td title="Xóa">
-												<form action="BenhNhanDetail/delete/${item.getId()}"
+												<form action="QuanLyBenhNhan/delete/${item.getId()}"
 													method="post">
 													<button class="btn btn-danger btnxoa"
 														data-hidden-submit="hiddenSubmit_${item.getId()}">
@@ -375,16 +371,10 @@
 												</form>
 											</td>
 											<td title="Chi tiết">
-												<form
-													action="BenhNhanDetail/${item.getFK_GiuongBenh()}"
-													method="get">
-													<button class="btn btn-info" 
-														data-hidden-submit="hiddenSubmitdetail_${item.getFK_GiuongBenh()}">
-														<i class="glyphicon glyphicon-info-sign"></i>
-													</button>
-													<input id="hiddenSubmitdetail_${item.getFK_GiuongBenh()}"
-														type="submit" style="display: none;">
-												</form>
+												<button class="btn btn-info">
+													<i class="glyphicon glyphicon-info-sign"></i>
+												</button>
+
 											</td>
 										</tr>
 									</c:forEach>
@@ -397,8 +387,19 @@
 			</div>
 		</div>
 	</div>
-	
-
+	<div class="detailBenhNhan hideform">
+		<form method="post" action="QuanLyBenhNhan/detail">
+			<input class="form-control" id="detailFK_GiuongBenh"
+				placeholder="Số giường" name="detailFK_GiuongBenh" />
+				<button type="submit" class="btn btn-success" id="detailcapnhat">Cập
+													nhật</button>
+		</form>
+	</div>
+	<div class="contaier">
+		<p>${GiuongBenhbyFK_GiuongBenh.getSoGiuong()}</p>
+		<p>${tenphongkham.getTenPhongKham()}</p>
+		<p>${phongkham.getTenPhongKham()}</p>
+	</div>
 	<!-- Footer-->
 	<footer class="footer-distributed"
 		style="background-color: #3f51b5; text-align: center; font-size: 15px; height: 50px;">

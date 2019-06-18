@@ -44,6 +44,20 @@ $(document).ready(
 
 					})
 
+					$('#dataTables-example tbody').on('click', '.btn-info',
+					function() {
+
+						var currentRow = $(this).closest('tr');
+						
+						var FK_GiuongBenh = currentRow.find('td:eq(5)').text();
+
+						var modal = $('.detailBenhNhan')
+						
+						modal.find('#detailFK_GiuongBenh').val(FK_GiuongBenh);
+
+						$('.detailBenhNhan').show();
+
+					})
 			$('#closeUpdate').on('click', function() {
 				$('.centererUpdate').hide();
 			})
@@ -112,6 +126,27 @@ $(document).ready(
 								NamSinh : NamSinh,
 								GioiTinh : GioiTinh,
 								QueQuan : QueQuan,
+								FK_GiuongBenh : FK_GiuongBenh
+
+							},
+							success : function(value) {
+								duongDanHIenTai = window.location.href;
+								if (value == "false") {
+									window.location = duongDanHIenTai;
+								} else if (value == "true") {
+									window.location = duongDanHIenTai.replace(
+											"QuanLyBenhNhan", "BenhNhan");
+								}
+							}
+						})
+					});
+			$("#detailcapnhat").click(
+					function() {
+						var FK_GiuongBenh = $("#detailFK_GiuongBenh").val();
+						$.ajax({
+							url : "/Hospital/QuanLyBenhNhan/detail",
+							type : "POST",
+							data : {
 								FK_GiuongBenh : FK_GiuongBenh
 
 							},

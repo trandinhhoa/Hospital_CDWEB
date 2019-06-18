@@ -167,11 +167,11 @@
 									<form method="post" action="QuanLyGiuongBenh/edit">
 										<input class="form-control" style="display: none;" id="ID"
 											name="ID" />
-										<div class="form-group">
+										<div class="form-group" >
 											<label class="control-label col-sm-2" for="SoGiuong">Tên
 												giường</label>
 											<div class="col-sm-10">
-												<input class="form-control" id="SoGiuong"
+												<input class="form-control" id="SoGiuong" readonly="readonly"
 													placeholder="Số giường" name="SoGiuong" />
 											</div>
 										</div>
@@ -179,7 +179,7 @@
 											<label class="control-label col-sm-2" for="FK_TenPhongKham">Tên
 												phòng</label>
 											<div class="col-sm-10">
-												<input class="form-control" id="FK_TenPhongKham"
+												<input class="form-control" id="FK_TenPhongKham" readonly="readonly"
 													placeholder="Tên phòng" name="FK_TenPhongKham" />
 											</div>
 										</div>
@@ -217,15 +217,11 @@
 											</tr>
 										</thead>
 										<tbody>
-											<%
-												int count = 0;
-											%>
+											
 											<c:forEach var="item" items="${listgiuongbenh}">
-												<%
-													count++;
-												%>
+												
 												<tr class="odd gradeX">
-													<td><%=count%></td>
+													<td>${item.getId()}</td>
 													<td>${item.getSoGiuong()}</td>
 													<td align="right" class="center">${item.getFK_TenPhongKham()}</td>
 													<c:choose>
@@ -242,7 +238,7 @@
 													<td>
 														<form action="QuanLyGiuongBenh/delete/${item.getId()}"
 															method="post">
-															<button class="btn btn-danger"
+															<button class="btn btn-danger xoaGB"
 																data-hidden-submit="hiddenSubmit_${item.getId()}">
 																<i class="fa fa-pencil"></i>Xóa
 															</button>
@@ -291,7 +287,8 @@
 		src="<c:url value="/resources/Admin/vendor/datatables-plugins/dataTables.bootstrap.min.js"/>"></script>
 	<script
 		src="<c:url value="/resources/Admin/vendor/datatables-responsive/dataTables.responsive.js"/>"></script>
-
+<script type="text/javascript"
+		src="<c:url value="/resources/js/jquery-confirm.min.js"/>">
 	<!-- Custom Theme JavaScript -->
 	<script src="<c:url value="/resources/Admin/dist/js/sb-admin-2.js"/>"></script>
 	<!-- Page-Level Demo Scripts - Tables - Use for reference -->
