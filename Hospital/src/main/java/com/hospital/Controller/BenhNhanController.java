@@ -145,7 +145,6 @@ public class BenhNhanController {
 		return "redirect:/QuanLyBenhNhan";
 	}
 	@PostMapping(value = "/detail/{FK_GiuongBenh}")
-	@ResponseBody
 	@Transactional
 	public void getDetailBN(@PathVariable int FK_GiuongBenh, ModelMap modelmap) {
 		GiuongBenh GiuongBenhbyFK_GiuongBenh = giuongbenhService.getGiuongBenh(FK_GiuongBenh);

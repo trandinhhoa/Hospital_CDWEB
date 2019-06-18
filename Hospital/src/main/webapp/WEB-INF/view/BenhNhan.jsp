@@ -376,8 +376,8 @@
 											</td>
 											<td title="Chi tiết">
 												<form
-													action="QuanLyBenhNhan/${item.getFK_GiuongBenh()}"
-													method="get">
+													action="QuanLyBenhNhan/detail/${item.getFK_GiuongBenh()}"
+													method="post">
 													<button class="btn btn-info" data-toggle="modal"
 														data-target="#myModal"
 														data-hidden-submit="hiddenSubmitdetail_${item.getFK_GiuongBenh()}">
