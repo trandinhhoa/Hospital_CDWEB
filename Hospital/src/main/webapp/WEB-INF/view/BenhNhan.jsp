@@ -330,10 +330,10 @@
 										<th>Năm sinh</th>
 										<th>Giới tính</th>
 										<th>Quê quán</th>
-										<th>Số giường</th>
+										<th>ID giường bệnh</th>
 										<th></th>
 										<th></th>
-										<th></th>
+										<!-- <th></th> -->
 									</tr>
 								</thead>
 								<tbody>
@@ -370,12 +370,12 @@
 														style="display: none;">
 												</form>
 											</td>
-											<td title="Chi tiết">
+											<!-- <td title="Chi tiết">
 												<button class="btn btn-info">
 													<i class="glyphicon glyphicon-info-sign"></i>
 												</button>
 
-											</td>
+											</td> -->
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -387,14 +387,14 @@
 			</div>
 		</div>
 	</div>
-	<div class="detailBenhNhan hideform">
-		<form method="post" action="QuanLyBenhNhan/detail">
+	<%-- <div class="detailBenhNhan hideform">
+		<form method="get" action="QuanLyBenhNhan/detail">
 			<input class="form-control" id="detailFK_GiuongBenh"
 				placeholder="Số giường" name="detailFK_GiuongBenh" />
-				<button type="submit" class="btn btn-success" id="detailcapnhat">Cập
+				<button type="submit"  id="detailcapnhat">Cập
 													nhật</button>
 		</form>
-	</div>
+	</div> --%>
 	<div class="contaier">
 		<p>${GiuongBenhbyFK_GiuongBenh.getSoGiuong()}</p>
 		<p>${tenphongkham.getTenPhongKham()}</p>
