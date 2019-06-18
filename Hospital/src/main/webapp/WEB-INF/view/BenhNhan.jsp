@@ -54,6 +54,7 @@
 	color: dodgerblue;
 	background-color: white;
 	border-radius: 100px;
+	margin: 2px;
 }
 
 .centererSave {
@@ -62,6 +63,11 @@
 
 .error {
 	color: red;
+	margin-left: 10px;
+}
+
+.form-control {
+	margin: 5px;
 }
 </style>
 </head>
