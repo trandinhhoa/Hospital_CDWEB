@@ -17,7 +17,7 @@ $(document).ready(function() {
 					duongDan = duongDanHIenTai.replace("login/","");
 					window.location = duongDan;
 				}
-			}
+			} 
 		})
 	});
 	
