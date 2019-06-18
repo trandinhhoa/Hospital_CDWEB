@@ -3,11 +3,13 @@ package com.hospital.Controller;
 import java.util.List;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +40,7 @@ public class UserController {
 	@ResponseBody
 	public String login(@RequestParam String tendangnhap,@RequestParam String matkhau,
 			ModelMap modelmap) {
+		
 		boolean isCheck = true;
 		User user = userService.login(tendangnhap, matkhau);
 		if(user == null) {

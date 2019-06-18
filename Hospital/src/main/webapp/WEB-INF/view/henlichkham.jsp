@@ -146,7 +146,7 @@
 								src="<c:url value="/resources/images/logo-wide.png"/>" alt="">
 							</a>
 							<ul class="menuzord-menu">
-								<li class="active"><a href="#home">Home</a>
+								<li class="active"><a href="/Hospital/">Home</a>
 									<ul class="dropdown">
 										<li><a href="#">Multipage Layout</a>
 											<ul class="dropdown">
@@ -635,6 +635,13 @@
 	<!-- JS | Custom script for all pages -->
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
 	<script src="<c:url value="/resources/Styles/custom.js"/>"></script>
+	<c:if test="${!empty confirm}">
+	<script>
+	 
+	alert("User is Schedule Successfully.");
+	
+	</script>
+	</c:if>
 
 </body>
 </html>

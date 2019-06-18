@@ -49,7 +49,7 @@ public class HenLichKhamController {
 	}
 
 	@PostMapping("datlichkham/")
-	public String datLichKham(@ModelAttribute HenKhamBenh khamBenh, @RequestParam int gioitinh) {
+	public String datLichKham(@ModelAttribute HenKhamBenh khamBenh, @RequestParam int gioitinh, ModelMap modelMap) {
 
 		Date date = new Date();
 
