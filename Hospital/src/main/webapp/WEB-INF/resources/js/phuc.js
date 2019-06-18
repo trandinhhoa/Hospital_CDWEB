@@ -35,14 +35,14 @@ $(document).ready(function () {
         	var loaikhoaphong = currentRow.find('td:eq(2)').text();
         	var luotxem = currentRow.find('td:eq(3)').text();
         	var tieudekhoa = currentRow.find('td:eq(4)').text();
-        	var ngaycapnhat = currentRow.find('td:eq(5)').text();
+        	//var ngaycapnhat = currentRow.find('td:eq(5)').text();
         	var nguoichinhsua = currentRow.find('td:eq(6)').text();
         	
         	var modal = $('.centererUpdate')
         	modal.find('#id').val(id);
         	modal.find('#tenkhoaphong').val(tenkhoaphong);
         	modal.find('#tieudekhoa').val(tieudekhoa);
-        	modal.find('#ngaycapnhat').val(ngaycapnhat);
+        	//modal.find('#ngaycapnhat').val(ngaycapnhat);
         	modal.find('#nguoichinhsua').val(nguoichinhsua);
         	
         	$('.centererUpdate').show();

@@ -60,17 +60,31 @@ public class KhoaPhongDAO implements KhoaPhongInterface{
 	@Transactional
 	public void updateKhoaPhong(KhoaPhong item) {
 		Session session = sessionFactory.getCurrentSession();
+//		KhoaPhong item2 = session.get(KhoaPhong.class, item.getId());
+//		item2.setTieuDeKhoa(item.getTieuDeKhoa());
+//		item2.setTenKhoaPhong(item.getTenKhoaPhong());
+//		item2.setUserModify(item.getUserModify());
 		session.update(item);
 	}
 	@Transactional
 	public void editKhoaPhong(KhoaPhong item) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = "update KhoaPhong set UserModify= :userModify,TieuDeKhoa= :tieuDeKhoa,TenKhoaPhong= :tenKhoaPhong where ID=:iD";
+		String sql = "update KhoaPhong set UserModify= :userModify,TieuDeKhoa= :tieuDeKhoa,TenKhoaPhong= :tenKhoaPhong,FK_LoaiKhoaPhong= :FK_LoaiKhoaPhong,FK_NgonNgu=:FK_NgonNgu,GioiThieu=:GioiThieu,HenKhamBenh=:HenKhamBenh,HinhAnhDaiDien=:HinhAnhDaiDien,LuotXem=:LuotXem,NgayCapNhat=:NgayCapNhat,NoiDung=:NoiDung,STT=:stt  where ID=:iD";
 		Query query = session.createQuery(sql);
 		query.setParameter("userModify", item.getUserModify());
 		query.setParameter("tenKhoaPhong", item.getTenKhoaPhong());
 		query.setParameter("tieuDeKhoa", item.getTieuDeKhoa());
+		query.setParameter("FK_LoaiKhoaPhong", item.getFK_LoaiKhoaPhong());
+		query.setParameter("FK_NgonNgu", item.getFK_NgonNgu());
+		query.setParameter("GioiThieu", item.getGioiThieu());
+		query.setParameter("HenKhamBenh", item.getHenKhamBenh());
+		query.setParameter("HinhAnhDaiDien", item.getHinhAnhDaiDien());
+		query.setParameter("LuotXem", item.getLuotXem());
+		query.setParameter("NgayCapNhat", item.getNgayCapNhat());
+		query.setParameter("NoiDung", item.getNoiDung());
+		query.setParameter("stt", item.getStt());
 		query.setParameter("iD", item.getId());
+		
 		int a  = query.executeUpdate();
 //		jdbc.update(sql);
 //		session.update(item);

@@ -91,7 +91,7 @@ public class KhoaPhongController {
 		khoaphong.setTenKhoaPhong(tenkhoaphong);
 		khoaphong.setTieuDeKhoa(tieudekhoa);
 		khoaphong.setUserModify(nguoichinhsua);
-		khoaphongService.editKhoaPhong(khoaphong);
+		khoaphongService.updateKhoaPhong(khoaphong);
 		return "redirect:/QuanLyKhoaPhong";
 	}
 }
