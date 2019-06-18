@@ -34,6 +34,7 @@ public class BenhNhanController {
 	GiuongBenhService giuongbenhService;
 	List<TenPhongKham> listTenPhongKham;
 	List<GiuongBenh> listGiuongBenh;
+	
 
 	@GetMapping
 	@Transactional
@@ -131,5 +132,12 @@ public class BenhNhanController {
 		benhnhan.setQueQuan(QueQuan);
 		benhnhanService.updateBenhNhan(benhnhan);
 		return "redirect:/QuanLyBenhNhan";
+	}
+	@PostMapping(value = "/detail/{FK_GiuongBenh}")
+	@Transactional
+	public GiuongBenh getDetailBN(@PathVariable int FK_GiuongBenh, ModelMap modelmap) {
+		GiuongBenh GiuongBenhbyFK_GiuongBenh = giuongbenhService.getGiuongBenh(FK_GiuongBenh);
+		modelmap.addAttribute("GiuongBenhbyFK_GiuongBenh", GiuongBenhbyFK_GiuongBenh);
+		return GiuongBenhbyFK_GiuongBenh;
 	}
 }

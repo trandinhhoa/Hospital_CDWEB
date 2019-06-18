@@ -74,7 +74,8 @@
 					class="icon-bar"></span>
 			</button>
 
-			<a class="navbar-brand" href="#" id="textColorWhite">Bệnh viện đa khoa ABC</a>
+			<a class="navbar-brand" href="#" id="textColorWhite">Bệnh viện đa
+				khoa ABC</a>
 		</div>
 
 		<!-- /.navbar-header -->
@@ -313,6 +314,7 @@
 										<th>Số giường</th>
 										<th></th>
 										<th></th>
+										<th></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -324,7 +326,7 @@
 											count++;
 										%>
 										<tr class="odd gradeX">
-											<td><%=count%></td>
+											<td>${item.getId()}</td>
 											<td>${item.getHoVaTen()}</td>
 											<td align="right" class="center">${item.getNamSinh()}</td>
 
@@ -345,12 +347,25 @@
 											<td title="Xóa">
 												<form action="QuanLyBenhNhan/delete/${item.getId()}"
 													method="post">
-													<button class="btn btn-danger" 
+													<button class="btn btn-danger"
 														data-hidden-submit="hiddenSubmit_${item.getId()}">
 														<i class="glyphicon glyphicon-trash"></i>
 													</button>
 													<input id="hiddenSubmit_${item.getId()}" type="submit"
 														style="display: none;">
+												</form>
+											</td>
+											<td title="Chi tiết">
+												<form
+													action="QuanLyBenhNhan/detail/${item.getFK_GiuongBenh()}"
+													method="post">
+													<button class="btn btn-primary" data-toggle="modal"
+														data-target="#myModal"
+														data-hidden-submit="hiddenSubmitdetail_${item.getFK_GiuongBenh()}">
+														<i class="glyphicon glyphicon-info-sign"></i>
+													</button>
+													<input id="hiddenSubmitdetail_${item.getFK_GiuongBenh()}"
+														type="submit" style="display: none;">
 												</form>
 											</td>
 										</tr>
@@ -364,6 +379,29 @@
 			</div>
 		</div>
 	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Modal Header</h4>
+				</div>
+				<div class="modal-body">
+				
+				
+					<p>Some text in the modal.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
 	<!-- Footer-->
 	<footer class="footer-distributed"
 		style="background-color: #3f51b5; text-align: center; font-size: 15px; height: 50px;">
