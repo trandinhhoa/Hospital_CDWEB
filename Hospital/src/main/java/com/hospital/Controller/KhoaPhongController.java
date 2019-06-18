@@ -86,13 +86,12 @@ public class KhoaPhongController {
 	@PostMapping(value = "/edit")
 	@Transactional
 	public String editKhoaPhong(@RequestParam int id,@RequestParam String tenkhoaphong,
-			@RequestParam String tieudekhoa,@RequestParam Timestamp ngaycapnhat,@RequestParam String nguoichinhsua, ModelMap modelmap) {
+			@RequestParam String tieudekhoa,@RequestParam String nguoichinhsua, ModelMap modelmap) {
 		KhoaPhong khoaphong = khoaphongService.getKhoaPhong(id);
 		khoaphong.setTenKhoaPhong(tenkhoaphong);
 		khoaphong.setTieuDeKhoa(tieudekhoa);
 		khoaphong.setUserModify(nguoichinhsua);
-		khoaphong.setNgayCapNhat(ngaycapnhat);
-		khoaphongService.updateKhoaPhong(khoaphong);
+		khoaphongService.editKhoaPhong(khoaphong);
 		return "redirect:/QuanLyKhoaPhong";
 	}
 }

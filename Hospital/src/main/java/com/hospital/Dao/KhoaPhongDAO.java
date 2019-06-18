@@ -2,13 +2,16 @@ package com.hospital.Dao;
 
 import java.util.List;
 
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.hospital.Interface.*;
@@ -17,7 +20,8 @@ import com.hospital.Entity.*;
 @Repository
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class KhoaPhongDAO implements KhoaPhongInterface{
-	
+	JdbcTemplate jdbc;
+
 	@Autowired
 	SessionFactory sessionFactory;
 	
@@ -58,6 +62,19 @@ public class KhoaPhongDAO implements KhoaPhongInterface{
 		Session session = sessionFactory.getCurrentSession();
 		session.update(item);
 	}
+	@Transactional
+	public void editKhoaPhong(KhoaPhong item) {
+		Session session = sessionFactory.getCurrentSession();
+		String sql = "update KhoaPhong set UserModify= :userModify,TieuDeKhoa= :tieuDeKhoa,TenKhoaPhong= :tenKhoaPhong where ID=:iD";
+		Query query = session.createQuery(sql);
+		query.setParameter("userModify", item.getUserModify());
+		query.setParameter("tenKhoaPhong", item.getTenKhoaPhong());
+		query.setParameter("tieuDeKhoa", item.getTieuDeKhoa());
+		query.setParameter("iD", item.getId());
+		int a  = query.executeUpdate();
+//		jdbc.update(sql);
+//		session.update(item);
+		}
 	
 	@Transactional
 	public long countAllKhoaPhong() {

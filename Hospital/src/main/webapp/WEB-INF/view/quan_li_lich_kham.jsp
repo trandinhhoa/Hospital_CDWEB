@@ -91,10 +91,10 @@ margin-bottom: 10px;
 						<ul id="menu-top" class="nav navbar-nav navbar-right">
 						<%@ page import="com.hospital.Enum.*" %>
 						<c:choose>
-							<c:when test="${permission.getPermissionName() == PermissionEnum.Admin.toString()}">
+							<c:when test="${permissionName == PermissionEnum.Admin.toString()}">
 									<li><a href="DashBoardAdmin/quanlykhoaphong/${permission.getPermissionName()}/${user.getHoVaTen()}">Quản lý khoa phòng</a></li>
 							</c:when>
-							<c:when test="${permission.getPermissionName() == PermissionEnum.Y_ta.toString()}">
+							<c:when test="${permissionName == PermissionEnum.Y_ta.toString()}">
 									<li><a href="DashBoardAdmin/QuanLyBenhNhan/${permission.getPermissionName()}/${user.getHoVaTen()}">Quản lý bệnh nhân</a></li>		
 							</c:when>
 							<c:otherwise>
@@ -209,15 +209,6 @@ margin-bottom: 10px;
 											<div class="col-sm-10">
 												<input class="form-control" 
 													id="tieudekhoa" name="tieudekhoa" />
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-sm-2" for="ngaycapnhat">Ngày
-												cập nhật</label>
-											<div class="col-sm-10">
-												<input class="form-control"
-													id="ngaycapnhat"
-													name="ngaycapnhat" />
 											</div>
 										</div>
 										<div class="form-group">

@@ -38,5 +38,5 @@ public class HenKhamBenhService implements HenKhamBenhInterface{
 	public long countAllHenKhamBenh() {
 		return itemDAO.countAllHenKhamBenh();
 	}
-
+	
 }
