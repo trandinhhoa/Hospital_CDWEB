@@ -23,6 +23,8 @@ public class BenhNhanService implements BenhNhanInterface{
 		return itemDAO.getBenhNhan(id);
 	}
 
+	
+	
 	public void addBenhNhan(BenhNhan item) {
 		itemDAO.addBenhNhan(item);
 	}
@@ -38,5 +40,6 @@ public class BenhNhanService implements BenhNhanInterface{
 	public long countAllBenhNhan() {
 		return itemDAO.countAllBenhNhan();
 	}
+
 
 }

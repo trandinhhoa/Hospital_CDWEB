@@ -1,6 +1,6 @@
 $(document).ready(
 		function() {
-			$('.btn-danger').click(function(e) {
+			$('.btnxoa').click(function(e) {
 				e.preventDefault();
 				var keyHIddenSubmit = $(this).data('hidden-submit');
 
@@ -52,7 +52,7 @@ $(document).ready(
 				$('.centererSave').show();
 			})
 			$('.giuongbenh').on('click', function() {
-				$('.anbtngiuongbenh').hide();
+			
 				$('.chongiuongbenh').show();
 			})
 			$('.close').on('click', function() {
@@ -68,7 +68,10 @@ $(document).ready(
 			$('#listGB').delegate('.chongiuongnay', 'click', function(e) {
 				var item = $(this).val();
 				$('.hienthigiuongchon').val(item);
+				$('.anbtngiuongbenh').hide();
+				
 			});
+			
 
 			$(".btn-block").click(
 					function() {
@@ -129,7 +132,6 @@ $(document).ready(
 					function() {
 						var phongkhamID = $(this).children("option:selected")
 								.val();
-						// console.log(phongkhamID);
 						$.ajax({
 							url : "/Hospital/QuanLyBenhNhan/getPK",
 							type : "GET",
@@ -154,7 +156,6 @@ $(document).ready(
 					function() {
 						var tenphongkhamID = $(this)
 								.children("option:selected").val();
-						console.log(tenphongkhamID);
 						$.ajax({
 							url : "/Hospital/QuanLyBenhNhan/getGB",
 							type : "GET",
@@ -167,9 +168,6 @@ $(document).ready(
 								$('#listGB').html("");
 
 								$.each(value1, function(index, value) {
-									// listGB.append($('<button
-									// class="chongiuongnay">'+value.soGiuong+'</button>')
-									// .val(value.id));
 									if (value.status == 0)
 										listGB.append($(
 												'<button type="button"  class="btn info chongiuongnay">'
