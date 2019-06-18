@@ -90,7 +90,7 @@ public class KhoaPhongController {
 		khoaphong.setTenKhoaPhong(tenkhoaphong);
 		khoaphong.setTieuDeKhoa(tieudekhoa);
 		khoaphong.setUserModify(nguoichinhsua);
-		khoaphongService.updateKhoaPhong(khoaphong);
+		khoaphongService.update(id,khoaphong);
 		return "redirect:/QuanLyKhoaPhong";
 	}
 }

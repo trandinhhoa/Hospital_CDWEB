@@ -27,6 +27,11 @@ public class HenKhamBenhService implements HenKhamBenhInterface{
 		itemDAO.addHenKhamBenh(item);
 	}
 
+	public int add(HenKhamBenh item) {
+		itemDAO.addHenKhamBenh(item);
+		return item.getId();
+	}
+	
 	public void deleteHenKhamBenh(HenKhamBenh item) {
 		itemDAO.deleteHenKhamBenh(item);
 	}
@@ -38,5 +43,13 @@ public class HenKhamBenhService implements HenKhamBenhInterface{
 	public long countAllHenKhamBenh() {
 		return itemDAO.countAllHenKhamBenh();
 	}
-	
+	public void delete(int id) {
+		itemDAO.delete(id);
+	}
+	public HenKhamBenh get(int id) {
+		return itemDAO.get(id);
+	}
+	public void update(int id,HenKhamBenh item) {
+		itemDAO.update(id, item);
+	}
 }

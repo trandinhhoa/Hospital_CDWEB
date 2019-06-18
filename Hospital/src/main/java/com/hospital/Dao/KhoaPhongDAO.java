@@ -60,20 +60,34 @@ public class KhoaPhongDAO implements KhoaPhongInterface{
 	@Transactional
 	public void updateKhoaPhong(KhoaPhong item) {
 		Session session = sessionFactory.getCurrentSession();
+		session.update(item);
 //		KhoaPhong item2 = session.get(KhoaPhong.class, item.getId());
 //		item2.setTieuDeKhoa(item.getTieuDeKhoa());
 //		item2.setTenKhoaPhong(item.getTenKhoaPhong());
 //		item2.setUserModify(item.getUserModify());
-		session.update(item);
+		
+	}
+	@Transactional
+	public void update(int id,KhoaPhong item) {	
+		Session session = sessionFactory.getCurrentSession();
+		KhoaPhong kp = session.byId(KhoaPhong.class).load(id);
+		kp.setTenKhoaPhong(item.getTenKhoaPhong());
+		kp.setTieuDeKhoa(item.getTieuDeKhoa());
+		kp.setUserModify(item.getUserModify());
+		session.flush();
 	}
 	@Transactional
 	public void editKhoaPhong(KhoaPhong item) {
 		Session session = sessionFactory.getCurrentSession();
-		String sql = "update KhoaPhong set UserModify= :userModify,TieuDeKhoa= :tieuDeKhoa,TenKhoaPhong= :tenKhoaPhong,FK_LoaiKhoaPhong= :FK_LoaiKhoaPhong,FK_NgonNgu=:FK_NgonNgu,GioiThieu=:GioiThieu,HenKhamBenh=:HenKhamBenh,HinhAnhDaiDien=:HinhAnhDaiDien,LuotXem=:LuotXem,NgayCapNhat=:NgayCapNhat,NoiDung=:NoiDung,STT=:stt  where ID=:iD";
-		Query query = session.createQuery(sql);
+		String sql = "update KhoaPhong set [UserModify]= :userModify,[TieuDeKhoa]= :tieuDeKhoa"
+				+ ",[TenKhoaPhong]= :tenKhoaPhong,[FK_LoaiKhoaPhong]= :FK_LoaiKhoaPhong,[FK_NgonNgu]=:FK_NgonNgu,"
+				+ "[GioiThieu]=:GioiThieu,[HenKhamBenh]=:HenKhamBenh,[HinhAnhDaiDien]=:HinhAnhDaiDien"
+				+ ",[LuotXem]=:LuotXem,[NgayCapNhat]=:NgayCapNhat,[NoiDung]=:NoiDung,[STT]=:stt "
+				+ "where ID=:iD";
+		SQLQuery<KhoaPhong> query = session.createSQLQuery(sql);
 		query.setParameter("userModify", item.getUserModify());
-		query.setParameter("tenKhoaPhong", item.getTenKhoaPhong());
 		query.setParameter("tieuDeKhoa", item.getTieuDeKhoa());
+		query.setParameter("tenKhoaPhong", item.getTenKhoaPhong());
 		query.setParameter("FK_LoaiKhoaPhong", item.getFK_LoaiKhoaPhong());
 		query.setParameter("FK_NgonNgu", item.getFK_NgonNgu());
 		query.setParameter("GioiThieu", item.getGioiThieu());
@@ -85,7 +99,8 @@ public class KhoaPhongDAO implements KhoaPhongInterface{
 		query.setParameter("stt", item.getStt());
 		query.setParameter("iD", item.getId());
 		
-		int a  = query.executeUpdate();
+		query.executeUpdate();
+		System.out.println("success");
 //		jdbc.update(sql);
 //		session.update(item);
 		}
