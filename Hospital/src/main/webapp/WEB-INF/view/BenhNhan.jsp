@@ -376,9 +376,9 @@
 											</td>
 											<td title="Chi tiết">
 												<form
-													action="QuanLyBenhNhan/detail/${item.getFK_GiuongBenh()}"
-													method="post">
-													<button class="btn btn-primary" data-toggle="modal"
+													action="QuanLyBenhNhan/${item.getFK_GiuongBenh()}"
+													method="get">
+													<button class="btn btn-info" data-toggle="modal"
 														data-target="#myModal"
 														data-hidden-submit="hiddenSubmitdetail_${item.getFK_GiuongBenh()}">
 														<i class="glyphicon glyphicon-info-sign"></i>
@@ -401,15 +401,16 @@
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" role="dialog">
 		<div class="modal-dialog">
-
-			<!-- Modal content-->
+			<!-- Modal content -->
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Modal Header</h4>
+					<h4 class="modal-title">Chi tiết</h4>
 				</div>
 				<div class="modal-body">
 					<p>${GiuongBenhbyFK_GiuongBenh.getId()}</p>
+					<p>${tenphongkham.getTenPhongKham()}</p>
+					<p>${phongkham.getTenPhongKham()}</p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -465,6 +466,5 @@
 			});
 		});
 	</script>
-
 </body>
 </html>

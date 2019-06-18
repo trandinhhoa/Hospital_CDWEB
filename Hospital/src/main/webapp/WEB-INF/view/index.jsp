@@ -88,6 +88,14 @@
 <script
 	src="<c:url value="/resources/js/revolution-slider/js/jquery.themepunch.revolution.min.js"/>"></script>
 </head>
+<style>
+/* .lstTinTuc{
+min-height: 400px;
+} */
+.entry-content{ 
+min-height: 350px;
+}
+</style>
 <body
 	class="has-side-panel side-panel-right fullwidth-page side-push-panel p-sm-0 boxed-layout pt-40 pb-40"
 	data-bg-img="<c:url value="/resources/images/pattern/p8.png"/>">
@@ -1678,7 +1686,7 @@
 						<div class="row multi-row-clearfix">
 							<div class="blog-posts">
 							<c:forEach items="${listTinTuc}" var="v">
-								<div class="col-xs-12 col-sm-12 col-md-4" Style="min-height: 600px">
+								<div class="col-xs-12 col-sm-12 col-md-4 lstTinTuc">
 									<article class="post style1 clearfix maxwidth500">
 										<div class="col-md-12 p-0">
 											<div class="entry-header">

@@ -52,7 +52,7 @@ $(document).ready(
 				$('.centererSave').show();
 			})
 			$('.giuongbenh').on('click', function() {
-			
+
 				$('.chongiuongbenh').show();
 			})
 			$('.close').on('click', function() {
@@ -69,9 +69,8 @@ $(document).ready(
 				var item = $(this).val();
 				$('.hienthigiuongchon').val(item);
 				$('.anbtngiuongbenh').hide();
-				
+
 			});
-			
 
 			$(".btn-block").click(
 					function() {
@@ -163,7 +162,6 @@ $(document).ready(
 								tenphongkhamID : tenphongkhamID,
 							},
 							success : function(value1) {
-								console.log(value1);
 								var listGB = $('#listGB');
 								$('#listGB').html("");
 
