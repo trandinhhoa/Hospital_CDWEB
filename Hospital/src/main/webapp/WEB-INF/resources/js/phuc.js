@@ -42,7 +42,6 @@ $(document).ready(function () {
         	modal.find('#id').val(id);
         	modal.find('#tenkhoaphong').val(tenkhoaphong);
         	modal.find('#tieudekhoa').val(tieudekhoa);
-        	//modal.find('#ngaycapnhat').val(ngaycapnhat);
         	modal.find('#nguoichinhsua').val(nguoichinhsua);
         	
         	$('.centererUpdate').show();

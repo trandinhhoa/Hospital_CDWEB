@@ -64,8 +64,8 @@ public class HenLichKhamController {
 
 		henkhambenhService.addHenKhamBenh(khamBenh);
 
-		return "redirect:/";
 
+		return "redirect:/";
 	}
 
 	public String convertStringToDate(Date indate) {
