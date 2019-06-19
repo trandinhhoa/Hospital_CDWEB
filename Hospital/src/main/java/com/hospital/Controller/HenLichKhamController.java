@@ -64,7 +64,7 @@ public class HenLichKhamController {
 
 		henkhambenhService.addHenKhamBenh(khamBenh);
 
-		return "henlichkham";
+		return "redirect:henlichkham/";
 
 	}
 
