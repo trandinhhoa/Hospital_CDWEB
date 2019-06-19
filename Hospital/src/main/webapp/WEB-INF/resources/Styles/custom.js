@@ -11,7 +11,7 @@ $(document).ready(function() {
 			},
 			success : function(value) {
 				if (value == "false") { 
-					$("#ketqua").text("Login Fail !!!...");
+					$("#ketqua").text("Username or password not correct!!!...");
 				} else if(value == "true") {
 					duongDanHIenTai = window.location.href;
 					duongDan = duongDanHIenTai.replace("login/","");
