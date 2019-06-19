@@ -21,6 +21,7 @@ $(document).ready(function() {
 		})
 	});
 	
+	
 	$("#formRequired").validate({
         rules: {
         	hoVaTen: "required",
@@ -28,8 +29,15 @@ $(document).ready(function() {
                 required: true,
                 minlength: 2
             },
-			soDienThoaiDiDong : "required",
-			diaChiEmail : "required",
+			soDienThoaiDiDong :{
+				required: true,		
+				minlength: 10,
+				maxlength:10
+			},
+			diaChiEmail : {
+				required: true,
+				email: true
+			},
 			gioitinh : "required",
 			ngayHen : "required",
 			moTaTrieuChung : "required",
@@ -38,10 +46,17 @@ $(document).ready(function() {
         	hoVaTen: "Vui lòng nhập họ và tên",
         	diaChi: {
                 required: "Vui lòng nhập địa chỉ",
-                minlength: "Địa chỉ ngắn vậy, chém gió ah?"
+                minlength: "Địa chỉ không hợp lệ"
             },
-            soDienThoaiDiDong: "Vui lòng nhập số điện thoại",
-            diaChiEmail: "Vui lòng nhập địa chỉ email",
+            soDienThoaiDiDong:{
+            	required: "Vui lòng nhập số điện thoại",
+            	minlength: "Số điện thoại không đúng định dạng",
+            	maxlength:"Số điện thoại không đúng định dạng"
+            },
+            diaChiEmail:{
+            	required:"Vui lòng nhập địa chỉ email",
+            	email:"Email không đúng định dạng"
+            },
             gioitinh: "Vui lòng chọn giới tính",
             ngayHen: "Vui lòng chọn ngày",
             moTaTrieuChung: "Vui lòng mô tả triệu chứng",

@@ -408,14 +408,14 @@
 											<div class="form-group col-md-12">
 												<label for="form_choose_username">Telephone*</label> <input
 													id="form_choose_telephone" name="soDienThoaiDiDong"
-													class="form-control" type="text" required>
+													class="form-control" type="number" required>
 											</div>
 										</div>
 										<div class="row">
 											<div class="form-group col-md-12">
 												<label for="form_choose_username">Email Address*</label> <input
 													id="form_choose_email" name="diaChiEmail"
-													class="form-control" type="text" required>
+													class="form-control" type="email" required>
 											</div>
 										</div>
 

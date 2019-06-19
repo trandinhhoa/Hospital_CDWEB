@@ -49,6 +49,7 @@ public class APIController {
 		
 		return "" + b;
 	}
+	
 	@GetMapping("QuanLyDatLichKham")
 	@ResponseBody
 	public ResponseEntity<List<HenKhamBenh>> getListHenLichKham() {
@@ -83,4 +84,5 @@ public class APIController {
 		henKhamBenhService.update(id, henkhambenh);
 		return ResponseEntity.ok().body("ok");
 	}
+
 }
