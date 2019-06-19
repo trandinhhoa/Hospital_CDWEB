@@ -11,7 +11,7 @@ $(document).ready(function() {
 			},
 			success : function(value) {
 				if (value == "false") { 
-					$("#ketqua").text("Login Fail !!!...");
+					$("#ketqua").text("Tài khoản hoặc mật khẩu không đúng");
 				} else if(value == "true") {
 					duongDanHIenTai = window.location.href;
 					duongDan = duongDanHIenTai.replace("login/","");

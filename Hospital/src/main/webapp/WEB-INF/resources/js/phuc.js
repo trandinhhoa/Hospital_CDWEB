@@ -35,7 +35,6 @@ $(document).ready(function () {
         	var loaikhoaphong = currentRow.find('td:eq(2)').text();
         	var luotxem = currentRow.find('td:eq(3)').text();
         	var tieudekhoa = currentRow.find('td:eq(4)').text();
-        	//var ngaycapnhat = currentRow.find('td:eq(5)').text();
         	var nguoichinhsua = currentRow.find('td:eq(6)').text();
         	
         	var modal = $('.centererUpdate')
