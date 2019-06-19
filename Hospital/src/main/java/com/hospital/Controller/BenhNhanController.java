@@ -137,11 +137,18 @@ public class BenhNhanController {
 		benhnhanService.updateBenhNhan(benhnhan);
 		return "redirect:/QuanLyBenhNhan";
 	}
-	@PostMapping(value = "/detail/{FK_GiuongBenh}")
-	@Transactional
-	public String getDetailBN(@PathVariable int FK_GiuongBenh, ModelMap modelmap) {
-		GiuongBenh GiuongBenhbyFK_GiuongBenh = giuongbenhService.getGiuongBenh(FK_GiuongBenh);
-		modelmap.addAttribute("GiuongBenhbyFK_GiuongBenh", GiuongBenhbyFK_GiuongBenh);
-		return "redirect:/QuanLyBenhNhan";
-	}
+//	@GetMapping(value = "/detail")
+//	@Transactional
+//	public String detail(@RequestParam(value = "detailFK_GiuongBenh", required = false) String detailFK_GiuongBenh, ModelMap modelmap) {
+//		int id;
+//		id = Integer.parseInt(detailFK_GiuongBenh);
+//		GiuongBenh giuongbenh = giuongbenhService.getGiuongBenh(id);
+//		modelmap.addAttribute("GiuongBenhbyFK_GiuongBenh", giuongbenh);
+//		TenPhongKham tenphongkham = tenphongkhamService
+//				.getTenPhongKham(giuongbenh.getFK_TenPhongKham());
+//		modelmap.addAttribute("tenphongkham", tenphongkham);
+//		PhongKham phongkham = phongKhamService.getPhongKham(tenphongkham.getFK_PhongKham());
+//		modelmap.addAttribute("phongkham", phongkham);
+//		return "redirect:/QuanLyBenhNhan";
+//	}
 }

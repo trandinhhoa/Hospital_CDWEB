@@ -1,5 +1,5 @@
 $(document).ready(function () {
-        $('.btn-danger').click(function (e) {
+        $('.xoaGB').click(function (e) {
                             e.preventDefault();
                             var keyHIddenSubmit = $(this).data('hidden-submit');
 

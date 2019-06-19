@@ -44,6 +44,35 @@ $(document).ready(
 
 					})
 
+			$('#dataTables-example tbody').on('click', '.btn-info', function() {
+
+				var currentRow = $(this).closest('tr');
+
+				var FK_GiuongBenh = currentRow.find('td:eq(5)').text();
+
+				var modal = $('.detailBenhNhan')
+
+				modal.find('#detailFK_GiuongBenh').val(FK_GiuongBenh);
+
+				$('.detailBenhNhan').show();
+
+			})
+			$("#detailcapnhat").click(
+					function() {
+						var detailFK_GiuongBenh = $("#detailFK_GiuongBenh").val();
+						console.log(FK_GiuongBenh);
+						$.ajax({
+							url : "/Hospital/QuanLyBenhNhan/detail",
+							type : "GET",
+							data : {
+								detailFK_GiuongBenh : detailFK_GiuongBenh
+
+							},
+							success : function(value) {
+								console.log(value);
+							}
+						})
+					});
 			$('#closeUpdate').on('click', function() {
 				$('.centererUpdate').hide();
 			})
@@ -52,7 +81,7 @@ $(document).ready(
 				$('.centererSave').show();
 			})
 			$('.giuongbenh').on('click', function() {
-			
+
 				$('.chongiuongbenh').show();
 			})
 			$('.close').on('click', function() {
@@ -69,9 +98,8 @@ $(document).ready(
 				var item = $(this).val();
 				$('.hienthigiuongchon').val(item);
 				$('.anbtngiuongbenh').hide();
-				
+
 			});
-			
 
 			$(".btn-block").click(
 					function() {
@@ -163,7 +191,6 @@ $(document).ready(
 								tenphongkhamID : tenphongkhamID,
 							},
 							success : function(value1) {
-								console.log(value1);
 								var listGB = $('#listGB');
 								$('#listGB').html("");
 

@@ -54,6 +54,7 @@
 	color: dodgerblue;
 	background-color: white;
 	border-radius: 100px;
+	margin: 2px;
 }
 
 .centererSave {
@@ -62,6 +63,11 @@
 
 .error {
 	color: red;
+	margin-left: 10px;
+}
+
+.form-control {
+	margin: 5px;
 }
 </style>
 </head>
@@ -324,20 +330,16 @@
 										<th>Năm sinh</th>
 										<th>Giới tính</th>
 										<th>Quê quán</th>
-										<th>Số giường</th>
+										<th>ID giường bệnh</th>
 										<th></th>
 										<th></th>
-										<th></th>
+										<!-- <th></th> -->
 									</tr>
 								</thead>
 								<tbody>
-									<%
-										int count = 0;
-									%>
+
 									<c:forEach var="item" items="${listBenhNhan}">
-										<%
-											count++;
-										%>
+
 										<tr class="odd gradeX">
 											<td>${item.getId()}</td>
 											<td>${item.getHoVaTen()}</td>
@@ -368,19 +370,12 @@
 														style="display: none;">
 												</form>
 											</td>
-											<td title="Chi tiết">
-												<form
-													action="QuanLyBenhNhan/detail/${item.getFK_GiuongBenh()}"
-													method="post">
-													<button class="btn btn-primary" data-toggle="modal"
-														data-target="#myModal"
-														data-hidden-submit="hiddenSubmitdetail_${item.getFK_GiuongBenh()}">
-														<i class="glyphicon glyphicon-info-sign"></i>
-													</button>
-													<input id="hiddenSubmitdetail_${item.getFK_GiuongBenh()}"
-														type="submit" style="display: none;">
-												</form>
-											</td>
+											<!-- <td title="Chi tiết">
+												<button class="btn btn-info">
+													<i class="glyphicon glyphicon-info-sign"></i>
+												</button>
+
+											</td> -->
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -392,27 +387,19 @@
 			</div>
 		</div>
 	</div>
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" role="dialog">
-		<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Modal Header</h4>
-				</div>
-				<div class="modal-body">
-					<p>${GiuongBenhbyFK_GiuongBenh.getId()}</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-
-		</div>
+	<%-- <div class="detailBenhNhan hideform">
+		<form method="get" action="QuanLyBenhNhan/detail">
+			<input class="form-control" id="detailFK_GiuongBenh"
+				placeholder="Số giường" name="detailFK_GiuongBenh" />
+				<button type="submit"  id="detailcapnhat">Cập
+													nhật</button>
+		</form>
+	</div> --%>
+	<div class="contaier">
+		<p>${GiuongBenhbyFK_GiuongBenh.getSoGiuong()}</p>
+		<p>${tenphongkham.getTenPhongKham()}</p>
+		<p>${phongkham.getTenPhongKham()}</p>
 	</div>
-
 	<!-- Footer-->
 	<footer class="footer-distributed"
 		style="background-color: #3f51b5; text-align: center; font-size: 15px; height: 50px;">
@@ -459,6 +446,5 @@
 			});
 		});
 	</script>
-
 </body>
 </html>

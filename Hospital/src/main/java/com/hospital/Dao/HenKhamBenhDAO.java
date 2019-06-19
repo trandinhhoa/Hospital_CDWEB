@@ -84,5 +84,26 @@ public class HenKhamBenhDAO implements HenKhamBenhInterface{
 		long countHenKhamBenh = (Long)session.createQuery(sql).getSingleResult();
 		return countHenKhamBenh;
 	}
+	
+	@Transactional
+	public void delete(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		HenKhamBenh hkb = session.byId(HenKhamBenh.class).load(id);
+		session.delete(hkb);
+	}
+	@Transactional
+	public HenKhamBenh get(int id) {		
+		return sessionFactory.getCurrentSession().get(HenKhamBenh.class, id);
+	}
+	@Transactional
+	public void update(int id,HenKhamBenh hkb) {	
+		Session session = sessionFactory.getCurrentSession();
+		HenKhamBenh hkbenh = session.byId(HenKhamBenh.class).load(id);
+		hkbenh.setBacSi(hkb.getBacSi());
+		hkbenh.setDiaChiEmail(hkb.getDiaChiEmail());
+		hkbenh.setHoVaTen(hkb.getHoVaTen());
+		hkbenh.setSoDienThoaiDiDong(hkb.getSoDienThoaiDiDong());
+		session.flush();
+	}
 }
 

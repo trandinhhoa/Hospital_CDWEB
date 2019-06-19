@@ -41,4 +41,7 @@ public class KhoaPhongService implements KhoaPhongInterface{
 	public void editKhoaPhong(KhoaPhong item) {
 		 itemDAO.editKhoaPhong(item);
 	}
+	public void update(int id,KhoaPhong item) {
+		itemDAO.update(id, item);
+	}
 }
